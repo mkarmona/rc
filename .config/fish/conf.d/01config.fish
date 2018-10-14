@@ -4,6 +4,7 @@ set -xg SDKMAN_DIR "/home/mkarmona/.sdkman"
 
 # universal EDITOR var
 set -U EDITOR vim
+set -U PAGER less
 set -U SHELL /usr/bin/fish
 
 alias 7zaa="7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on"
