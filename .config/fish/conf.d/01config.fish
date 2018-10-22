@@ -12,6 +12,7 @@ alias open-targets="gcloud --project open-targets"
 alias open-targets-eu-dev="gcloud --project open-targets-eu-dev"
 alias open-targets-library="gcloud --project open-targets-library"
 alias open-targets-staging="gcloud --project open-targets-staging"
+# alias git-remove-untracked='git fetch --prune && git branch -r | awk "{print \$1}" | egrep -v -f /dev/fd/0 < (git branch -vv | grep origin) | awk "{print \$1}" | xargs git branch -d'
 
 set -l PYTHONFILE "$HOME/.pythonrc"
 if test -s $PYTHONFILE

@@ -1,4 +1,5 @@
 set -g fish_term24bit 1
+set -g fish_color_autosuggestion A67D00
 set -g theme_short_path yes
 
 # Change the prompt text
