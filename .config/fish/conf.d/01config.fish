@@ -26,3 +26,8 @@ mk_source_pathfile $JAVA_PATH $GCLOUD_SDK
 
 set -l TERRAFORM "/home/mkarmona/opt/terraform_0.11.7"
 set -xg PATH $PATH $TERRAFORM
+
+
+set -x PATH "/home/mkarmona/.pyenv/bin" $PATH
+status --is-interactive; and . (pyenv init -|psub)
+status --is-interactive; and . (pyenv virtualenv-init -|psub)
