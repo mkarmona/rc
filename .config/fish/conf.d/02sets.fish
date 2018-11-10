@@ -47,7 +47,7 @@ set -g SPACEFISH_HOST_SHOW false
 set -g SPACEFISH_USER_SHOW false
 set -g SPACEFISH_DIR_TRUNC 3
 set -g SPACEFISH_PROMPT_SEPARATE_LINE false
-set -g SPACEFISH_PROMPT_ADD_NEWLINE true
+set -g SPACEFISH_PROMPT_ADD_NEWLINE false
 set -g SPACEFISH_PYENV_SHOW false
 
 # fzf plugin key binding
