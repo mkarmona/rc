@@ -10,7 +10,7 @@ SET __fish_classic_git_prompt_initialized:\x1d
 SET __fish_init_2_39_8:\x1d
 SET __fish_init_2_3_0:\x1d
 SET chain_links:chain\x2elinks\x2eroot\x1echain\x2elinks\x2ejobs\x1echain\x2elinks\x2epwd\x1echain\x2elinks\x2evcs_branch\x1echain\x2elinks\x2evcs_dirty\x1echain\x2elinks\x2evcs_stashed
-SET fish_color_autosuggestion:A67D00
+SET fish_color_autosuggestion:d700d7
 SET fish_color_cancel:\x2dr
 SET fish_color_command:000000
 SET fish_color_comment:949494
