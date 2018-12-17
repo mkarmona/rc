@@ -55,6 +55,7 @@ Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-salve'
 Plug 'tpope/vim-dispatch'
 Plug 'hashivim/vim-terraform'
+Plug 'NLKNguyen/papercolor-theme'
 
 " Add plugins to &runtimepath
 call plug#end()
