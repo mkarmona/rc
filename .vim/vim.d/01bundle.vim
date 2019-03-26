@@ -57,6 +57,8 @@ Plug 'tpope/vim-salve'
 Plug 'tpope/vim-dispatch'
 Plug 'hashivim/vim-terraform'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'protesilaos/tempus-themes-vim'
+Plug 'reedes/vim-colors-pencil'
 
 " Add plugins to &runtimepath
 call plug#end()
