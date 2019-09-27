@@ -1,0 +1,10 @@
+add_newline = true
+
+[character]
+symbol = ">"
+
+[package]
+disabled = true
+
+[cmd_duration]
+min_time = 1
