@@ -1,10 +1,34 @@
 add_newline = true
+prompt_order = [
+    "username",
+    "hostname",
+    "directory",
+    "git_branch",
+    "git_state",
+    "git_status",
+    "env_var",
+    "cmd_duration",
+    "line_break",
+    "jobs",
+    "battery",
+    "time",
+    "character"
+]
 
 [character]
 symbol = ">"
+error_symbol = "!"
+use_symbol_for_status = true
+style_success = "bold blue"
+style_failure = "bold red"
 
 [package]
 disabled = true
 
 [cmd_duration]
 min_time = 1
+
+[[battery.display]]
+threshold = 25
+style = "bold red"
+
