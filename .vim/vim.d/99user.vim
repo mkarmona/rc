@@ -81,9 +81,9 @@ if has("gui_running")
     "colorscheme colorsbox-stnight
     "colorscheme colorsbox-faff
     "colorscheme colorsbox-material
-    colorscheme pencil
+    colorscheme PaperColor
 else
     set background=light
-    colorscheme pencil
+    colorscheme PaperColor
 endif
 
