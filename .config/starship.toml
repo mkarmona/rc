@@ -32,3 +32,6 @@ min_time = 1
 threshold = 25
 style = "bold red"
 
+[python]
+symbol = "👾 "
+pyenv_version_name = true
