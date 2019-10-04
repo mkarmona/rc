@@ -59,6 +59,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'protesilaos/tempus-themes-vim'
 Plug 'reedes/vim-colors-pencil'
+Plug 'https://gitlab.com/protesilaos/tempus-themes-vim.git'
 
 " Add plugins to &runtimepath
 call plug#end()
