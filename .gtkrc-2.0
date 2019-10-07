@@ -1,18 +1,10 @@
-# File created by KDE Gtk Config
-# Configs for GTK2 programs 
 
-include "/usr/share/themes/Breeze/gtk-2.0/gtkrc"
-style "user-font" 
-{
-	font_name="Inter UI Regular"
+###############################################
+# Created by cinnamon-settings - please do not edit or reformat.
+#
+style "cs-scrollbar-style" {
+GtkScrollbar::slider-width = 24
 }
-widget_class "*" style "user-font"
-gtk-font-name="Inter UI Regular 9"
-gtk-theme-name="Breeze"
-gtk-icon-theme-name="breeze"
-gtk-fallback-icon-theme="gnome"
-gtk-cursor-theme-name="Adwaita"
-gtk-toolbar-style=GTK_TOOLBAR_ICONS
-gtk-menu-images=1
-gtk-button-images=1
-gtk-primary-button-warps-slider=0
+
+class "GtkScrollbar" style "cs-scrollbar-style"
+###############################################
