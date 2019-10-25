@@ -32,6 +32,14 @@ min_time = 1
 threshold = 25
 style = "bold red"
 
+[[battery.display]]
+threshold = 50
+style = "bold yellow"
+
+[[battery.display]]
+threshold = 100
+style = "bold green"
+
 [python]
 symbol = "👾 "
 pyenv_version_name = true
