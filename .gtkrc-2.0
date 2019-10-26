@@ -3,7 +3,7 @@
 # Created by cinnamon-settings - please do not edit or reformat.
 #
 style "cs-scrollbar-style" {
-GtkScrollbar::slider-width = 24
+GtkScrollbar::slider-width = 18
 }
 
 class "GtkScrollbar" style "cs-scrollbar-style"
