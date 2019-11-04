@@ -79,4 +79,4 @@ inoremap <C-c><C-v> <Esc>:<C-u>vsplit<CR><C-u>
 :tnoremap <Esc> <C-\><C-n>
 
 set background=light
-colorscheme pencil
+colorscheme PaperColor

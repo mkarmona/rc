@@ -8,5 +8,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'klen/python-mode'
 Plug 'reedes/vim-colors-pencil'
+Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
