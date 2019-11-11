@@ -50,6 +50,7 @@ Plug 'romainl/flattened'
 Plug 'dracula/vim'
 Plug 'stephpy/vim-yaml'
 Plug 'dag/vim-fish'
+Plug 'arcticicestudio/nord-vim'
 
 let g:plug_url_format = 'git@github.com:%s.git'
 Plug 'tpope/vim-projectionist'
@@ -60,6 +61,7 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'protesilaos/tempus-themes-vim'
 Plug 'reedes/vim-colors-pencil'
 Plug 'https://gitlab.com/protesilaos/tempus-themes-vim.git'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Add plugins to &runtimepath
 call plug#end()
