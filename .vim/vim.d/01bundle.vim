@@ -58,10 +58,11 @@ Plug 'tpope/vim-salve'
 Plug 'tpope/vim-dispatch'
 Plug 'hashivim/vim-terraform'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'protesilaos/tempus-themes-vim'
 Plug 'reedes/vim-colors-pencil'
-Plug 'https://gitlab.com/protesilaos/tempus-themes-vim.git'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'kyoz/purify', { 'rtp': 'vim' }
+Plug 'joshdick/onedark.vim'
+Plug 'nanotech/jellybeans.vim'
 
 " Add plugins to &runtimepath
 call plug#end()

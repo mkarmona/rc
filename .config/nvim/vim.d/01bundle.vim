@@ -9,5 +9,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'klen/python-mode'
 Plug 'reedes/vim-colors-pencil'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'kyoz/purify', { 'rtp': 'vim' }
+Plug 'joshdick/onedark.vim'
+Plug 'nanotech/jellybeans.vim'
 
 call plug#end()

@@ -81,9 +81,9 @@ if has("gui_running")
     "colorscheme colorsbox-stnight
     "colorscheme colorsbox-faff
     "colorscheme colorsbox-material
-    colorscheme gruvbox
+    colorscheme jellybeans
 else
     set background=dark
-    colorscheme gruvbox
+    colorscheme jellybeans
 endif
 
