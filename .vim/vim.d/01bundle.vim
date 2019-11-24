@@ -63,6 +63,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'kyoz/purify', { 'rtp': 'vim' }
 Plug 'joshdick/onedark.vim'
 Plug 'nanotech/jellybeans.vim'
+Plug 'sickill/vim-monokai'
 
 " Add plugins to &runtimepath
 call plug#end()
