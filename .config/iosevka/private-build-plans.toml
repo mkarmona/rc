@@ -1,0 +1,11 @@
+[buildPlans.iosevka-mcb]
+family = "Iosevka MCB"
+design = ["ss08", "leading-1150", "powerline-scale-y-1150", "v-brace-curly"]
+
+[buildPlans.iosevka-term-mcb]
+family = "Iosevka Term MCB"
+design = ["term", "ss08", "leading-1150", "powerline-scale-y-1150", "v-brace-curly"]
+
+[buildPlans.iosevka-termlig-mcb]
+family = "Iosevka Termlig MCB"
+design = ["termlig", "ss08", "leading-1150", "powerline-scale-y-1150", "v-brace-curly"]
