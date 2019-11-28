@@ -1,5 +1,6 @@
 # loading path
-eval (~/bin/starship init fish)
+# eval (~/bin/starship init fish)
+~/bin/starship init fish | source
 set -xg PATH $PATH /sbin/ $HOME/bin/
 set -xg SDKMAN_DIR "/home/mkarmona/.sdkman"
 
