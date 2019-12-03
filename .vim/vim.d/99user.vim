@@ -77,13 +77,13 @@ noremap <C-c><C-v> :<C-u>vsplit<CR><C-u>
 inoremap <C-c><C-v> <Esc>:<C-u>vsplit<CR><C-u>
 
 if has("gui_running")
-    set background=dark
+    set background=light
+    colorscheme PaperColor
     "colorscheme colorsbox-stnight
     "colorscheme colorsbox-faff
     "colorscheme colorsbox-material
-    colorscheme gruvbox
 else
-    set background=dark
-    colorscheme gruvbox
+    set background=light
+    colorscheme PaperColor
 endif
 

@@ -24,5 +24,6 @@ Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-jedi'
 " Formater
 Plug 'Chiel92/vim-autoformat'
+Plug 'kassio/neoterm'
 
 call plug#end()
