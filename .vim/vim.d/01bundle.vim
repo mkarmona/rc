@@ -15,7 +15,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 
 Plug 'fatih/vim-go'
 Plug 'majutsushi/tagbar'
-Plug 'andviro/flake8-vim'
+" Plug 'andviro/flake8-vim'
 Plug 'justmao945/vim-clang'
 Plug 'rhysd/vim-clang-format'
 Plug 'davidhalter/jedi-vim'
