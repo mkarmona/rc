@@ -21,9 +21,22 @@ $XONSH_HISTORY_MATCH_ANYWHERE = True
 $XONSH_AUTOPAIR = True
 $COMPLETIONS_CONFIRM = True
 
+# configure gitstatus
+$XONSH_GITSTATUS_HASH="#"
+$XONSH_GITSTATUS_BRANCH="{PURPLE}"
+$XONSH_GITSTATUS_OPERATION="{CYAN}ƒ"
+$XONSH_GITSTATUS_STAGED="{BLUE}∆"
+$XONSH_GITSTATUS_CONFLICTS="{RED}≠"
+$XONSH_GITSTATUS_CHANGED="{YELLOW}±"
+$XONSH_GITSTATUS_UNTRACKED="{BLACK}…"
+$XONSH_GITSTATUS_STASHED="{CYAN}‗"
+$XONSH_GITSTATUS_CLEAN="{GREEN}ø"
+$XONSH_GITSTATUS_AHEAD="{CYAN}+"
+$XONSH_GITSTATUS_BEHIND="{CYAN}−"
+
 # load xontrib packages
 # autojump
 xontrib load apt_tabcomplete bashisms coreutils free_cwd fzf-widgets jedi histcpy distributed prompt_ret_code readable-traceback ssh_agent whole_word_jumping vox
 
-# $PROMPT = '{env_name}{branch_color}{curr_branch:{}}{NO_COLOR}{BOLD_BLUE}{ret_code_color}{ret_code}\n{BOLD_BLUE}{short_cwd}{NO_COLOR}{prompt_end}{NO_COLOR} '
-$PROMPT = '{PURPLE}{env_name: {} }{gitstatus:{} }{ret_code_color}{ret_code:{} }\n{BLUE}{short_cwd}{BOLD_BLACK}{prompt_end: {}}{NO_COLOR} '
+# $PROMPT = '{env_name:{} }{branch_color}{curr_branch:{}}{NO_COLOR}{BOLD_BLUE}{ret_code_color}{ret_code}\n{BOLD_BLUE}{short_cwd}{NO_COLOR}{prompt_end}{NO_COLOR} '
+$PROMPT = '{INTENSE_BLACK}{env_name:{} }{gitstatus:{} }{ret_code_color}{ret_code:{}}\n{BOLD_BLUE}{short_cwd}{BOLD_INTENSE_BLACK}{prompt_end: {}}{NO_COLOR} '
