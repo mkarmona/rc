@@ -15,7 +15,7 @@ $FOREIGN_ALIASES_SUPPRESS_SKIP_MESSAGE = True
 # some customization options, see https://xon.sh/envvars.html for details
 # $MULTILINE_PROMPT = '`·.,¸,.·*¯`·.,¸,.·*¯'
 $MULTILINE_PROMPT = '.'
-$XONSH_SHOW_TRACEBACK = True
+$XONSH_SHOW_TRACEBACK = False
 $XONSH_STORE_STDOUT = True
 $XONSH_HISTORY_MATCH_ANYWHERE = True
 $XONSH_AUTOPAIR = True
@@ -36,7 +36,23 @@ $XONSH_GITSTATUS_BEHIND="{CYAN}−"
 
 # load xontrib packages
 # autojump
-xontrib load apt_tabcomplete bashisms coreutils free_cwd fzf-widgets jedi histcpy distributed prompt_ret_code readable-traceback ssh_agent whole_word_jumping vox
+xontrib load apt_tabcomplete bashisms coreutils free_cwd fzf-widgets jedi histcpy readable-traceback ssh_agent whole_word_jumping vox
 
 # $PROMPT = '{env_name:{} }{branch_color}{curr_branch:{}}{NO_COLOR}{BOLD_BLUE}{ret_code_color}{ret_code}\n{BOLD_BLUE}{short_cwd}{NO_COLOR}{prompt_end}{NO_COLOR} '
-$PROMPT = '{INTENSE_BLACK}{env_name:{} }{gitstatus:{} }{ret_code_color}{ret_code:{}}\n{BOLD_BLUE}{short_cwd}{BOLD_INTENSE_BLACK}{prompt_end: {}}{NO_COLOR} '
+$PROMPT = "{INTENSE_BLACK}{env_name:{} }{gitstatus:{} }\n{BOLD_BLUE}{short_cwd}{BOLD_INTENSE_BLACK}{prompt_end: {}}{NO_COLOR} "
+
+# gcloud sdk
+
+source-bash "/home/mkarmona/opt/google-cloud-sdk/path.bash.inc"
+
+alias open-targets="gcloud --project open-targets"
+alias open-targets-genetics="gcloud --project open-targets-genetics"
+alias open-targets-platform="gcloud --project open-targets-platform"
+alias open-targets-eu-dev="gcloud --project open-targets-eu-dev"
+alias open-targets-library="gcloud --project open-targets-library"
+alias open-targets-staging="gcloud --project open-targets-staging"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+$SDKMAN_DIR="/home/mkarmona/.sdkman"
+# source-bash "$SDKMAN_DIR/bin/sdkman-init.sh"
+

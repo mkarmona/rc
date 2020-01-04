@@ -1,8 +1,10 @@
 "set guioptions=aegimrLt
 set guioptions=aegit "sin menus
-"set gfn="Input Mono Condensed 9.5"
-set gfn=Input\ Mono\ Narrow\ 9.5
+set gfn=Monospace\ 10.5
+" set gfn=Input\ Mono\ Narrow\ 10.5
+" set gfn=PragmataPro\ Mono\ 11
+"set gfn=DejaVuSansMono\ Nerd\ Font\ Mono\ 10
 set linespace=0
-set columns=95
+set columns=90
 set lines=30
 
