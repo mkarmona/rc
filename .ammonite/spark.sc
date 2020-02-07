@@ -1,6 +1,6 @@
 import $ivy.`org.apache.spark::spark-core:2.4.4`
 import $ivy.`org.apache.spark::spark-sql:2.4.4`
-import $ivy.`sh.almond::ammonite-spark:0.8.0`
+import $ivy.`sh.almond::ammonite-spark:0.9.0`
 
 import org.apache.spark.SparkConf
 import org.apache.spark.sql._
