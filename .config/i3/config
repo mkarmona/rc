@@ -2,11 +2,13 @@
 # https://i3wm.org/docs/userguide.html
 
 font pango:Output Sans Testing Bold 10
+# font pango:Input Mono Compressed Bold 10
 exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-xsettings
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i ~/.config/i3/background_lock.png
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i /home/mkarmona/.config/i3/background_lock.png
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift-gtk
 exec --no-startup-id pasystray
+exec --no-startup-id megasync
 exec --no-startup-id nitrogen --restore
 
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -46,13 +48,15 @@ bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 
 bindsym $modifier+e exec nemo ~/
 bindsym $modifier+Return exec i3-sensible-terminal
-bindsym $modifier+Shift+q exec i3lock -i ~/.config/i3/background_lock.png
+bindsym $modifier+Shift+l exec i3lock -i /home/mkarmona/.config/i3/background_lock.png
 
 bindsym $modifier+BackSpace kill
 bindsym $modifier+x kill
 
-bindsym $modifier+d exec dmenu_run
-bindsym $modifier+Shift+d exec --no-startup-id j4-dmenu-desktop
+# bindsym $modifier+Shift+d exec dmenu_run
+# bindsym $modifier+d exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i" --term="i3-sensible-terminal"
+
+bindsym $modifier+d exec --no-startup-id rofi -show combi
 
 # change focus
 bindsym $modifier+$left focus left
@@ -186,15 +190,15 @@ bindsym $modifier+r mode "resize"
 # finds out, if available)
 bar {
   colors {
-    background #000000
-    statusline #eeeeee
-    separator  #000000
+    background #282828
+    statusline #fbf1c7
+    separator  #282828
 
-    focused_workspace  #4C7899 #285577 #FFFFFF
-    active_workspace   #333333 #222222 #FFFFFF
-    inactive_workspace #333333 #222222 #888888
-    urgent_workspace   #2F343A #900000 #FFFFFF
-    binding_mode       #2F343A #900000 #FFFFFF
+    focused_workspace  #b16286 #b16286 #fbf1c7
+    active_workspace   #b16286 #b16286 #a89984
+    inactive_workspace #282828 #282828 #a89984
+    urgent_workspace   #2F343A #d65d0e #fbf1c7
+    binding_mode       #2F343A #cc241d #fbf1c7
   }
   # position top
   position bottom
@@ -202,7 +206,9 @@ bar {
   tray_padding 2
   i3bar_command /usr/bin/i3bar
   status_command i3status
-  font pango:Output Sans Testing medium 10
+  # font pango:Input Mono Compressed Bold 10
+  font pango:Output Sans Testing Bold 10
+  # font pango:Exo 2 Bold 10
   separator_symbol "|"
 }
 
@@ -218,10 +224,10 @@ bar {
 
 
 # class                 border  bground text    indicator child_border
-client.focused          #4C7899 #285577 #eeeeee #2E9EF4   #285577
-client.focused_inactive #333333 #5F676A #eeeeee #484E50   #5F676A
-client.unfocused        #333333 #222222 #888888 #292D2E   #222222
-client.urgent           #2F343A #900000 #eeeeee #900000   #900000
-client.placeholder      #000000 #0C0C0C #eeeeee #000000   #0C0C0C
+client.focused          #458588 #458588 #fbf1c7 #2E9EF4   #458588
+client.focused_inactive #333333 #5F676A #fbf1c7 #484E50   #5F676A
+client.unfocused        #282828 #282828 #a89984 #292D2E   #222222
+client.urgent           #2F343A #900000 #fbf1c7 #900000   #900000
+client.placeholder      #282828 #0C0C0C #fbf1c7 #282828   #0C0C0C
 
-client.background       #f0f0f0
+client.background       #282828
