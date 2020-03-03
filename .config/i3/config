@@ -4,7 +4,7 @@
 font pango:Output Sans Testing Bold 10
 # font pango:Input Mono Compressed Bold 10
 exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-xsettings
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i /home/mkarmona/.config/i3/background_lock.png
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -n -i "/home/mkarmona/.config/i3/background_lock.png"
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift-gtk
 exec --no-startup-id pasystray
@@ -40,10 +40,10 @@ set $modifier Mod4
 # use Mouse+$modifier to drag floating windows to their wanted position
 floating_modifier $modifier
 
-bindsym XF86MonBrightnessUp exec brightnessctl s +10%
-bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10%
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10%
+bindsym XF86MonBrightnessUp exec brightnessctl s +5%
+bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 
 bindsym $modifier+e exec nemo ~/
@@ -191,14 +191,14 @@ bindsym $modifier+r mode "resize"
 bar {
   colors {
     background #282828
-    statusline #fbf1c7
+    statusline #ebdbb2
     separator  #282828
-
-    focused_workspace  #b16286 #b16286 #fbf1c7
+#                       border background text
+    focused_workspace  #b16286 #b16286 #ebdbb2
     active_workspace   #b16286 #b16286 #a89984
     inactive_workspace #282828 #282828 #a89984
-    urgent_workspace   #2F343A #d65d0e #fbf1c7
-    binding_mode       #2F343A #cc241d #fbf1c7
+    urgent_workspace   #d65d0e #d65d0e #ebdbb2
+    binding_mode       #cc241d #cc241d #ebdbb2
   }
   # position top
   position bottom
@@ -213,21 +213,21 @@ bar {
 }
 
 # class                 border  backgr. text    indicator child_border
-# client.focused          #83a598 #83a598 #fbf1c7 #fbf1c7   #83a598
-# client.focused          #7c6f64 #7c6f64 #fbf1c7 #fbf1c7   #7c6f64
+# client.focused          #83a598 #83a598 #ebdbb2 #ebdbb2   #83a598
+# client.focused          #7c6f64 #7c6f64 #ebdbb2 #ebdbb2   #7c6f64
 # client.focused_inactive #665c54 #665c54 #ebdbb2 #ebdbb2   #665c54
 # client.unfocused        #504945 #504945 #d5c4a1 #d5c4a1   #504945
 # client.urgent           #2f343a #900000 #ffffff #900000   #900000
-# client.placeholder      #282828 #282828 #fbf1c7 #282828   #282828
+# client.placeholder      #282828 #282828 #ebdbb2 #282828   #282828
 # 
 # client.background       #282828
 
 
 # class                 border  bground text    indicator child_border
-client.focused          #458588 #458588 #fbf1c7 #2E9EF4   #458588
-client.focused_inactive #333333 #5F676A #fbf1c7 #484E50   #5F676A
+client.focused          #458588 #458588 #ebdbb2 #2E9EF4   #458588
+client.focused_inactive #333333 #5F676A #ebdbb2 #484E50   #5F676A
 client.unfocused        #282828 #282828 #a89984 #292D2E   #222222
-client.urgent           #2F343A #900000 #fbf1c7 #900000   #900000
-client.placeholder      #282828 #0C0C0C #fbf1c7 #282828   #0C0C0C
+client.urgent           #2F343A #900000 #ebdbb2 #900000   #900000
+client.placeholder      #282828 #0C0C0C #ebdbb2 #282828   #0C0C0C
 
 client.background       #282828
