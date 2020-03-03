@@ -4,7 +4,7 @@
 # Sreen brightness controls
 font pango:Output Sans Testing Bold 10
 exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-xsettings
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i ~/.config/i3/background_lock.png
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift-gtk
 exec --no-startup-id pasystray
@@ -31,7 +31,7 @@ bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 
 bindsym $modifier+e exec nemo ~/
 bindsym $modifier+Return exec i3-sensible-terminal
-bindsym $modifier+Shift+q exec i3lock -c 282828
+bindsym $modifier+Shift+q exec i3lock -i ~/.config/i3/background_lock.png
 
 bindsym $modifier+BackSpace kill
 bindsym $modifier+x kill
