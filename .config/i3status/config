@@ -25,13 +25,13 @@ order += "memory"
 order += "tztime local"
 
 wireless _first_ {
-        format_up = "W: (%quality at %essid) %ip"
-        format_down = "W: down"
+        format_up = "WLAN %quality at %essid"
+        format_down = "WLAN down"
 }
 
 ethernet _first_ {
-        format_up = "E: %ip (%speed)"
-        format_down = "E: down"
+        format_up = "ETH %speed"
+        format_down = "ETH down"
 }
 
 battery all {
@@ -49,7 +49,7 @@ load {
 memory {
         format = "%used | %available"
         threshold_degraded = "1G"
-        format_degraded = "MEMORY < %available"
+        format_degraded = "MEM < %available"
 }
 
 tztime local {

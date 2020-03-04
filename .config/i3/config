@@ -9,6 +9,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id redshift-gtk
 exec --no-startup-id pasystray
 exec --no-startup-id megasync
+exec --no-startup-id diodon
 exec --no-startup-id nitrogen --restore
 
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -200,8 +201,8 @@ bar {
     urgent_workspace   #d65d0e #d65d0e #ebdbb2
     binding_mode       #cc241d #cc241d #ebdbb2
   }
-  # position top
-  position bottom
+  position top
+  # position bottom
   #try padding by default 2
   tray_padding 2
   i3bar_command /usr/bin/i3bar
@@ -211,23 +212,12 @@ bar {
   # font pango:Exo 2 Bold 10
   separator_symbol "|"
 }
-
-# class                 border  backgr. text    indicator child_border
-# client.focused          #83a598 #83a598 #ebdbb2 #ebdbb2   #83a598
-# client.focused          #7c6f64 #7c6f64 #ebdbb2 #ebdbb2   #7c6f64
-# client.focused_inactive #665c54 #665c54 #ebdbb2 #ebdbb2   #665c54
-# client.unfocused        #504945 #504945 #d5c4a1 #d5c4a1   #504945
-# client.urgent           #2f343a #900000 #ffffff #900000   #900000
-# client.placeholder      #282828 #282828 #ebdbb2 #282828   #282828
-# 
-# client.background       #282828
-
-
+#
 # class                 border  bground text    indicator child_border
-client.focused          #458588 #458588 #ebdbb2 #2E9EF4   #458588
-client.focused_inactive #333333 #5F676A #ebdbb2 #484E50   #5F676A
-client.unfocused        #282828 #282828 #a89984 #292D2E   #222222
-client.urgent           #2F343A #900000 #ebdbb2 #900000   #900000
+client.focused          #458588 #458588 #ebdbb2 #ebdbb2   #458588
+client.focused_inactive #076678 #076678 #ebdbb2 #484E50   #076678
+client.unfocused        #282828 #282828 #a89984 #a89984   #282828
+client.urgent           #cc241d #cc241d #ebdbb2 #cc241d   #cc241d
 client.placeholder      #282828 #0C0C0C #ebdbb2 #282828   #0C0C0C
 
 client.background       #282828
