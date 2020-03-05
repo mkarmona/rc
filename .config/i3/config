@@ -189,17 +189,30 @@ bindsym $modifier+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+
+set $bg_black "#282828"
+set $bg_gray "#928374"
+set $fg_black "#282828"
+set $fg_white "#fbf1c7"
+set $fg_white_dark "#ebdbb2"
+set $bg_purple_dark "#8f3f71"
+set $bg_purple "#b16286"
+set $bg_red_dark "#9d0006"
+set $bg_green "#98971a"
+set $bg_green_dark "#79740e"
+set $bg_blue "#458588"
+set $bg_blue_dark "#076678"
 bar {
   colors {
-    background #282828
-    statusline #ebdbb2
-    separator  #282828
+    background $bg_black
+    statusline $fg_white_dark
+    separator  $bg_gray
 #                       border background text
-    focused_workspace  #b16286 #b16286 #ebdbb2
-    active_workspace   #b16286 #b16286 #a89984
-    inactive_workspace #282828 #282828 #a89984
-    urgent_workspace   #d65d0e #d65d0e #ebdbb2
-    binding_mode       #cc241d #cc241d #ebdbb2
+    focused_workspace  $bg_purple $bg_purple $fg_white
+    active_workspace   $bg_purple_dark $bg_purple_dark $fg_white_dark
+    inactive_workspace $bg_gray $bg_gray $fg_black
+    urgent_workspace   $bg_red_dark $bg_red_dark $fg_white_dark
+    binding_mode       $bg_green_dark $bg_gree_dark $fg_white_dark
   }
   position top
   # position bottom
@@ -214,9 +227,9 @@ bar {
 }
 #
 # class                 border  bground text    indicator child_border
-client.focused          #458588 #458588 #ebdbb2 #ebdbb2   #458588
-client.focused_inactive #076678 #076678 #ebdbb2 #484E50   #076678
-client.unfocused        #282828 #282828 #a89984 #a89984   #282828
+client.focused          $bg_blue $bg_blue $fg_white $bg_blue $bg_blue
+client.focused_inactive $bg_blue_dark $bg_blue_dark $fg_white_dark $bg_blue_dark $bg_blue_dark
+client.unfocused        $bg_black $bg_black $fg_white_dark $bg_black   $bg_black
 client.urgent           #cc241d #cc241d #ebdbb2 #cc241d   #cc241d
 client.placeholder      #282828 #0C0C0C #ebdbb2 #282828   #0C0C0C
 
