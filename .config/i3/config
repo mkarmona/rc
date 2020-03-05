@@ -230,7 +230,7 @@ bar {
 client.focused          $bg_blue $bg_blue $fg_white $bg_blue $bg_blue
 client.focused_inactive $bg_blue_dark $bg_blue_dark $fg_white_dark $bg_blue_dark $bg_blue_dark
 client.unfocused        $bg_black $bg_black $fg_white_dark $bg_black   $bg_black
-client.urgent           #cc241d #cc241d #ebdbb2 #cc241d   #cc241d
-client.placeholder      #282828 #0C0C0C #ebdbb2 #282828   #0C0C0C
+client.urgent           $bg_red_dark $bg_red_dard $fg_white_dark $bg_red_dark $bg_red_dark
+client.placeholder      $bg_black #0C0C0C $fg_white_dark $bg_black   #0C0C0C
 
-client.background       #282828
+client.background       $bg_black
