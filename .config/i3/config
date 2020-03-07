@@ -200,7 +200,8 @@ set $bg_black "#282828"
 set $bg_gray "#928374"
 set $fg_black "#282828"
 set $fg_white "#fbf1c7"
-set $fg_white_dark "#ebdbb2"
+# set $fg_white_dark "#ebdbb2"
+set $fg_white_dark "#bdae93"
 set $bg_purple_dark "#8f3f71"
 set $bg_purple "#b16286"
 set $bg_red_dark "#9d0006"
@@ -210,22 +211,27 @@ set $bg_blue "#458588"
 set $bg_blue_dark "#076678"
 bar {
   colors {
+    # background $bg_black
+    # statusline $fg_white_dark
+    # separator  $bg_gray
+
     background $bg_black
     statusline $fg_white_dark
-    separator  $bg_gray
+    separator  $bg_black
 #                       border background text
     focused_workspace  $bg_purple $bg_purple $fg_white
     active_workspace   $bg_purple_dark $bg_purple_dark $fg_white_dark
     inactive_workspace $bg_gray $bg_gray $fg_black
     urgent_workspace   $bg_red_dark $bg_red_dark $fg_white_dark
-    binding_mode       $bg_green_dark $bg_gree_dark $fg_white_dark
+    binding_mode       $bg_green_dark $bg_green_dark $fg_white_dark
   }
   position top
   # position bottom
   #try padding by default 2
   tray_padding 2
   i3bar_command /usr/bin/i3bar
-  status_command i3status
+  # status_command i3status
+  status_command i3blocks
   # font pango:Input Mono Compressed Bold 10
   font pango:Output Sans Testing Bold 10
   # font pango:Exo 2 Bold 10
@@ -236,7 +242,7 @@ bar {
 client.focused          $bg_blue $bg_blue $fg_white $bg_blue $bg_blue
 client.focused_inactive $bg_blue_dark $bg_blue_dark $fg_white_dark $bg_blue_dark $bg_blue_dark
 client.unfocused        $bg_black $bg_black $fg_white_dark $bg_black   $bg_black
-client.urgent           $bg_red_dark $bg_red_dard $fg_white_dark $bg_red_dark $bg_red_dark
+client.urgent           $bg_red_dark $bg_red_dark $fg_white_dark $bg_red_dark $bg_red_dark
 client.placeholder      $bg_black #0C0C0C $fg_white_dark $bg_black   #0C0C0C
 
 client.background       $bg_black
