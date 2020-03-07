@@ -22,15 +22,18 @@ set $left j
 set $right semicolon
 
 default_border normal
-default_border normal 4
+default_border normal 5
 default_floating_border normal
-default_floating_border normal 4
+default_floating_border normal 5
 
 # hide_edge_borders none|vertical|horizontal|both|smart
 hide_edge_borders smart
-focus_follows_mouse no
+focus_follows_mouse yes
 popup_during_fullscreen smart
 show_marks yes
+
+for_window [class=".*"] title_format "[%class] %title"
+
 
 # To get a config file with the same key positions, but for your current
 # layout, use the i3-config-wizard
