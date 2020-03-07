@@ -56,6 +56,8 @@ bindsym $modifier+Shift+l exec i3lock -i /home/mkarmona/.config/i3/background_lo
 
 bindsym $modifier+BackSpace kill
 bindsym $modifier+x kill
+bindsym $modifier+XF86Explorer exec gksudo -g -m "Hibernate?" systemctl hibernate
+
 
 # bindsym $modifier+Shift+d exec dmenu_run
 # bindsym $modifier+d exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i" --term="i3-sensible-terminal"
