@@ -17,19 +17,13 @@ general {
   color_bad = "#fb4934"
 }
 
-# order += "ipv6"
 order = "battery_level"
 order += "sysdata"
 order += "tztime local"
 
 battery_level {
-    format = "\?color=percent {icon} {percent}%"
+    format = "\?color=icon {ascii_bar}"
     color_charging = "cold"
-    color_bad = "bad"
-    color_charging = "cold"
-    color_degraded = "degraded"
-    color_good = "good"
-
 }
 
 sysdata {
