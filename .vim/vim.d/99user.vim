@@ -78,6 +78,7 @@ inoremap <C-c><C-v> <Esc>:<C-u>vsplit<CR><C-u>
 
 if has("gui_running")
     set background=light
+    " colorscheme PaperColor
     colorscheme PaperColor
     "colorscheme colorsbox-stnight
     "colorscheme colorsbox-faff

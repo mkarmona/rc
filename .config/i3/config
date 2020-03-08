@@ -231,7 +231,7 @@ bar {
   tray_padding 2
   i3bar_command /usr/bin/i3bar
   # status_command i3status
-  status_command i3blocks
+  status_command py3status
   # font pango:Input Mono Compressed Bold 10
   font pango:Output Sans Testing Bold 10
   # font pango:Exo 2 Bold 10

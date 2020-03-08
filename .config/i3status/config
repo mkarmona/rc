@@ -10,46 +10,35 @@ general {
   interval = 5
   output_format = "i3bar"
   colors = true
+  color_cold = "#83a598"
   color_good = "#b8bb26"
   color_degraded = "#fabd2f"
+  color_notgood = "#fe8019"
   color_bad = "#fb4934"
 }
 
 # order += "ipv6"
-order += "wireless _first_"
-order += "ethernet _first_"
-order += "battery all"
-# order += "disk /"
-order += "load"
-order += "memory"
+order = "battery_level"
+order += "sysdata"
 order += "tztime local"
 
-wireless _first_ {
-        format_up = "WLAN %quality at %essid"
-        format_down = "WLAN down"
+battery_level {
+    format = "\?color=percent {icon} {percent}%"
+    color_charging = "cold"
+    color_bad = "bad"
+    color_charging = "cold"
+    color_degraded = "degraded"
+    color_good = "good"
+
 }
 
-ethernet _first_ {
-        format_up = "ETH %speed"
-        format_down = "ETH down"
-}
-
-battery all {
-        format = "%status %percentage" # %remaining"
-}
-
-disk "/" {
-        format = "%avail"
-}
-
-load {
-        format = "%1min"
-}
-
-memory {
-        format = "%used/%available"
-        threshold_degraded = "1G"
-        format_degraded = "MEM < %available"
+sysdata {
+    format = "\?color=load1 {load1} \?color=mem_used_percent {mem_used}{mem_used_unit}"
+    thresholds = [
+            (0, 'cold'),
+            (20, 'good'), (40, 'degraded'),
+            (60, 'notgood'), (80, 'bad')
+    ]
 }
 
 tztime local {
