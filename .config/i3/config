@@ -1,8 +1,8 @@
 # DOCUMENTATION FOR i3
 # https://i3wm.org/docs/userguide.html
 
-font pango:Output Sans Testing Bold 10
-# font pango:Input Mono Compressed Bold 10
+# font pango:Input Mono Compressed Medium 10.5
+font pango:Output Sans Testing Medium 10
 exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-xsettings
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -n -i "/home/mkarmona/.config/i3/background_lock.png"
 exec --no-startup-id nm-applet
@@ -217,7 +217,8 @@ bar {
 
     background $bg_black
     statusline $fg_white_dark
-    separator  $bg_black
+    #separator  $bg_black
+    separator  $bg_gray
 #                       border background text
     focused_workspace  $bg_purple $bg_purple $fg_white
     active_workspace   $bg_purple_dark $bg_purple_dark $fg_white_dark
@@ -231,11 +232,12 @@ bar {
   tray_padding 2
   i3bar_command /usr/bin/i3bar
   # status_command i3status
-  status_command py3status
+  status_command /home/mkarmona/opt/i3status-rust/target/release/i3status-rs /home/mkarmona/.config/i3status/config.toml
   # font pango:Input Mono Compressed Bold 10
-  font pango:Output Sans Testing Bold 10
+  font pango:Output Sans Testing Medium 10
+  #font pango:Input Mono Compressed Medium 10.5
   # font pango:Exo 2 Bold 10
-  separator_symbol "|"
+  # separator_symbol "|"
 }
 #
 # class                 border  bground text    indicator child_border

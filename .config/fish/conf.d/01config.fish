@@ -1,8 +1,6 @@
 # loading path
 # eval (~/bin/starship init fish)
 /usr/local/bin/starship init fish | source
-set -xg PATH $PATH /sbin/ $HOME/bin/ /usr/sbin/ /usr/local/sbin/ /home/mkarmona/.local/bin/
-set -xg SDKMAN_DIR "/home/mkarmona/.sdkman"
 
 # universal EDITOR var
 set -U EDITOR vim

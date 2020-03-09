@@ -15,6 +15,7 @@ general {
   color_degraded = "#fabd2f"
   color_notgood = "#fe8019"
   color_bad = "#fb4934"
+  color_charging = "cold"
 }
 
 order = "battery_level"
@@ -22,17 +23,16 @@ order += "sysdata"
 order += "tztime local"
 
 battery_level {
-    format = "\?color=icon {ascii_bar}"
-    color_charging = "cold"
+    format = "\?color=ascii_bar {ascii_bar}{percent}%"
 }
 
 sysdata {
-    format = "\?color=load1 {load1} \?color=mem_used_percent {mem_used}{mem_used_unit}"
-    thresholds = [
+    format = "{cpu_used_percent} {load1} {mem_used}/{mem_total}{mem_used_unit}"
+    thresholds =  [
             (0, 'cold'),
             (20, 'good'), (40, 'degraded'),
             (60, 'notgood'), (80, 'bad')
-    ]
+        ]
 }
 
 tztime local {
