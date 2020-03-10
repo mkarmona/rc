@@ -1,0 +1,68 @@
+[icons]
+[icons.overrides]
+name = "none"
+bat = " | | "
+bat_full = " |X| "
+bat_charging = " |^| "
+bat_discharging = " |v| "
+
+[theme]
+name = "gruvbox-dark"
+[theme.overrides]
+idle_bg = "#504945"
+idle_fg = "#bdae93"
+info_bg = "#504945"
+info_fg = "#ebdbb2"
+good_bg = "#504945"
+# good_fg
+warning_bg = "#504945"
+# warning_fg
+# critical_bg
+# critical_fg
+# separator
+separator_bg = "#504945"
+# separator_fg
+# alternating_tint_bg
+# alternating_tint_fg
+
+[[block]]
+block = "battery"
+interval = 10
+format = "{percentage}%"
+
+# [[block]]
+# block = "disk_space"
+# path = "/"
+# alias = "/"
+# info_type = "available"
+# unit = "GB"
+# interval = 20
+# warning = 20.0
+# alert = 10.0
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{Mup}%"
+# format_swap = "{SUp}%"
+
+# [[block]]
+# block = "cpu"
+# interval = 1
+
+[[block]]
+block = "load"
+interval = 1
+format = "{1m}"
+
+# [[block]]
+# block = "sound"
+
+[[block]]
+block = "backlight"
+device = "intel_backlight"
+
+[[block]]
+block = "time"
+interval = 60
+format = "%a %d/%m %R"
