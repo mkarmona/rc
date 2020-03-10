@@ -14,11 +14,11 @@ idle_fg = "#bdae93"
 info_bg = "#504945"
 info_fg = "#ebdbb2"
 good_bg = "#504945"
-# good_fg
+good_fg = "#98971a"
 warning_bg = "#504945"
-# warning_fg
-# critical_bg
-# critical_fg
+warning_fg = "#fabd2f" 
+critical_bg = "#504945"
+critical_fg = "#fb4934"
 # separator
 separator_bg = "#504945"
 # separator_fg
