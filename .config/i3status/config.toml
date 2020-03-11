@@ -1,14 +1,14 @@
 [icons]
+name = "awesome"
 [icons.overrides]
-name = "none"
-bat = " | | "
-bat_full = " |X| "
-bat_charging = " |^| "
-bat_discharging = " |v| "
-volume_full = " O "
-volume_half = " o "
-volume_empty = " _ "
-volume_muted = "*"
+# bat = " | | "
+# bat_full = " |X| "
+# bat_charging = " |^| "
+# bat_discharging = " |v| "
+# volume_full = " O "
+# volume_half = " o "
+# volume_empty = " _ "
+# volume_muted = "*"
 
 [theme]
 name = "gruvbox-dark"
@@ -39,7 +39,7 @@ show_volume_when_muted = true
 [[block]]
 block = "battery"
 interval = 10
-format = "{percentage}%"
+# format = "{percentage}%"
 
 # [[block]]
 # block = "disk_space"

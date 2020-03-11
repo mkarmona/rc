@@ -210,6 +210,7 @@ set $bg_green_dark "#79740e"
 set $bg_blue "#458588"
 set $bg_blue_dark "#076678"
 bar {
+  font pango:Output Sans Testing, FontAwesome Medium 10
   colors {
     # background $bg_black
     # statusline $fg_white_dark
@@ -234,7 +235,6 @@ bar {
   # status_command i3status
   status_command /home/mkarmona/opt/i3status-rust/target/release/i3status-rs /home/mkarmona/.config/i3status/config.toml
   # font pango:Input Mono Compressed Bold 10
-  font pango:Output Sans Testing Medium 10
   #font pango:Input Mono Compressed Medium 10.5
   # font pango:Exo 2 Bold 10
   # separator_symbol "|"
