@@ -5,6 +5,10 @@ bat = " | | "
 bat_full = " |X| "
 bat_charging = " |^| "
 bat_discharging = " |v| "
+volume_full = " O "
+volume_half = " o "
+volume_empty = " _ "
+volume_muted = "*"
 
 [theme]
 name = "gruvbox-dark"
@@ -26,6 +30,13 @@ separator_bg = "#504945"
 # alternating_tint_fg
 
 [[block]]
+block = "sound"
+step_width = 5
+driver = "pulseaudio"
+show_volume_when_muted = true
+# name = "pulseaudio"
+
+[[block]]
 block = "battery"
 interval = 10
 format = "{percentage}%"
@@ -43,7 +54,7 @@ format = "{percentage}%"
 [[block]]
 block = "memory"
 display_type = "memory"
-format_mem = "{Mup}%"
+format_mem = "MEM {Mup}%"
 # format_swap = "{SUp}%"
 
 # [[block]]
@@ -53,7 +64,7 @@ format_mem = "{Mup}%"
 [[block]]
 block = "load"
 interval = 1
-format = "{1m}"
+format = "LOAD {1m}"
 
 # [[block]]
 # block = "sound"
