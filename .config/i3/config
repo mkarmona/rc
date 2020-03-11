@@ -198,6 +198,7 @@ bindsym $modifier+r mode "resize"
 
 set $bg_black "#282828"
 set $bg_gray "#928374"
+set $bg_gray_dark "#504945"
 set $fg_black "#282828"
 set $fg_white "#fbf1c7"
 # set $fg_white_dark "#ebdbb2"
@@ -211,12 +212,14 @@ set $bg_blue "#458588"
 set $bg_blue_dark "#076678"
 bar {
   font pango:Output Sans Testing, FontAwesome Bold 10
+  tray_output primary
+  tray_padding 2
   colors {
     # background $bg_black
     # statusline $fg_white_dark
     # separator  $bg_gray
 
-    background $bg_black
+    background $bg_gray_dark
     statusline $fg_white_dark
     #separator  $bg_black
     separator  $bg_gray
