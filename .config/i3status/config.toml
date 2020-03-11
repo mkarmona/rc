@@ -54,7 +54,7 @@ interval = 10
 [[block]]
 block = "memory"
 display_type = "memory"
-format_mem = "MEM {Mup}%"
+format_mem = "{Mup}%"
 # format_swap = "{SUp}%"
 
 # [[block]]
@@ -64,7 +64,7 @@ format_mem = "MEM {Mup}%"
 [[block]]
 block = "load"
 interval = 1
-format = "LOAD {1m}"
+format = "{1m}"
 
 # [[block]]
 # block = "sound"

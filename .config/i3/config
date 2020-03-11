@@ -2,7 +2,7 @@
 # https://i3wm.org/docs/userguide.html
 
 # font pango:Input Mono Compressed Medium 10.5
-font pango:Output Sans Testing Medium 10
+font pango:Output Sans Testing Bold 10
 exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-xsettings
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -n -i "/home/mkarmona/.config/i3/background_lock.png"
 exec --no-startup-id nm-applet
@@ -210,7 +210,7 @@ set $bg_green_dark "#79740e"
 set $bg_blue "#458588"
 set $bg_blue_dark "#076678"
 bar {
-  font pango:Output Sans Testing, FontAwesome Medium 10
+  font pango:Output Sans Testing, FontAwesome Bold 10
   colors {
     # background $bg_black
     # statusline $fg_white_dark
