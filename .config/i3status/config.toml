@@ -39,6 +39,7 @@ show_volume_when_muted = true
 [[block]]
 block = "battery"
 interval = 10
+driver = "upower" # "sysfs"
 format = "{percentage}%"
 
 # [[block]]
