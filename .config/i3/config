@@ -4,6 +4,7 @@
 # font pango:Input Mono Compressed Medium 10.5
 font pango:Output Sans Testing Bold 10
 exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-xsettings
+exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-power
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -n -i "/home/mkarmona/.config/i3/background_lock.png"
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift-gtk
@@ -47,10 +48,13 @@ bindsym XF86MonBrightnessUp exec brightnessctl -s s +5%
 bindsym XF86MonBrightnessDown exec brightnessctl -s s 5%-
 bindsym XF86Tools exec brightnessctl s 0
 bindsym $modifier+XF86Tools exec brightnessctl -r
+bindsym $modifier+Print exec gnome-screenshot -i
+bindsym $modifier+XF86LaunchA exec gksudo -g -m "Suspend?" systemctl suspend
 
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume "@DEFAULT_SINK@" -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume "@DEFAULT_SINK" +5%
+bindsym XF86AudioMute exec pactl set-sink-mute "@DEFAULT_SINK@" toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute "@DEFAULT_SOURCE@" toggle
 
 bindsym $modifier+e exec nemo ~/
 bindsym $modifier+Return exec i3-sensible-terminal

@@ -76,4 +76,4 @@ device = "intel_backlight"
 [[block]]
 block = "time"
 interval = 60
-format = "%a %d/%m %R"
+format = "%d/%m %R"
