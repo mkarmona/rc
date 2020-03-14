@@ -1,16 +1,8 @@
 [icons]
 name = "awesome"
-[icons.overrides]
-# bat = " | | "
-# bat_full = " |X| "
-# bat_charging = " |^| "
-# bat_discharging = " |v| "
-# volume_full = " O "
-# volume_half = " o "
-# volume_empty = " _ "
-# volume_muted = "*"
 
 [theme]
+# name = "gruvbox-dark"
 name = "gruvbox-dark"
 [theme.overrides]
 idle_bg = "#504945"

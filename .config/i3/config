@@ -209,13 +209,17 @@ set $fg_white "#fbf1c7"
 set $fg_white_dark "#bdae93"
 set $bg_purple_dark "#8f3f71"
 set $bg_purple "#b16286"
+set $fg_purple "#d3869b"
 set $bg_red_dark "#9d0006"
+set $fg_red "#fb4934"
+set $fg_green "#b8bb26"
 set $bg_green "#98971a"
 set $bg_green_dark "#79740e"
 set $bg_blue "#458588"
 set $bg_blue_dark "#076678"
+set $fg_yellow "#fabd2f"
 bar {
-  font pango:Output Sans Testing, FontAwesome Bold 10
+  font pango:Output Sans Testing, FontAwesome Bold 11
   tray_output primary
   tray_padding 2
   colors {
@@ -228,11 +232,11 @@ bar {
     #separator  $bg_black
     separator  $bg_gray
 #                       border background text
-    focused_workspace  $bg_purple $bg_purple $fg_white
-    active_workspace   $bg_purple_dark $bg_purple_dark $fg_white_dark
-    inactive_workspace $bg_gray $bg_gray $fg_black
-    urgent_workspace   $bg_red_dark $bg_red_dark $fg_white_dark
-    binding_mode       $bg_green_dark $bg_green_dark $fg_white_dark
+    focused_workspace  $bg_gray_dark $bg_gray_dark $fg_yellow
+    active_workspace   $bg_gray_dark $bg_gray_dark $fg_white
+    inactive_workspace $bg_gray_dark $bg_gray_dark $fg_white_dark
+    urgent_workspace   $bg_gray_dark $bg_gray_dark $fg_red
+    binding_mode       $bg_gray_dark $bg_gray_dark $fg_green
   }
   position top
   # position bottom
