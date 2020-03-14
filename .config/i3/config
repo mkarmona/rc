@@ -219,7 +219,7 @@ set $bg_blue "#458588"
 set $bg_blue_dark "#076678"
 set $fg_yellow "#fabd2f"
 bar {
-  font pango:Output Sans Testing, FontAwesome Bold 11
+  font pango:Output Sans Testing, FontAwesome Bold 10
   tray_output primary
   tray_padding 2
   colors {
