@@ -29,7 +29,7 @@ set -l TERRAFORM "/home/mkarmona/opt/terraform_0.11.7"
 set -xg PATH $PATH $TERRAFORM
 
 #set -xg LS_COLORS "ex=00:su=00:sg=00:ca=00:"
-# eval (dircolors /home/mkarmona/src/github/gnome-terminal-colors-dracula | head -n 1 | sed 's/^LS_COLORS=/set -x LS_COLORS /;s/;$//')
+eval (dircolors ~/.dir_colors/dircolors.nord | head -n 1 | sed 's/^LS_COLORS=/set -x LS_COLORS /;s/;$//')
 # set -x PATH "/home/mkarmona/.pyenv/bin" $PATH
 # status --is-interactive; and . (pyenv init -|psub)
 # status --is-interactive; and . (pyenv virtualenv-init -|psub)

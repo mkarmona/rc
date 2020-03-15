@@ -22,8 +22,9 @@ set $down k
 set $left j
 set $right semicolon
 
-default_border normal 5
-default_floating_border normal 5
+# default_border normal 5
+default_border pixel 5
+default_floating_border pixel 5
 
 # hide_edge_borders none|vertical|horizontal|both|smart
 hide_edge_borders smart
@@ -31,7 +32,8 @@ focus_follows_mouse yes
 popup_during_fullscreen smart
 show_marks yes
 
-for_window [class=".*"] title_format "[%class] %title"
+for_window [class=".*"] title_format "%title"
+# for_window [class=".*"] title_format "[%class] %title"
 
 bindsym $modifier+y border pixel 5
 
@@ -52,7 +54,7 @@ bindsym $modifier+Print exec gnome-screenshot -i
 bindsym $modifier+XF86LaunchA exec gksudo -g -m "Suspend?" systemctl suspend
 
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume "@DEFAULT_SINK@" -5%
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume "@DEFAULT_SINK" +5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume "@DEFAULT_SINK@" +5%
 bindsym XF86AudioMute exec pactl set-sink-mute "@DEFAULT_SINK@" toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute "@DEFAULT_SOURCE@" toggle
 
@@ -168,7 +170,7 @@ bindsym $modifier+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $modifier+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $modifier+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $modifier+Shift+e exec "i3-nagbar -f 'pango:Output Sans Testing Bold 10' -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -200,24 +202,51 @@ bindsym $modifier+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
-set $bg_black "#282828"
-set $bg_gray "#928374"
-set $bg_gray_dark "#504945"
-set $fg_black "#282828"
-set $fg_white "#fbf1c7"
+# set $bg_black_dark "#1d2021"
+# set $bg_black "#282828"
+# set $bg_gray "#928374"
+# set $bg_gray_dark "#504945"
+# set $fg_black "#282828"
+# set $fg_white "#fbf1c7"
+# # set $fg_white_dark "#ebdbb2"
+# set $fg_white_dark "#bdae93"
+# set $bg_purple_dark "#8f3f71"
+# set $bg_purple "#b16286"
+# set $fg_purple "#d3869b"
+# set $bg_red_dark "#9d0006"
+# set $fg_red "#fb4934"
+# set $fg_green "#b8bb26"
+# set $bg_green "#98971a"
+# set $bg_green_dark "#79740e"
+# set $bg_blue "#458588"
+# set $bg_blue_dark "#076678"
+# set $fg_yellow "#fabd2f"
+
+set $bg_black_dark "#2e3440"
+set $bg_black "#3b4252"
+set $bg_gray "#4c566a"
+set $bg_gray_dark "#434c5e"
+set $fg_black "#3b4252"
+set $fg_white "#eceff4"
 # set $fg_white_dark "#ebdbb2"
-set $fg_white_dark "#bdae93"
-set $bg_purple_dark "#8f3f71"
-set $bg_purple "#b16286"
-set $fg_purple "#d3869b"
-set $bg_red_dark "#9d0006"
-set $fg_red "#fb4934"
-set $fg_green "#b8bb26"
-set $bg_green "#98971a"
-set $bg_green_dark "#79740e"
-set $bg_blue "#458588"
-set $bg_blue_dark "#076678"
-set $fg_yellow "#fabd2f"
+set $fg_white_dark "#d8dee9"
+
+set $bg_purple_dark "#88c0d0"
+set $bg_purple "#88c0d0"
+set $fg_purple "#88c0d0"
+
+set $bg_red_dark "#bf616a"
+set $fg_red "#bf616a"
+
+set $bg_blue "#81a1c1"
+set $bg_blue_dark "#5e81ac"
+
+set $fg_green "#a3be8c"
+set $bg_green "#a3be8c"
+set $bg_green_dark "#a3be8c"
+
+set $fg_yellow "#ebcb8b"
+
 bar {
   font pango:Output Sans Testing, FontAwesome Bold 10
   tray_output primary
@@ -232,6 +261,7 @@ bar {
     #separator  $bg_black
     separator  $bg_gray
 #                       border background text
+#
     focused_workspace  $bg_gray_dark $bg_gray_dark $fg_yellow
     active_workspace   $bg_gray_dark $bg_gray_dark $fg_white
     inactive_workspace $bg_gray_dark $bg_gray_dark $fg_white_dark
@@ -245,16 +275,13 @@ bar {
   i3bar_command /usr/bin/i3bar
   # status_command i3status
   status_command /home/mkarmona/opt/i3status-rust/target/release/i3status-rs /home/mkarmona/.config/i3status/config.toml
-  # font pango:Input Mono Compressed Bold 10
-  #font pango:Input Mono Compressed Medium 10.5
-  # font pango:Exo 2 Bold 10
   # separator_symbol "|"
 }
 #
 # class                 border  bground text    indicator child_border
 client.focused          $bg_blue $bg_blue $fg_white $bg_blue $bg_blue
 client.focused_inactive $bg_blue_dark $bg_blue_dark $fg_white_dark $bg_blue_dark $bg_blue_dark
-client.unfocused        $bg_black $bg_black $fg_white_dark $bg_black   $bg_black
+client.unfocused        $bg_black_dark $bg_black_dark $fg_white_dark $bg_gray_dark   $bg_black_dark
 client.urgent           $bg_red_dark $bg_red_dark $fg_white_dark $bg_red_dark $bg_red_dark
 client.placeholder      $bg_black #0C0C0C $fg_white_dark $bg_black   #0C0C0C
 

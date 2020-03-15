@@ -5,21 +5,25 @@ name = "awesome"
 # name = "gruvbox-dark"
 name = "gruvbox-dark"
 [theme.overrides]
-idle_bg = "#504945"
-idle_fg = "#bdae93"
-info_bg = "#504945"
-info_fg = "#ebdbb2"
-good_bg = "#504945"
-good_fg = "#98971a"
-warning_bg = "#504945"
-warning_fg = "#fabd2f" 
-critical_bg = "#504945"
-critical_fg = "#fb4934"
+idle_bg = "#434c5e"
+idle_fg = "#d8dee9"
+info_bg = "#434c5e"
+info_fg = "#eceff4"
+good_bg = "#434c5e"
+good_fg = "#a3be8c"
+warning_bg = "#434c5e"
+warning_fg = "#d08770" 
+critical_bg = "#434c5e"
+critical_fg = "#bf616a"
 # separator
-separator_bg = "#504945"
+separator_bg = "#434c5e"
 # separator_fg
-# alternating_tint_bg
-# alternating_tint_fg
+# alternating_tint_bg = "#434c5e"
+# alternating_tint_fg = "#b48ead"
+
+[[block]]
+block = "focused_window"
+max_width = 98
 
 [[block]]
 block = "sound"
@@ -70,3 +74,4 @@ device = "intel_backlight"
 block = "time"
 interval = 60
 format = "%d/%m %R"
+on_click = "zenity --calendar &> /dev/null"

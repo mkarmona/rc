@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
+" Plug 'itchyny/lightline.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
@@ -25,5 +26,6 @@ Plug 'ncm2/ncm2-jedi'
 " Formater
 Plug 'Chiel92/vim-autoformat'
 Plug 'kassio/neoterm'
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
