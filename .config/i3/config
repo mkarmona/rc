@@ -222,6 +222,7 @@ bindsym $modifier+r mode "resize"
 # set $bg_blue_dark "#076678"
 # set $fg_yellow "#fabd2f"
 
+set $bg_cyan "#88c0d0"
 set $bg_black_dark "#2e3440"
 set $bg_black "#3b4252"
 set $bg_gray "#4c566a"
@@ -231,9 +232,9 @@ set $fg_white "#eceff4"
 # set $fg_white_dark "#ebdbb2"
 set $fg_white_dark "#d8dee9"
 
-set $bg_purple_dark "#88c0d0"
-set $bg_purple "#88c0d0"
-set $fg_purple "#88c0d0"
+set $bg_purple_dark "#b48ead"
+set $bg_purple "#b48ead"
+set $fg_purple "#b48ead"
 
 set $bg_red_dark "#bf616a"
 set $fg_red "#bf616a"
@@ -244,6 +245,8 @@ set $bg_blue_dark "#5e81ac"
 set $fg_green "#a3be8c"
 set $bg_green "#a3be8c"
 set $bg_green_dark "#a3be8c"
+
+set $bg_orange "#d08770"
 
 set $fg_yellow "#ebcb8b"
 
@@ -259,11 +262,18 @@ bar {
     background $bg_gray_dark
     statusline $fg_white_dark
     #separator  $bg_black
-    separator  $bg_gray
+    separator  $bg_gray_dark
 #                       border background text
 #
-    focused_workspace  $bg_gray_dark $bg_gray_dark $fg_yellow
-    active_workspace   $bg_gray_dark $bg_gray_dark $fg_white
+#
+    # focused_workspace  $bg_gray_dark $bg_gray_dark $fg_yellow
+    # active_workspace   $bg_gray_dark $bg_gray_dark $fg_green
+    # inactive_workspace $bg_gray_dark $bg_gray_dark $fg_white_dark
+    # urgent_workspace   $bg_gray_dark $bg_gray_dark $fg_red
+    # binding_mode       $bg_gray_dark $bg_gray_dark $fg_green
+
+    focused_workspace  $bg_cyan $bg_cyan $bg_black_dark
+    active_workspace   $bg_blue_dark $bg_blue_dark $fg_white_dark
     inactive_workspace $bg_gray_dark $bg_gray_dark $fg_white_dark
     urgent_workspace   $bg_gray_dark $bg_gray_dark $fg_red
     binding_mode       $bg_gray_dark $bg_gray_dark $fg_green
@@ -279,9 +289,9 @@ bar {
 }
 #
 # class                 border  bground text    indicator child_border
-client.focused          $bg_blue $bg_blue $fg_white $bg_blue $bg_blue
+client.focused          $bg_cyan $bg_cyan $bg_black_dark $bg_cyan $bg_cyan
 client.focused_inactive $bg_blue_dark $bg_blue_dark $fg_white_dark $bg_blue_dark $bg_blue_dark
-client.unfocused        $bg_black_dark $bg_black_dark $fg_white_dark $bg_gray_dark   $bg_black_dark
+client.unfocused        $bg_black_dark $bg_black_dark $fg_white_dark $bg_gray_dark $bg_black_dark
 client.urgent           $bg_red_dark $bg_red_dark $fg_white_dark $bg_red_dark $bg_red_dark
 client.placeholder      $bg_black #0C0C0C $fg_white_dark $bg_black   #0C0C0C
 
