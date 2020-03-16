@@ -57,6 +57,7 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume "@DEFAULT_SINK@" -5%
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume "@DEFAULT_SINK@" +5%
 bindsym XF86AudioMute exec pactl set-sink-mute "@DEFAULT_SINK@" toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute "@DEFAULT_SOURCE@" toggle
+bindsym XF86Display exec lxrandr
 
 bindsym $modifier+e exec nemo ~/
 bindsym $modifier+Return exec i3-sensible-terminal
@@ -199,28 +200,18 @@ mode "resize" {
 
 bindsym $modifier+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+# black
+set $nord0 "#2e3440"
+set $nord1 "#3b4252"
+set $nord2 "#434c5e"
+#lightest black
+set $nord3 "#4c566a"
 
-# set $bg_black_dark "#1d2021"
-# set $bg_black "#282828"
-# set $bg_gray "#928374"
-# set $bg_gray_dark "#504945"
-# set $fg_black "#282828"
-# set $fg_white "#fbf1c7"
-# # set $fg_white_dark "#ebdbb2"
-# set $fg_white_dark "#bdae93"
-# set $bg_purple_dark "#8f3f71"
-# set $bg_purple "#b16286"
-# set $fg_purple "#d3869b"
-# set $bg_red_dark "#9d0006"
-# set $fg_red "#fb4934"
-# set $fg_green "#b8bb26"
-# set $bg_green "#98971a"
-# set $bg_green_dark "#79740e"
-# set $bg_blue "#458588"
-# set $bg_blue_dark "#076678"
-# set $fg_yellow "#fabd2f"
+# darkest light gray
+set $nord4 "#d8dee9"
+set $nord5 "#e5e9f0"
+# lightest light gray
+set $nord6 "#eceff4"
 
 set $bg_cyan "#88c0d0"
 set $bg_black_dark "#2e3440"
@@ -254,29 +245,22 @@ bar {
   font pango:Output Sans Testing, FontAwesome Bold 10
   tray_output primary
   tray_padding 2
+  workspace_buttons yes
   colors {
     # background $bg_black
     # statusline $fg_white_dark
     # separator  $bg_gray
 
-    background $bg_gray_dark
+    background $nord1
     statusline $fg_white_dark
     #separator  $bg_black
-    separator  $bg_gray_dark
+    separator  $nord1
 #                       border background text
-#
-#
-    # focused_workspace  $bg_gray_dark $bg_gray_dark $fg_yellow
-    # active_workspace   $bg_gray_dark $bg_gray_dark $fg_green
-    # inactive_workspace $bg_gray_dark $bg_gray_dark $fg_white_dark
-    # urgent_workspace   $bg_gray_dark $bg_gray_dark $fg_red
-    # binding_mode       $bg_gray_dark $bg_gray_dark $fg_green
-
-    focused_workspace  $bg_cyan $bg_cyan $bg_black_dark
-    active_workspace   $bg_blue_dark $bg_blue_dark $fg_white_dark
-    inactive_workspace $bg_gray_dark $bg_gray_dark $fg_white_dark
-    urgent_workspace   $bg_gray_dark $bg_gray_dark $fg_red
-    binding_mode       $bg_gray_dark $bg_gray_dark $fg_green
+    focused_workspace  $bg_cyan $bg_cyan $nord0
+    active_workspace   $nord3 $nord3 $bg_cyan
+    inactive_workspace $nord1 $nord1 $fg_white_dark
+    urgent_workspace   $nord1 $nord1 $fg_red
+    binding_mode       $nord1 $nord1 $fg_green
   }
   position top
   # position bottom
@@ -289,10 +273,10 @@ bar {
 }
 #
 # class                 border  bground text    indicator child_border
-client.focused          $bg_cyan $bg_cyan $bg_black_dark $bg_cyan $bg_cyan
-client.focused_inactive $bg_blue_dark $bg_blue_dark $fg_white_dark $bg_blue_dark $bg_blue_dark
-client.unfocused        $bg_black_dark $bg_black_dark $fg_white_dark $bg_gray_dark $bg_black_dark
+client.focused          $bg_cyan $bg_cyan $nord0 $bg_cyan $bg_cyan
+client.focused_inactive $nord3 $nord3 $bg_cyan $nord3 $nord3
+client.unfocused        $nord2 $nord2 $nord4 $nord4 $nord2
 client.urgent           $bg_red_dark $bg_red_dark $fg_white_dark $bg_red_dark $bg_red_dark
 client.placeholder      $bg_black #0C0C0C $fg_white_dark $bg_black   #0C0C0C
 
-client.background       $bg_black
+client.background       $nord0
