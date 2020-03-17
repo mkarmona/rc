@@ -72,3 +72,6 @@ if has('conceal')
     set concealcursor=cn
 endif
 
+if (has("termguicolors"))
+  set termguicolors
+endif
