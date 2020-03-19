@@ -66,6 +66,8 @@ Plug 'joshdick/onedark.vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'sickill/vim-monokai'
 Plug 'cespare/vim-toml'
+Plug 'cocopon/iceberg.vim'
+Plug 'junegunn/seoul256.vim'
 
 " Add plugins to &runtimepath
 call plug#end()
