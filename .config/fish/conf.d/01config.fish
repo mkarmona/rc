@@ -31,7 +31,7 @@ set -xg PATH $PATH $TERRAFORM
 #set -xg LS_COLORS "ex=00:su=00:sg=00:ca=00:"
 # eval (dircolors ~/.dir_colors/dircolors.nord | head -n 1 | sed 's/^LS_COLORS=/set -x LS_COLORS /;s/;$//')
 # vivid generate ayu > ~/.dir_colors/dircolors.ayu
-eval (dircolors ~/.dir_colors/dircolors.ayu | head -n 1 | sed 's/^LS_COLORS=/set -x LS_COLORS /;s/;$//')
+set -x LS_COLORS (cat ~/.dir_colors/dircolors.ayu)
 
 # set -x PATH "/home/mkarmona/.pyenv/bin" $PATH
 # status --is-interactive; and . (pyenv init -|psub)
