@@ -68,6 +68,7 @@ Plug 'sickill/vim-monokai'
 Plug 'cespare/vim-toml'
 Plug 'cocopon/iceberg.vim'
 Plug 'junegunn/seoul256.vim'
+Plug 'jnurmine/Zenburn'
 
 " Add plugins to &runtimepath
 call plug#end()
