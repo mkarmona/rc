@@ -607,5 +607,5 @@ end)
 -- mytimer:start()
 
 -- https://github.com/tony/awesome-config
--- require_safe('autorun')
+require_safe('autorun')
 

@@ -6,6 +6,9 @@ font pango:Output Sans Testing Bold 10
 exec --no-startup-id pasystray
 exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-xsettings
 exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-power
+exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-screensaver-proxy
+exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-cursor
+exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-mouse
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -n -i "/home/mkarmona/.config/i3/background_lock.png"
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift-gtk
