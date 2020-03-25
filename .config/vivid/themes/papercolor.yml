@@ -1,0 +1,98 @@
+colors:
+  background_color: 'eee'
+  black: '282828'
+  apricot: 'D75F00'
+  green: '5F8700'
+  sienna: 'AF0000'
+  blue: '0087AF'
+  pink: 'D70087'
+  lime: '86b300'
+
+  light_green: '008700'
+
+  gray: '878787'
+  lightgray: 'BCBCBC'
+
+core:
+  regular_file: {}
+
+  directory:
+    foreground: blue
+
+  executable_file:
+    foreground: sienna
+    font-style: bold
+
+  symlink:
+    foreground: pink
+
+  broken_symlink:
+    foreground: black
+    background: sienna
+    # font-style: blink
+
+  fifo:
+    foreground: black
+    background: blue
+
+  socket:
+    foreground: black
+    background: pink
+
+  character_device:
+    foreground: black
+    background: lime
+
+  block_device:
+    foreground: black
+    background: sienna
+
+  normal_text:
+    {}
+
+text:
+  special:
+    foreground: black
+    background: apricot
+
+  todo:
+    font-style: bold
+
+  licenses:
+    foreground: gray
+
+  configuration:
+    foreground: apricot
+
+  other:
+    foreground: apricot
+
+markup:
+  foreground: apricot
+
+programming:
+  source:
+    foreground: green
+
+  tooling:
+    foreground: light_green
+
+    continuous-integration:
+      foreground: green
+
+media:
+  foreground: pink
+
+office:
+  foreground: sienna
+
+archives:
+  foreground: lime
+  font-style: underline
+
+executable:
+  foreground: sienna
+  font-style: bold
+
+unimportant:
+  foreground: lightgray
