@@ -4,10 +4,10 @@ run_once("/usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-screensaver-pro
 run_once("/usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-cursor")
 run_once("/usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-mouse")
 run_once("nm-applet")
-run_once("redshift-gtk")
 run_once("megasync")
 run_once("diodon")
 run_once("nitrogen", "--restore")
+run_once("redshift-gtk")
 
 run_once("wmname", "LG3D") -- java fix
 

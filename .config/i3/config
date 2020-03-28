@@ -2,14 +2,17 @@
 # https://i3wm.org/docs/userguide.html
 
 # font pango:Input Mono Compressed Medium 10.5
-font pango:Output Sans Testing Bold 10
+font pango:Output Sans Testing Bold 11
+
+exec --no-startup-id xfsettingsd
 exec --no-startup-id pasystray
-exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-xsettings
-exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-power
-exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-screensaver-proxy
-exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-cursor
-exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-mouse
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -n -i "/home/mkarmona/.config/i3/background_lock.png"
+# exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-xsettings
+# exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-power
+# exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-screensaver-proxy
+# exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-cursor
+# exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-mouse
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -n -i "/home/mkarmona/.config/i3/background_lock.png"
+
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift-gtk
 exec --no-startup-id megasync
@@ -63,7 +66,7 @@ bindsym XF86AudioMicMute exec pactl set-source-mute "@DEFAULT_SOURCE@" toggle
 bindsym XF86Display exec lxrandr
 
 bindsym $modifier+e exec nemo ~/
-bindsym $modifier+Return exec i3-sensible-terminal
+bindsym $modifier+Return exec xfce4-terminal
 bindsym $modifier+Shift+l exec i3lock -i /home/mkarmona/.config/i3/background_lock.png
 
 bindsym $modifier+BackSpace kill
@@ -162,6 +165,9 @@ bindsym $modifier+Shift+7 move container to workspace number $ws7
 bindsym $modifier+Shift+8 move container to workspace number $ws8
 bindsym $modifier+Shift+9 move container to workspace number $ws9
 bindsym $modifier+Shift+0 move container to workspace number $ws10
+
+bindsym $mod+Ctrl+right move workspace to output right
+bindsym $mod+Ctrl+left move workspace to output left
 
 bindsym $modifier+Prior workspace prev
 bindsym $modifier+Next workspace next
