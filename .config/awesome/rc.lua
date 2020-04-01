@@ -22,7 +22,6 @@ require("awful.hotkeys_popup.keys")
 local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
--- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
@@ -45,9 +44,6 @@ do
         in_error = false
     end)
 end
--- }}}
-
--- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
@@ -55,6 +51,7 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 terminal = "x-terminal-emulator"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
+rofi = "rofi -show combi"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -90,7 +87,7 @@ myawesomemenu = {
    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
    { "manual", terminal .. " -e man awesome" },
    { "edit config", editor_cmd .. " " .. awesome.conffile },
-   { "restart", awesome.restart },
+   { "restart", function() awesome.restart() end },
    { "quit", function() awesome.quit() end },
 }
 
@@ -293,6 +290,8 @@ globalkeys = gears.table.join(
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
+              {description = "open a terminal", group = "launcher"}),
+    awful.key({ modkey,           }, "d", function () awful.spawn(rofi) end,
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
@@ -607,5 +606,14 @@ end)
 -- mytimer:start()
 
 -- https://github.com/tony/awesome-config
-require_safe('autorun')
+run_once("xfsettingsd", "--no-daemon")
+run_once("xfce4-power-manager", "--no-daemon")
+run_once("xfce4-screensaver", "--no-daemon")
+run_once("xfce4-clipmap", "--no-daemon")
+run_once("pasystray", "--include-monitors", "-t")
+run_once("nm-applet")
+run_once("megasync")
+run_once("nitrogen", "--restore")
+run_once("redshift-gtk")
+run_once("wmname", "LG3D") -- java fix
 

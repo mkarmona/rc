@@ -1,12 +1,20 @@
 # DOCUMENTATION FOR i3
 # https://i3wm.org/docs/userguide.html
 
-# font pango:Input Mono Compressed Medium 10.5
-font pango:Output Sans Testing Bold 11
+# 
+#sway - i3-compatible Wayland compositor
+#sway-backgrounds - Set of backgrounds packaged with the sway window manager
+#swaybg - Wallpaper utility for Wayland compositors
+#swayidle - Idle management daemon for Wayland
+#swaylock - Screen locker for Wayland
+#wdisplays - graphical application for configuring displays in Wayland compositors
+#wofi - application launcher for wlroots based wayland compositors
+#
+font pango:Output Sans Testing Bold 10
 
 exec --no-startup-id xfsettingsd --no-daemon
 exec --no-startup-id xfce4-power-manager --no-daemon
-exec --no-startup-id xfce4-screensaver --no-daemon
+# exec --no-startup-id xfce4-screensaver --no-daemon
 exec --no-startup-id xfce4-clipman --no-daemon
 exec --no-startup-id pasystray --include-monitors -t
 # exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-xsettings
@@ -15,14 +23,14 @@ exec --no-startup-id pasystray --include-monitors -t
 # exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-cursor
 # exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-mouse
 
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -n -i "/home/mkarmona/.config/i3/background_lock.png"
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -n -i "/home/mkarmona/.config/i3/background_lock.png"
 
 exec --no-startup-id nm-applet
-exec --no-startup-id redshift-gtk
-exec --no-startup-id megasync
-exec --no-startup-id nitrogen --restore
+# exec --no-startup-id redshift-gtk
+# exec --no-startup-id megasync
+# exec --no-startup-id nitrogen --restore
 
-set $refresh_i3status killall -SIGUSR1 i3status
+# set $refresh_i3status killall -SIGUSR1 i3status
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
@@ -45,16 +53,10 @@ for_window [class=".*"] title_format "%title"
 # for_window [class=".*"] title_format "[%class] %title"
 
 
-# To get a config file with the same key positions, but for your current
-# layout, use the i3-config-wizard
-
-# Sreen brightness controls
-
 set $modifier Mod4
 # use Mouse+$modifier to drag floating windows to their wanted position
 floating_modifier $modifier
 
-bindsym $modifier+y border pixel 5
 bindsym XF86MonBrightnessUp exec brightnessctl -s s +5%
 bindsym XF86MonBrightnessDown exec brightnessctl -s s 5%-
 bindsym XF86Tools exec brightnessctl s 0
@@ -71,8 +73,8 @@ bindsym XF86Display exec lxrandr
 
 bindsym $modifier+e exec thunar ~/
 bindsym $modifier+Return exec xfce4-terminal
-bindsym $modifier+Shift+l exec i3lock -n -i "/home/mkarmona/.config/i3/background_lock.png"
-# bindsym $modifier+Shift+l exec xflock4
+# bindsym $modifier+Shift+l exec i3lock -n -i "/home/mkarmona/.config/i3/background_lock.png"
+bindsym $modifier+Shift+l exec swaylock
 
 bindsym $modifier+BackSpace kill
 bindsym $modifier+x kill
@@ -81,7 +83,7 @@ bindsym $modifier+XF86Explorer exec gksudo -g -m "Hibernate?" systemctl hibernat
 # bindsym $modifier+Shift+d exec dmenu_run
 # bindsym $modifier+d exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i" --term="i3-sensible-terminal"
 
-bindsym $modifier+d exec --no-startup-id rofi -show combi
+bindsym $modifier+d exec --no-startup-id wofi -show combi
 
 # change focus
 # bindsym $modifier+$left focus left
@@ -185,7 +187,7 @@ bindsym $modifier+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $modifier+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $modifier+Shift+e exec "i3-nagbar -f 'pango:Output Sans Testing Bold 11' -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $modifier+Shift+e exec "i3-nagbar -f 'pango:Output Sans Testing Bold 10' -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -256,7 +258,7 @@ set $bg_orange "#d08770"
 set $fg_yellow "#ebcb8b"
 
 bar {
-  font pango:Output Sans Testing, FontAwesome Bold 11
+  font pango:Output Sans Testing, FontAwesome Bold 10
   # tray_output primary
   tray_padding 2
   workspace_buttons yes
@@ -280,7 +282,7 @@ bar {
   # position bottom
   #try padding by default 2
   tray_padding 2
-  i3bar_command /usr/bin/i3bar
+  # i3bar_command /usr/bin/i3bar
   # status_command i3status
   status_command /home/mkarmona/opt/i3status-rust/target/release/i3status-rs /home/mkarmona/.config/i3status/config.toml
   # separator_symbol "|"
