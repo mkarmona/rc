@@ -2,27 +2,24 @@
 # https://i3wm.org/docs/userguide.html
 
 # font pango:Input Mono Compressed Medium 10.5
-font pango:Output Sans Testing Bold 11
+font pango:Output Sans Testing Bold 10
 
 exec --no-startup-id xfsettingsd --no-daemon
 exec --no-startup-id xfce4-power-manager --no-daemon
 exec --no-startup-id xfce4-screensaver --no-daemon
 exec --no-startup-id xfce4-clipman --no-daemon
+
+# exec --no-startup-id mate-settings-daemon
 exec --no-startup-id pasystray --include-monitors -t
-# exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-xsettings
-# exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-power
-# exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-screensaver-proxy
-# exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-cursor
-# exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-mouse
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -n -i "/home/mkarmona/.config/i3/background_lock.png"
 
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -n -i "/home/mkarmona/.config/i3/background_lock.png"
-
+# exec --no-startup-id diodon
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift-gtk
 exec --no-startup-id megasync
 exec --no-startup-id nitrogen --restore
 
-set $refresh_i3status killall -SIGUSR1 i3status
+# set $refresh_i3status killall -SIGUSR1 i3status
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
@@ -59,7 +56,7 @@ bindsym XF86MonBrightnessUp exec brightnessctl -s s +5%
 bindsym XF86MonBrightnessDown exec brightnessctl -s s 5%-
 bindsym XF86Tools exec brightnessctl s 0
 bindsym $modifier+XF86Tools exec brightnessctl -r
-# bindsym $modifier+Print exec gnome-screenshot -i
+# bindsym $modifier+Print exec mate-screenshot -i
 bindsym $modifier+Print exec xfce4-screenshooter
 bindsym $modifier+XF86LaunchA exec gksudo -g -m "Suspend?" systemctl suspend
 
@@ -67,12 +64,12 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume "@DEFAULT_SINK@" -5%
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume "@DEFAULT_SINK@" +5%
 bindsym XF86AudioMute exec pactl set-sink-mute "@DEFAULT_SINK@" toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute "@DEFAULT_SOURCE@" toggle
-bindsym XF86Display exec lxrandr
+bindsym XF86Display exec xfce4-display-settings
 
 bindsym $modifier+e exec thunar ~/
 bindsym $modifier+Return exec xfce4-terminal
-bindsym $modifier+Shift+l exec i3lock -n -i "/home/mkarmona/.config/i3/background_lock.png"
-# bindsym $modifier+Shift+l exec xflock4
+#bindsym $modifier+Shift+l exec i3lock -n -i "/home/mkarmona/.config/i3/background_lock.png"
+bindsym $modifier+Shift+l exec xflock4
 
 bindsym $modifier+BackSpace kill
 bindsym $modifier+x kill
@@ -185,7 +182,7 @@ bindsym $modifier+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $modifier+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $modifier+Shift+e exec "i3-nagbar -f 'pango:Output Sans Testing Bold 11' -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $modifier+Shift+e exec "i3-nagbar -f 'pango:Output Sans Testing Bold 10' -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -256,7 +253,7 @@ set $bg_orange "#d08770"
 set $fg_yellow "#ebcb8b"
 
 bar {
-  font pango:Output Sans Testing, FontAwesome Bold 11
+  font pango:Output Sans Testing, FontAwesome Bold 10
   # tray_output primary
   tray_padding 2
   workspace_buttons yes
