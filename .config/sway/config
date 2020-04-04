@@ -12,28 +12,31 @@
 #
 font pango:Output Sans Testing Bold 10
 
-exec --no-startup-id xfsettingsd --no-daemon
-exec --no-startup-id xfce4-power-manager --no-daemon
-# exec --no-startup-id xfce4-screensaver --no-daemon
-exec --no-startup-id xfce4-clipman --no-daemon
-exec --no-startup-id pasystray --include-monitors -t
-# exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-xsettings
-# exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-power
-# exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-screensaver-proxy
-# exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-cursor
-# exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-mouse
 
-# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -n -i "/home/mkarmona/.config/i3/background_lock.png"
+# exec --no-startup-id /usr/libexec/gsd-xsettings
+# exec --no-startup-id /usr/libexec/gsd-backlight-helper
+# exec --no-startup-id /usr/libexec/gsd-datetime
+# exec --no-startup-id /usr/libexec/gsd-keyboard
+# exec --no-startup-id /usr/libexec/gsd-media-keys
+# exec --no-startup-id /usr/libexec/gsd-color
+# exec --no-startup-id /usr/libexec/gsd-power
+# exec --no-startup-id /usr/libexec/gsd-printer
+# exec --no-startup-id /usr/libexec/gsd-print-notifications
+# exec --no-startup-id /usr/libexec/gsd-screensaver-proxy
+# exec --no-startup-id /usr/libexec/gsd-sound
+# exec --no-startup-id /usr/libexec/gsd-a11y-settings
 
-exec --no-startup-id nm-applet
-# exec --no-startup-id redshift-gtk
-# exec --no-startup-id megasync
-# exec --no-startup-id nitrogen --restore
+# exec --no-startup-id pasystray --include-monitors -t
 
-# set $refresh_i3status killall -SIGUSR1 i3status
+# exec --no-startup-id nm-applet
+# exec --no-startup-id diodon
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
+
+input * xkb_layout es
+output eDP-1 scale 2 subpixel rg
+
 set $up l
 set $down k
 set $left j
@@ -61,18 +64,17 @@ bindsym XF86MonBrightnessUp exec brightnessctl -s s +5%
 bindsym XF86MonBrightnessDown exec brightnessctl -s s 5%-
 bindsym XF86Tools exec brightnessctl s 0
 bindsym $modifier+XF86Tools exec brightnessctl -r
-# bindsym $modifier+Print exec gnome-screenshot -i
-bindsym $modifier+Print exec xfce4-screenshooter
+bindsym $modifier+Print exec gnome-screenshot -i
 bindsym $modifier+XF86LaunchA exec gksudo -g -m "Suspend?" systemctl suspend
 
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume "@DEFAULT_SINK@" -5%
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume "@DEFAULT_SINK@" +5%
-bindsym XF86AudioMute exec pactl set-sink-mute "@DEFAULT_SINK@" toggle
-bindsym XF86AudioMicMute exec pactl set-source-mute "@DEFAULT_SOURCE@" toggle
-bindsym XF86Display exec lxrandr
+# bindsym XF86AudioLowerVolume exec pactl set-sink-volume "@DEFAULT_SINK@" -5%
+# bindsym XF86AudioRaiseVolume exec pactl set-sink-volume "@DEFAULT_SINK@" +5%
+# bindsym XF86AudioMute exec pactl set-sink-mute "@DEFAULT_SINK@" toggle
+# bindsym XF86AudioMicMute exec pactl set-source-mute "@DEFAULT_SOURCE@" toggle
+# bindsym XF86Display exec wdisplays
 
-bindsym $modifier+e exec thunar ~/
-bindsym $modifier+Return exec xfce4-terminal
+bindsym $modifier+e exec nautilus ~/
+bindsym $modifier+Return exec gnome-terminal
 # bindsym $modifier+Shift+l exec i3lock -n -i "/home/mkarmona/.config/i3/background_lock.png"
 bindsym $modifier+Shift+l exec swaylock
 
@@ -83,7 +85,7 @@ bindsym $modifier+XF86Explorer exec gksudo -g -m "Hibernate?" systemctl hibernat
 # bindsym $modifier+Shift+d exec dmenu_run
 # bindsym $modifier+d exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i" --term="i3-sensible-terminal"
 
-bindsym $modifier+d exec --no-startup-id wofi -show combi
+bindsym $modifier+d exec --no-startup-id wofi --show combi
 
 # change focus
 # bindsym $modifier+$left focus left
@@ -282,7 +284,7 @@ bar {
   # position bottom
   #try padding by default 2
   tray_padding 2
-  # i3bar_command /usr/bin/i3bar
+    # i3bar_command /usr/bin/swaybar
   # status_command i3status
   status_command /home/mkarmona/opt/i3status-rust/target/release/i3status-rs /home/mkarmona/.config/i3status/config.toml
   # separator_symbol "|"
