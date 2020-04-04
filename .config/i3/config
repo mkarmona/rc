@@ -39,6 +39,7 @@ popup_during_fullscreen smart
 show_marks yes
 
 for_window [class=".*"] title_format "%title"
+for_window [class="Audacious"] floating enable, move scratchpad
 # for_window [class=".*"] title_format "[%class] %title"
 
 
@@ -277,7 +278,7 @@ bar {
   # position bottom
   #try padding by default 2
   tray_padding 2
-  i3bar_command /usr/bin/i3bar
+  # i3bar_command /usr/bin/i3bar
   # status_command i3status
   status_command /home/mkarmona/opt/i3status-rust/target/release/i3status-rs /home/mkarmona/.config/i3status/config.toml
   # separator_symbol "|"
