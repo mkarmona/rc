@@ -34,17 +34,20 @@ font pango:Output Sans Testing Bold 10
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
 
-input * xkb_layout es
-output eDP-1 scale 2 subpixel rg
+xwayland disable
+input "*" xkb_layout "es"
+output "*" bg /usr/share/backgrounds/gnome/Symbolics-2.jpg stretch
+output eDP-1 scale 2 subpixel rgb
 
 set $up l
 set $down k
 set $left j
 set $right semicolon
+set $terminal gnome-terminal
 
 # default_border normal 5
-default_border pixel 5
-default_floating_border pixel 5
+default_border normal 5
+default_floating_border normal 5
 
 # hide_edge_borders none|vertical|horizontal|both|smart
 hide_edge_borders smart
@@ -52,7 +55,7 @@ focus_follows_mouse yes
 popup_during_fullscreen smart
 show_marks yes
 
-for_window [class=".*"] title_format "%title"
+#
 # for_window [class=".*"] title_format "[%class] %title"
 
 
@@ -67,14 +70,14 @@ bindsym $modifier+XF86Tools exec brightnessctl -r
 bindsym $modifier+Print exec gnome-screenshot -i
 bindsym $modifier+XF86LaunchA exec gksudo -g -m "Suspend?" systemctl suspend
 
-# bindsym XF86AudioLowerVolume exec pactl set-sink-volume "@DEFAULT_SINK@" -5%
-# bindsym XF86AudioRaiseVolume exec pactl set-sink-volume "@DEFAULT_SINK@" +5%
-# bindsym XF86AudioMute exec pactl set-sink-mute "@DEFAULT_SINK@" toggle
-# bindsym XF86AudioMicMute exec pactl set-source-mute "@DEFAULT_SOURCE@" toggle
-# bindsym XF86Display exec wdisplays
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume "@DEFAULT_SINK@" -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume "@DEFAULT_SINK@" +5%
+bindsym XF86AudioMute exec pactl set-sink-mute "@DEFAULT_SINK@" toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute "@DEFAULT_SOURCE@" toggle
+bindsym XF86Display exec wdisplays
 
 bindsym $modifier+e exec nautilus ~/
-bindsym $modifier+Return exec gnome-terminal
+bindsym $modifier+Return exec $terminal
 # bindsym $modifier+Shift+l exec i3lock -n -i "/home/mkarmona/.config/i3/background_lock.png"
 bindsym $modifier+Shift+l exec swaylock
 

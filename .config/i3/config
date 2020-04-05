@@ -29,8 +29,8 @@ set $left j
 set $right semicolon
 
 # default_border normal 5
-default_border pixel 5
-default_floating_border pixel 5
+default_border normal 5
+default_floating_border normal 5
 
 # hide_edge_borders none|vertical|horizontal|both|smart
 hide_edge_borders smart
@@ -38,7 +38,7 @@ focus_follows_mouse yes
 popup_during_fullscreen smart
 show_marks yes
 
-for_window [class=".*"] title_format "%title"
+# for_window [class=".*"] title_format "%title"
 for_window [class="Audacious"] floating enable, move scratchpad
 # for_window [class=".*"] title_format "[%class] %title"
 
