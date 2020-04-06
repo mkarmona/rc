@@ -2,21 +2,36 @@
 # https://i3wm.org/docs/userguide.html
 
 # font pango:Input Mono Compressed Medium 10.5
-font pango:Output Sans Testing Bold 10
+set $modifier Mod4
+font pango:Output Sans Testing Medium 10
 
-exec --no-startup-id xfsettingsd --no-daemon
-exec --no-startup-id xfce4-power-manager --no-daemon
-exec --no-startup-id xfce4-screensaver --no-daemon
-exec --no-startup-id xfce4-clipman --no-daemon
+# exec --no-startup-id xfsettingsd --no-daemon
+# exec --no-startup-id xfce4-power-manager --no-daemon
+# exec --no-startup-id xfce4-screensaver --no-daemon
+# exec --no-startup-id xfce4-clipman --no-daemon
 
-# exec --no-startup-id mate-settings-daemon
-exec --no-startup-id pasystray --include-monitors -t
+exec --no-startup-id /usr/libexec/gsd-xsettings
+exec --no-startup-id /usr/libexec/gsd-backlight-helper
+exec --no-startup-id /usr/libexec/gsd-datetime
+exec --no-startup-id /usr/libexec/gsd-keyboard
+exec --no-startup-id /usr/libexec/gsd-media-keys
+exec --no-startup-id /usr/libexec/gsd-color
+exec --no-startup-id /usr/libexec/gsd-power
+exec --no-startup-id /usr/libexec/gsd-printer
+exec --no-startup-id /usr/libexec/gsd-print-notifications
+exec --no-startup-id /usr/libexec/gsd-screensaver-proxy
+exec --no-startup-id /usr/libexec/gsd-sound
+# exec --no-startup-id /usr/libexec/gsd-a11y-settings
+exec --no-startup-id /usr/libexec/gnome-screensaver
+
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -n -i "/home/mkarmona/.config/i3/background_lock.png"
 
-# exec --no-startup-id diodon
+exec --no-startup-id diodon
+exec --no-startup-id pasystray --include-monitors -t
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift-gtk
 exec --no-startup-id megasync
+exec --no-startup-id mullvad-vpn
 exec --no-startup-id nitrogen --restore
 
 # set $refresh_i3status killall -SIGUSR1 i3status
@@ -27,11 +42,13 @@ set $up l
 set $down k
 set $left j
 set $right semicolon
+set $terminal gnome-terminal
 
 # default_border normal 5
-default_border normal 5
-default_floating_border normal 5
+default_border normal 3
+default_floating_border normal 3
 
+floating_modifier $modifier
 # hide_edge_borders none|vertical|horizontal|both|smart
 hide_edge_borders smart
 focus_follows_mouse yes
@@ -40,6 +57,7 @@ show_marks yes
 
 # for_window [class=".*"] title_format "%title"
 for_window [class="Audacious"] floating enable, move scratchpad
+for_window [class="Mullvad VPN"] floating enable, move scratchpad
 # for_window [class=".*"] title_format "[%class] %title"
 
 
@@ -48,9 +66,6 @@ for_window [class="Audacious"] floating enable, move scratchpad
 
 # Sreen brightness controls
 
-set $modifier Mod4
-# use Mouse+$modifier to drag floating windows to their wanted position
-floating_modifier $modifier
 
 bindsym $modifier+y border pixel 5
 bindsym XF86MonBrightnessUp exec brightnessctl -s s +5%
@@ -68,9 +83,10 @@ bindsym XF86AudioMicMute exec pactl set-source-mute "@DEFAULT_SOURCE@" toggle
 bindsym XF86Display exec xfce4-display-settings
 
 bindsym $modifier+e exec thunar ~/
-bindsym $modifier+Return exec xfce4-terminal
+bindsym $modifier+Return exec $terminal
 #bindsym $modifier+Shift+l exec i3lock -n -i "/home/mkarmona/.config/i3/background_lock.png"
-bindsym $modifier+Shift+l exec xflock4
+# bindsym $modifier+Shift+l exec xflock4
+bindsym $modifier+Shift+l exec gnome-screensaver-command -l
 
 bindsym $modifier+BackSpace kill
 bindsym $modifier+x kill
@@ -183,7 +199,20 @@ bindsym $modifier+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $modifier+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $modifier+Shift+e exec "i3-nagbar -f 'pango:Output Sans Testing Bold 10' -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $modifier+Shift+e exec "i3-nagbar -f 'pango:Output Sans Testing Medium 10' -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+mode "(s)leep (h)ybernate (r)eboot (p)oweroff" {
+
+        bindsym s exec sudo systemctl suspend; mode "default"
+        bindsym h exec sudo systemctl hibernate; mode "default"
+        bindsym r exec sudo systemctl reboot; mode "default"
+        bindsym p exec sudo systemctl poweroff; mode "default"
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $modifier+q mode "default"
+}
+bindsym $modifier+q mode "(s)leep (h)ybernate (r)eboot (p)oweroff"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -254,7 +283,7 @@ set $bg_orange "#d08770"
 set $fg_yellow "#ebcb8b"
 
 bar {
-  font pango:Output Sans Testing, FontAwesome Bold 10
+  font pango:Output Sans Testing, FontAwesome Medium 10
   # tray_output primary
   tray_padding 2
   workspace_buttons yes

@@ -34,7 +34,7 @@ font pango:Output Sans Testing Bold 10
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
 
-xwayland disable
+xwayland enable
 input "*" xkb_layout "es"
 output "*" bg /usr/share/backgrounds/gnome/Symbolics-2.jpg stretch
 output eDP-1 scale 2 subpixel rgb
@@ -44,10 +44,10 @@ set $down k
 set $left j
 set $right semicolon
 set $terminal gnome-terminal
+set $modifier Mod4
 
-# default_border normal 5
-default_border normal 5
-default_floating_border normal 5
+default_border normal 3
+default_floating_border normal 3
 
 # hide_edge_borders none|vertical|horizontal|both|smart
 hide_edge_borders smart
@@ -57,9 +57,10 @@ show_marks yes
 
 #
 # for_window [class=".*"] title_format "[%class] %title"
+for_window [class="Audacious"] floating enable, move scratchpad
+for_window [class="Mullvad VPN"] floating enable, move scratchpad
+# for_window [class=".*"] title_format "[%class] %title"
 
-
-set $modifier Mod4
 # use Mouse+$modifier to drag floating windows to their wanted position
 floating_modifier $modifier
 
@@ -88,7 +89,7 @@ bindsym $modifier+XF86Explorer exec gksudo -g -m "Hibernate?" systemctl hibernat
 # bindsym $modifier+Shift+d exec dmenu_run
 # bindsym $modifier+d exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i" --term="i3-sensible-terminal"
 
-bindsym $modifier+d exec --no-startup-id wofi --show combi
+bindsym $modifier+d exec --no-startup-id wofi -i --show drun,run
 
 # change focus
 # bindsym $modifier+$left focus left
@@ -191,8 +192,7 @@ bindsym $modifier+Shift+Next move container to workspace next
 bindsym $modifier+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $modifier+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $modifier+Shift+e exec "i3-nagbar -f 'pango:Output Sans Testing Bold 10' -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $modifier+Shift+e exec "swaynag -f 'pango:Output Sans Testing Bold 10' -t warning -m 'You pressed the exit shortcut. Do you really want to exit Sway? This will end your X session.' -B 'Yes, exit Sway' 'swaymsg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
