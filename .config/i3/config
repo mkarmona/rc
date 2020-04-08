@@ -11,20 +11,20 @@ font pango:Output Sans Testing Medium 10
 # exec --no-startup-id xfce4-clipman --no-daemon
 
 exec --no-startup-id /usr/libexec/gsd-xsettings
-exec --no-startup-id /usr/libexec/gsd-backlight-helper
-exec --no-startup-id /usr/libexec/gsd-datetime
-exec --no-startup-id /usr/libexec/gsd-keyboard
-exec --no-startup-id /usr/libexec/gsd-media-keys
-exec --no-startup-id /usr/libexec/gsd-color
-exec --no-startup-id /usr/libexec/gsd-power
+# exec --no-startup-id /usr/libexec/gsd-backlight-helper
+# exec --no-startup-id /usr/libexec/gsd-datetime
+# exec --no-startup-id /usr/libexec/gsd-keyboard
+# exec --no-startup-id /usr/libexec/gsd-media-keys
+# exec --no-startup-id /usr/libexec/gsd-color
+# exec --no-startup-id /usr/libexec/gsd-power
 exec --no-startup-id /usr/libexec/gsd-printer
 exec --no-startup-id /usr/libexec/gsd-print-notifications
-exec --no-startup-id /usr/libexec/gsd-screensaver-proxy
-exec --no-startup-id /usr/libexec/gsd-sound
+# exec --no-startup-id /usr/libexec/gsd-screensaver-proxy
+# exec --no-startup-id /usr/libexec/gsd-sound
 # exec --no-startup-id /usr/libexec/gsd-a11y-settings
-exec --no-startup-id /usr/libexec/gnome-screensaver
+# exec --no-startup-id /usr/libexec/gnome-screensaver
 
-# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -n -i "/home/mkarmona/.config/i3/background_lock.png"
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -n
 
 exec --no-startup-id diodon
 exec --no-startup-id pasystray --include-monitors -t
@@ -33,6 +33,7 @@ exec --no-startup-id redshift-gtk
 exec --no-startup-id megasync
 exec --no-startup-id mullvad-vpn
 exec --no-startup-id nitrogen --restore
+exec --no-startup-id picom -cGf -o 0.4 -O 200 -I 200 -t 0 -l 0 -r 4 -D 2 -m 0.90
 
 # set $refresh_i3status killall -SIGUSR1 i3status
 
@@ -80,13 +81,13 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume "@DEFAULT_SINK@" -5%
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume "@DEFAULT_SINK@" +5%
 bindsym XF86AudioMute exec pactl set-sink-mute "@DEFAULT_SINK@" toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute "@DEFAULT_SOURCE@" toggle
-bindsym XF86Display exec xfce4-display-settings
+bindsym XF86Display exec arandr
 
 bindsym $modifier+e exec thunar ~/
 bindsym $modifier+Return exec $terminal
-#bindsym $modifier+Shift+l exec i3lock -n -i "/home/mkarmona/.config/i3/background_lock.png"
 # bindsym $modifier+Shift+l exec xflock4
-bindsym $modifier+Shift+l exec gnome-screensaver-command -l
+# bindsym $modifier+Shift+l exec gnome-screensaver-command -l
+bindsym $modifier+Shift+l exec i3lock -n
 
 bindsym $modifier+BackSpace kill
 bindsym $modifier+x kill

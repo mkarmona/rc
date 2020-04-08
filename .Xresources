@@ -1,6 +1,6 @@
 Xft.autohint: 0
 Xft.antialias:	1
-!Xft.dpi:	168
+!Xft.dpi:	96
 Xft.dpi:	192
 Xft.hinting:	1
 Xft.hintstyle:	hintfull
@@ -11,8 +11,8 @@ URxvt*transparent: false
 URxvt*saveLines: 100000
 URxvt*foreground: #282828
 URxvt*background: #eeeeee
-URxvt*font: xft:Input:pixelsize=27:antialias=true:hinting=true
-URxvt*boldFont: xft:Input Bold:pixelsize=27:antialias=true:hinting=true
+URxvt*font: xft:Input:pixelsize=12:antialias=true:hinting=true
+URxvt*boldFont: xft:Input Bold:pixelsize=12:antialias=true:hinting=true
 URxvt*scrollBar: false
 URxvt*scrollBar_right: true
 URxvt*scrollstyle: rxvt

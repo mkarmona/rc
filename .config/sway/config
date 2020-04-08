@@ -12,24 +12,28 @@
 #
 font pango:Output Sans Testing Bold 10
 
+exec --no-startup-id xrdb -load ~/.Xdefaults ~/.Xresources
+exec --no-startup-id mako
+exec --no-startup-id swayidle -w timeout 300 'swaylock -f' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f'
 
-# exec --no-startup-id /usr/libexec/gsd-xsettings
+# gnome stuff
+exec --no-startup-id /usr/libexec/gsd-xsettings
 # exec --no-startup-id /usr/libexec/gsd-backlight-helper
 # exec --no-startup-id /usr/libexec/gsd-datetime
 # exec --no-startup-id /usr/libexec/gsd-keyboard
 # exec --no-startup-id /usr/libexec/gsd-media-keys
 # exec --no-startup-id /usr/libexec/gsd-color
 # exec --no-startup-id /usr/libexec/gsd-power
-# exec --no-startup-id /usr/libexec/gsd-printer
-# exec --no-startup-id /usr/libexec/gsd-print-notifications
+exec --no-startup-id /usr/libexec/gsd-printer
+exec --no-startup-id /usr/libexec/gsd-print-notifications
 # exec --no-startup-id /usr/libexec/gsd-screensaver-proxy
 # exec --no-startup-id /usr/libexec/gsd-sound
 # exec --no-startup-id /usr/libexec/gsd-a11y-settings
 
 # exec --no-startup-id pasystray --include-monitors -t
+exec --no-startup-id diodon
 
 # exec --no-startup-id nm-applet
-# exec --no-startup-id diodon
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
