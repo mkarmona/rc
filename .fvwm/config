@@ -6,23 +6,9 @@
 #    6: Decor
 #    7: Modules
 #
-#################################
-
-# InfoStoreAdd can be used to store variable data internal to fvwm.
-# The variable can then be used in the configuration as $[infostore.name].
-#
-# You can also use environment variables but for data internal to fvwm
-# use InfoStore variables instead.
-#
-# The following is used in various menus and also sets the terminal
-# that FvwmConsole uses. Change this to your terminal of choice
 InfoStoreAdd terminal gnome-terminal
 
-###########
 # 1: Functions
-#
-# Fvwm can use custom functions for various tasks.
-# The syntax for defining a function named FunctionName is:
 #
 #   DestroyFunc FunctionName
 #   AddToFunc FunctionName
@@ -31,7 +17,7 @@ InfoStoreAdd terminal gnome-terminal
 #   + D [Action to do on a Mouse Double Click]
 #   + H [Action to do on a Mouse Hold]
 #   + M [Action to do on a Mouse Motion]
-###########
+
 DestroyFunc ExitFunction
 AddToFunc ExitFunction
 + I Test (Quit) Echo Bye-bye
@@ -39,17 +25,13 @@ AddToFunc ExitFunction
 + I Test (ToRestart) Beep
 # Start Function
 #
-# The start function is run right after fvwm is done reading
-# the config file. This function run after each restart
-# so using Test (Init) or Test (Restart) can further control
-# actions that are run during the first time run (Init) or
-# actions that are run after a restart.
 DestroyFunc StartFunction
 AddToFunc   StartFunction
-+ I Test (Init) Exec exec xrdb -load ~/.Xdefaults ~/.Xresources
-+ I Test (Init) Exec exec trayer --expand false --padding 5 --iconspacing 5 --SetDockType false --width 20
++ I Test (Init) Exec exec picom -cGf -o 0.3 -O 200 -I 200 -t 0 -l 0 -r 4 -D 2 -m 0.90
 + I Test (Init) Exec exec nitrogen --restore
-+ I Test (Init) Exec exec picom -cGf -o 0.3 -O 200 -I 200 -t 0 -l 0 -r 6 -D 2 -m 0.90
++ I Test (Init) Exec exec xrdb -load ~/.Xdefaults ~/.Xresources
++ I Test (Init) Exec exec xbattbar -c -a -p 15
++ I Test (Init) Exec exec trayer --widthtype request --align right --edge top --transparent true --alpha 127 --tint 282828 --padding 25 --iconspacing 10 --margin 10 --distance 10
 + I Test (Init) Exec exec /usr/libexec/gsd-xettings
 + I Test (Init) Exec exec /usr/libexec/gsd-printer
 + I Test (Init) Exec exec /usr/libexec/gsd-print-notifications
@@ -65,7 +47,7 @@ AddToFunc   StartFunction
 + I Test (Init) Exec exec mullvad-vpn
 + I Test (Restart) Exec exec nitrogen --restore
 # + I Module FvwmButtons RightPanel
-+ I Module FvwmPager *
+# + I Module FvwmPager 0 9
 # + I Module FvwmIconMan
 # + I Module FvwmEvent EventNewDesk
 
@@ -75,6 +57,10 @@ AddToFunc RaiseMoveX
 + I Raise
 + M $0
 + D $1
+
+DestroyFunc NoRaiseMove
+AddToFunc NoRaiseMove
++ M $0
 
 DestroyFunc RaiseMove
 AddToFunc RaiseMove
@@ -98,45 +84,6 @@ AddToFunc   IconManClick
 + I ThisWindow Raise
 + I ThisWindow (AcceptsFocus) FlipFocus
 
-# Function: ToggleTitle
-#
-# This function will toggle if fvwm shows the TitleBar.
-DestroyFunc ToggleTitle
-AddToFunc   ToggleTitle
-+ I ThisWindow (State 1) WindowStyle Title
-+ I TestRc (Match) State 1 False
-+ I TestRc (Match) Break
-+ I WindowStyle !Title
-+ I State 1 True
-
-# Function: ChangeDesk
-#
-# This function is called by FvwmEvent every time the Desk is changed.
-DestroyFunc ChangeDesk
-AddToFunc   ChangeDesk
-+ I SendToModule FvwmButtons ChangeButton desk0 Colorset 10
-+ I SendToModule FvwmButtons ChangeButton desk1 Colorset 10
-+ I SendToModule FvwmButtons ChangeButton desk2 Colorset 10
-+ I SendToModule FvwmButtons ChangeButton desk3 Colorset 10
-+ I SendToModule FvwmButtons ChangeButton desk$0 Colorset 11
-
-
-#############
-# 2: Styles #
-#############
-
-# Desktops and Pages
-#
-# Fvwm has both Virtual Desktops and Pages. Each Desktop is built from
-# a grid of Pages. The following sets the name of four Desktops and then
-# divides each Desktop into a 2x2 grid of Pages that are positioned as
-#
-#   +---+---+
-#   |   |   |
-#   +---+---+
-#   |   |   |
-#   +---+---+
-#
 DesktopName 0 1
 DesktopName 1 2
 DesktopName 2 3
@@ -159,6 +106,7 @@ EdgeThickness 1
 IgnoreModifiers L25
 # EwmhBaseStruts [left] [right] [top] [bottom]
 EwmhBaseStruts 0 0 0 0
+EwmhNumberOfDesktops 0 9
 # This sets the ClickTime and MoveThreshold used to determine
 # Double Clicks, Hold and Move for the mouse.
 ClickTime 250
@@ -177,7 +125,7 @@ Style * !FPGrabFocusTransient, FPReleaseFocusTransient
 Style * WindowShadeScrolls, WindowShadeSteps 10
 # Decor Styles
 # Style * BorderWidth 5, HandleWidth 5, MWMButtons, FvwmBorder, FirmBorder
-Style * BorderWidth 7, HandleWidth 7, FvwmBorder
+Style * BorderWidth 7, HandleWidth 7, FvwmBorder, !Title
 # Style * Colorset 1, HilightColorset 2
 # Style * BorderColorset 3, HilightBorderColorset 4
 
@@ -190,10 +138,11 @@ Style RightPanel !Title, !Borders, !Handles, Sticky, \
                  WindowListSkip, NeverFocus
 Style ConfirmQuit !Title, WindowListSkip, Layer 6
 Style FvwmIdent WindowListSkip
-Style FvwmPager !Title, Sticky, NeverFocus, handles
 
-Style trayer !Title, Sticky, !Handles
+Style trayer !Title, Sticky, !Handles, !Borders, NeverFocus, WindowListSkip, StaysOnBottom
+Style vala-panel !Title, Sticky, !Handles, !Borders, NeverFocus, WindowListSkip, StaysOnTop
 #######
+
 # 3: Colorsets
 #
 # Colorsets can be used to configure the color of the various
@@ -429,8 +378,24 @@ Silent Key 8 A 4 GotoDesk 0 7
 Silent Key 9 A 4 GotoDesk 0 8
 Silent Key 0 A 4 GotoDesk 0 9
 Silent Key x WFST 4 Close
+Silent Key m WFST 4 Maximize
+Silent Key space WFST 4 Menu MenuWindowOps
 Silent Key Return A 4 Exec exec $[infostore.terminal]
-
+# 
+# bindsym $modifier+y border pixel 5
+# bindsym XF86MonBrightnessUp exec brightnessctl -s s +5%
+# bindsym XF86MonBrightnessDown exec brightnessctl -s s 5%-
+# bindsym XF86Tools exec brightnessctl s 0
+# bindsym $modifier+XF86Tools exec brightnessctl -r
+# # bindsym $modifier+Print exec mate-screenshot -i
+# bindsym $modifier+Print exec xfce4-screenshooter
+# bindsym $modifier+XF86LaunchA exec gksudo -g -m "Suspend?" systemctl suspend
+# 
+# bindsym XF86AudioLowerVolume exec pactl set-sink-volume "@DEFAULT_SINK@" -5%
+# bindsym XF86AudioRaiseVolume exec pactl set-sink-volume "@DEFAULT_SINK@" +5%
+# bindsym XF86AudioMute exec pactl set-sink-mute "@DEFAULT_SINK@" toggle
+# bindsym XF86AudioMicMute exec pactl set-source-mute "@DEFAULT_SOURCE@" toggle
+# bindsym XF86Display exec arandr
 # Window Buttons: [1 3 5 7 9  TTTTT  0 8 6 4 2]
 #   1 - Open the WindowOps menu.
 #   2 - Close on single click, Destory on double click.
@@ -450,10 +415,13 @@ Mouse 1 6 A Iconify
 #                Right Click - WindowOps Menu
 #                Middle Click - Window List Menu
 #   Right click TitleBar/Borders for WindowOps Menu
-Mouse 1	T    A RaiseMoveX Move Maximize
-Mouse 1	FS   A RaiseMove Resize
-Mouse 4	T    A WindowShade True
-Mouse 5	T    A WindowShade False
+# Mouse 1	T    A RaiseMoveX Move Maximize
+Mouse 1	WFS  4 NoRaiseMove Move
+Mouse 1 WFS  S4 Menu MenuWindowOps Delete
+Mouse 2	WFS  4 Raise
+Mouse 3	WFS  4 NoRaiseMove Resize
+# Mouse 4	T    A WindowShade True
+# Mouse 5	T    A WindowShade False
 Mouse 1	R    A Menu MenuFvwmRoot
 Mouse 2	R    A WindowList
 Mouse 3	R    A Menu MenuWindowOpsLong
@@ -496,28 +464,30 @@ Mouse 3 I    A Menu MenuIconOps
 # ButtonStyle 4 - MwmDecorMax
 # ButtonStyle 6 - MwmDecorMin
 
-############
 # 7: Modules
-#############
-
-# FvwmIdent
-#
-# FvwmIdent is a module that can be used to get the various info about
-# a window. One use is getting the class/resource/name of a window.
 DestroyModuleConfig FvwmIdent:*
-*FvwmIdent: Colorset 10
+# *FvwmIdent: Colorset 10
 *FvwmIdent: Font "xft:Output Sans Testing:size=10:antialias=True"
 
-# FvwmScript
-#
-# FvwmScript is a module that allows one to write custom desktop
-# widgets and various other tools. This config uses two FvwmScripts.
-#   - DateTime - uses the output of "date" to display the date/time
-#     on the RightPanel.
-#   - Quit - This is a popup that asks for quit confirmation before
-#     quitting fvwm.
 DestroyModuleConfig FvwmScript:*
 *FvwmScript: DefaultColorset 10
+
+Style FvwmPager !Title, Sticky, NeverFocus, Borders, !Handles, WindowListSkip
+DestroyModuleConfig FvwmPager:*
+#*FvwmPager: Colorset * 10
+#*FvwmPager: HilightColorset * 13
+#*FvwmPager: BalloonColorset * 10
+#*FvwmPager: WindowColorsets 10 11
+# *FvwmPager: Font "xft:Output Sans Testing:Regular:size=10:antialias=True"
+*FvwmPager: Font none
+*FvwmPager: Rows 10
+*FvwmPager: Columns 1
+*FvwmPager: Balloons All
+*FvwmPager: BalloonFont "xft:Output Sans Testing:Bold:size=10:antialias=True"
+*FvwmPager: BallonYOffset +2
+*FvwmPager: Window3dBorders
+# *FvwmPager: MiniIcons
+*FvwmPager: Geometry 100x+0+0
 
 # FvwmButtons - RightPanel
 #
@@ -527,83 +497,63 @@ DestroyModuleConfig FvwmScript:*
 # FvwmIconMan (list of running windows), and a clock.
 #
 # Note - To use the system tray you must have "stalonetray" installed.
-DestroyModuleConfig RightPanel:*
-*RightPanel: Geometry 120x$[vp.height]-0+0
-*RightPanel: Colorset 10
-*RightPanel: Rows $[vp.height]
-*RightPanel: Columns 120
-*RightPanel: Frame 0
-*RightPanel: Font "xft:Output Sans Testing:Bold:size=11:antialias=True"
-*RightPanel: (120x45, Icon "fvwm-logo-small.png", Frame 0)
-*RightPanel: (120x5, Frame 0)
-*RightPanel: (10x20, Frame 0)
-*RightPanel: (25x20, Id desk0, Title "0", Action (Mouse 1) GotoDesk 0 0, Colorset 11, ActiveColorset 12, Frame 0)
-*RightPanel: (25x20, Id desk1, Title "1", Action (Mouse 1) GotoDesk 0 1, ActiveColorset 12, Frame 0)
-*RightPanel: (25x20, Id desk2, Title "2", Action (Mouse 1) GotoDesk 0 2, ActiveColorset 12, Frame 0)
-*RightPanel: (25x20, Id desk3, Title "3", Action (Mouse 1) GotoDesk 0 3, ActiveColorset 12, Frame 0)
-*RightPanel: (10x20, Frame 0)
-*RightPanel: (5x80, Frame 0)
-*RightPanel: (110x80, Swallow FvwmPager 'Module FvwmPager *', Frame 0)
-*RightPanel: (5x80, Frame 0)
-*RightPanel: (120x5, Frame 0)
-Test (x stalonetray) *RightPanel: (120x20, Swallow(NoClose,UseOld) \
-    stalonetray 'Exec exec stalonetray --config \
-    "~/.stalonetrayrc"', Frame 0)
-Test (x stalonetray) PipeRead 'echo "*RightPanel: (120x$(($[vp.height]-225)), \
-    Top, Swallow FvwmIconMan \'Module FvwmIconMan\', Frame 0)"'
-Test (!x stalonetray) PipeRead 'echo "*RightPanel: (120x$(($[vp.height]-205)),\
-    Top, Swallow FvwmIconMan \'Module FvwmIconMan\', Frame 0)"'
-*RightPanel: (120x45, Swallow DateTime 'Module FvwmScript FvwmScript-DateTime',\
-    Frame 0)
-*RightPanel: (120x5, Frame 0)
+# DestroyModuleConfig RightPanel:*
+# *RightPanel: Geometry 120x$[vp.height]-0+0
+# *RightPanel: Colorset 10
+# *RightPanel: Rows $[vp.height]
+# *RightPanel: Columns 120
+# *RightPanel: Frame 0
+# *RightPanel: Font "xft:Output Sans Testing:Bold:size=11:antialias=True"
+# *RightPanel: (120x45, Icon "fvwm-logo-small.png", Frame 0)
+# *RightPanel: (120x5, Frame 0)
+# *RightPanel: (10x20, Frame 0)
+# *RightPanel: (25x20, Id desk0, Title "0", Action (Mouse 1) GotoDesk 0 0, Colorset 11, ActiveColorset 12, Frame 0)
+# *RightPanel: (25x20, Id desk1, Title "1", Action (Mouse 1) GotoDesk 0 1, ActiveColorset 12, Frame 0)
+# *RightPanel: (25x20, Id desk2, Title "2", Action (Mouse 1) GotoDesk 0 2, ActiveColorset 12, Frame 0)
+# *RightPanel: (25x20, Id desk3, Title "3", Action (Mouse 1) GotoDesk 0 3, ActiveColorset 12, Frame 0)
+# *RightPanel: (10x20, Frame 0)
+# *RightPanel: (5x80, Frame 0)
+# *RightPanel: (110x80, Swallow FvwmPager 'Module FvwmPager *', Frame 0)
+# *RightPanel: (5x80, Frame 0)
+# *RightPanel: (120x5, Frame 0)
+# Test (x stalonetray) *RightPanel: (120x20, Swallow(NoClose,UseOld) \
+#     stalonetray 'Exec exec stalonetray --config \
+#     "~/.stalonetrayrc"', Frame 0)
+# Test (x stalonetray) PipeRead 'echo "*RightPanel: (120x$(($[vp.height]-225)), \
+#     Top, Swallow FvwmIconMan \'Module FvwmIconMan\', Frame 0)"'
+# Test (!x stalonetray) PipeRead 'echo "*RightPanel: (120x$(($[vp.height]-205)),\
+#     Top, Swallow FvwmIconMan \'Module FvwmIconMan\', Frame 0)"'
+# *RightPanel: (120x45, Swallow DateTime 'Module FvwmScript FvwmScript-DateTime',\
+#     Frame 0)
+# *RightPanel: (120x5, Frame 0)
 
 # FvwmPager
 #
 # This module displays the location of the windows on the various Pages
 # and Desks. This is setup to show only the Pages on the current Desk.
-DestroyModuleConfig FvwmPager:*
-#*FvwmPager: Colorset * 10
-#*FvwmPager: HilightColorset * 13
-#*FvwmPager: BalloonColorset * 10
-#*FvwmPager: WindowColorsets 10 11
-*FvwmPager: Font "xft:Output Sans Testing:Regular:size=10:antialias=True"
-*FvwmPager: Balloons All
-*FvwmPager: BalloonFont "xft:Output Sans Testing:Bold:size=10:antialias=True"
-*FvwmPager: BallonYOffset +2
-*FvwmPager: Window3dBorders
-*FvwmPager: MiniIcons
 
 # FvwmIconMan
 #
 # FvwmIconMan is a powerful tool to list and manage windows. This
 # is used as the window list in the panel or taskbar.
-DestroyModuleConfig FvwmIconMan:*
-*FvwmIconMan: UseWinList true
-# *FvwmIconMan: ButtonGeometry 120x20
-*FvwmIconMan: ManagerGeometry 1x1
-*FvwmIconMan: Background #003c3c
-*FvwmIconMan: Foreground #ffffff
-*FvwmIconMan: FocusColorset 11
-*FvwmIconMan: IconColorset 14
-*FvwmIconMan: FocusAndSelectColorset 12
-*FvwmIconMan: SelectColorset 12
-*FvwmIconMan: IconAndSelectColorset 12
-*FvwmIconMan: DrawIcons always
-*FvwmIconMan: Window3dBorders
-*FvwmIconMan: Format "%t"
-*FvwmIconMan: Font "xft:Output Sans Testing:Bold:size=11:antialias=True"
-*FvwmIconMan: Action Mouse 0 A ret
-*FvwmIconMan: Action Mouse 1 A sendcommand IconManClick
-*FvwmIconMan: Action Mouse 3 A sendcommand "Menu MenuIconOps"
-*FvwmIconMan: Resolution global
-*FvwmIconMan: Tips needed
-*FvwmIconMan: Sort id
-
-# FvwmEvent
-#
-# FvwmEvent is a module that can run an action or function
-# on specific events. This instance changes which desk number
-# is highlighted when the desk is changed.
-DestroyModuleConfig EventNewDesk:*
-*EventNewDesk: PassID
-*EventNewDesk: new_desk ChangeDesk
+# DestroyModuleConfig FvwmIconMan:*
+# *FvwmIconMan: UseWinList true
+# # *FvwmIconMan: ButtonGeometry 120x20
+# *FvwmIconMan: ManagerGeometry 1x1
+# *FvwmIconMan: Background #003c3c
+# *FvwmIconMan: Foreground #ffffff
+# *FvwmIconMan: FocusColorset 11
+# *FvwmIconMan: IconColorset 14
+# *FvwmIconMan: FocusAndSelectColorset 12
+# *FvwmIconMan: SelectColorset 12
+# *FvwmIconMan: IconAndSelectColorset 12
+# *FvwmIconMan: DrawIcons always
+# *FvwmIconMan: Window3dBorders
+# *FvwmIconMan: Format "%t"
+# *FvwmIconMan: Font "xft:Output Sans Testing:Bold:size=11:antialias=True"
+# *FvwmIconMan: Action Mouse 0 A ret
+# *FvwmIconMan: Action Mouse 1 A sendcommand IconManClick
+# *FvwmIconMan: Action Mouse 3 A sendcommand "Menu MenuIconOps"
+# *FvwmIconMan: Resolution global
+# *FvwmIconMan: Tips needed
+# *FvwmIconMan: Sort id
