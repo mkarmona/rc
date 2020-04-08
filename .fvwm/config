@@ -163,7 +163,7 @@ EwmhBaseStruts 0 0 0 0
 # Double Clicks, Hold and Move for the mouse.
 ClickTime 250
 MoveThreshold 3
-DefaultFont "xft:Output Sans Testing:Regular:size=10:antialias=True"
+DefaultFont "xft:Output Sans Testing:Bold:size=10:antialias=True"
 OpaqueMoveSize unlimited
 # 
 # STYLES!!!!!!!!!!!!!
