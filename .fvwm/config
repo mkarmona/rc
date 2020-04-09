@@ -31,7 +31,7 @@ AddToFunc   StartFunction
 + I Test (Init) Exec exec picom -cGf -o 0.3 -O 200 -I 200 -t 0 -l 0 -r 4 -D 2 -m 0.90
 + I Test (Init) Exec exec nitrogen --restore
 + I Test (Init) Exec exec xrdb -load ~/.Xdefaults ~/.Xresources
-+ I Test (Init) Exec exec xbattbar -c -a -p 60 -t 3
++ I Test (Init) Exec exec xbattbar -c -a -p 15 -t 3
 # + I Test (Init) Exec exec cbatticon -u 60
 + I Test (Init) Exec exec trayer --widthtype request --align right --edge top --transparent true --alpha 127 --tint 282828 --padding 25 --iconspacing 10 --margin 10 --distance 10
 + I Test (Init) Exec exec /usr/libexec/gsd-xsettings
