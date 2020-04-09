@@ -32,7 +32,7 @@ AddToFunc   StartFunction
 + I Test (Init) Exec exec xrdb -load ~/.Xdefaults ~/.Xresources
 + I Test (Init) Exec exec xbattbar -c -a -p 15
 + I Test (Init) Exec exec trayer --widthtype request --align right --edge top --transparent true --alpha 127 --tint 282828 --padding 25 --iconspacing 10 --margin 10 --distance 10
-+ I Test (Init) Exec exec /usr/libexec/gsd-xettings
++ I Test (Init) Exec exec /usr/libexec/gsd-xsettings
 + I Test (Init) Exec exec /usr/libexec/gsd-printer
 + I Test (Init) Exec exec /usr/libexec/gsd-print-notifications
 # + I Test (Init) Exec exec xfce4-power-manager --no-daemon
@@ -377,25 +377,39 @@ Silent Key 7 A 4 GotoDesk 0 6
 Silent Key 8 A 4 GotoDesk 0 7
 Silent Key 9 A 4 GotoDesk 0 8
 Silent Key 0 A 4 GotoDesk 0 9
+
+# move window to desk N
+Silent Key 1 A S4 ThisWindow MoveToDesk 0 0
+Silent Key 2 A S4 ThisWindow MoveToDesk 0 1
+Silent Key 3 A S4 ThisWindow MoveToDesk 0 2
+Silent Key 4 A S4 ThisWindow MoveToDesk 0 3
+Silent Key 5 A S4 ThisWindow MoveToDesk 0 4
+Silent Key 6 A S4 ThisWindow MoveToDesk 0 5
+Silent Key 7 A S4 ThisWindow MoveToDesk 0 6
+Silent Key 8 A S4 ThisWindow MoveToDesk 0 7
+Silent Key 9 A S4 ThisWindow MoveToDesk 0 8
+Silent Key 0 A S4 ThisWindow MoveToDesk 0 9
 Silent Key x WFST 4 Close
+Silent Key x WFST S4 Destroy
 Silent Key m WFST 4 Maximize
-Silent Key space WFST 4 Menu MenuWindowOps
+Silent Key i WFST 4 Iconify
+Silent Key w WFST 4 ThisWindow Menu MenuWindowOps
 Silent Key Return A 4 Exec exec $[infostore.terminal]
 # 
-# bindsym $modifier+y border pixel 5
-# bindsym XF86MonBrightnessUp exec brightnessctl -s s +5%
-# bindsym XF86MonBrightnessDown exec brightnessctl -s s 5%-
-# bindsym XF86Tools exec brightnessctl s 0
-# bindsym $modifier+XF86Tools exec brightnessctl -r
-# # bindsym $modifier+Print exec mate-screenshot -i
-# bindsym $modifier+Print exec xfce4-screenshooter
-# bindsym $modifier+XF86LaunchA exec gksudo -g -m "Suspend?" systemctl suspend
-# 
-# bindsym XF86AudioLowerVolume exec pactl set-sink-volume "@DEFAULT_SINK@" -5%
-# bindsym XF86AudioRaiseVolume exec pactl set-sink-volume "@DEFAULT_SINK@" +5%
-# bindsym XF86AudioMute exec pactl set-sink-mute "@DEFAULT_SINK@" toggle
-# bindsym XF86AudioMicMute exec pactl set-source-mute "@DEFAULT_SOURCE@" toggle
-# bindsym XF86Display exec arandr
+Silent key XF86MonBrightnessUp     A N Exec exec brightnessctl -s s +5%
+Silent key XF86MonBrightnessDown   A N Exec exec brightnessctl -s s 5%-
+Silent key XF86Tools               A N Exec exec brightnessctl s 0
+Silent key XF86Tools               A 4 Exec exec brightnessctl -r
+Silent key Print                   A 4 Exec exec gnome-screenshot -i
+Silent key XF86LaunchA             A 4 Exec exec gksudo -g -m "Suspend?" systemctl suspend
+Silent key XF86Explorer            A 4 Exec exec gksudo -g -m "Hibernate?" systemctl hibernate
+Silent key XF86AudioLowerVolume    A N Exec exec pactl set-sink-volume "@DEFAULT_SINK@" -5%
+Silent key XF86AudioRaiseVolume    A N Exec exec pactl set-sink-volume "@DEFAULT_SINK@" +5%
+Silent key XF86AudioMute           A N Exec exec pactl set-sink-mute "@DEFAULT_SINK@" toggle
+Silent key XF86AudioMicMute        A N Exec exec pactl set-source-mute "@DEFAULT_SOURCE@" toggle
+Silent key XF86Display             A N Exec exec arandr
+
+
 # Window Buttons: [1 3 5 7 9  TTTTT  0 8 6 4 2]
 #   1 - Open the WindowOps menu.
 #   2 - Close on single click, Destory on double click.

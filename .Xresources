@@ -7,12 +7,14 @@ Xft.hintstyle:	hintfull
 Xft.lcdfilter: lcddefault
 Xft.rgba:	rgb
 
+*faceName: 'Output Sans Testing'
+*faceSize: 10
 URxvt*transparent: false
 URxvt*saveLines: 100000
 URxvt*foreground: #282828
 URxvt*background: #eeeeee
-URxvt*font: xft:Input:pixelsize=12:antialias=true:hinting=true
-URxvt*boldFont: xft:Input Bold:pixelsize=12:antialias=true:hinting=true
+URxvt*font: xft:Input:pixelsize=12
+URxvt*boldFont: xft:Input Bold:pixelsize=12
 URxvt*scrollBar: false
 URxvt*scrollBar_right: true
 URxvt*scrollstyle: rxvt
