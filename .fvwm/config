@@ -7,7 +7,7 @@
 #    7: Modules
 #
 InfoStoreAdd terminal gnome-terminal
-InfoStoreAdd explorer nautilus -w
+InfoStoreAdd explorer nautilus
 
 # 1: Functions
 #
@@ -397,7 +397,8 @@ Silent Key m WFST 4 Maximize
 Silent Key i WFST 4 Iconify
 Silent Key w WFST 4 ThisWindow Menu MenuWindowOps
 Silent Key Return A 4 Exec exec $[infostore.terminal]
-Silent Key e A 4 Exec exec $[infostore.explorer]
+Silent Key e A 4 Exec exec $[infostore.explorer] -w
+Silent Key e A S4 Exec exec $[infostore.explorer]
 # 
 Silent key XF86MonBrightnessUp     A N Exec exec brightnessctl -s s +5%
 Silent key XF86MonBrightnessDown   A N Exec exec brightnessctl -s s 5%-
