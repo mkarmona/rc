@@ -8,6 +8,7 @@
 #
 InfoStoreAdd terminal gnome-terminal
 InfoStoreAdd explorer nautilus
+InfoStoreAdd scripts $[HOME]/.fvwm/scripts
 
 # 1: Functions
 #
@@ -191,7 +192,7 @@ MenuStyle * MenuColorset 5, ActiveColorset 6, GreyedColorset 7, TitleColorset 8
 MenuStyle * Hilight3DOff, HilightBack, HilightTitleBack, SeparatorsLong
 MenuStyle * TrianglesSolid, TrianglesUseFore
 MenuStyle * ItemFormat "%|%3.1i%5.3l%5.3>%|"
-MenuStyle * Font "xft:Output Sans Testing:Regular:size=10:antialias=True"
+MenuStyle * Font "xft:Output Sans Testing:Regular:size=10"
 
 # Root Menu
 #
@@ -368,7 +369,7 @@ AddToMenu   MenuSendToPage
 # Silent Key 
 Silent Key q A 4 Menu MenuFvwmRoot
 Silent Key d A 4 Exec exec rofi -show combi
-Silent Key Tab A 4 WindowList Root c c NoDeskSort, SelectOnRelease Mod4
+Silent Key Tab A 4 WindowList Root c c CurrentDesk, NoDeskNum, SelectOnRelease Super_L
 Silent Key 1 A 4 GotoDesk 0 0
 Silent Key 2 A 4 GotoDesk 0 1
 Silent Key 3 A 4 GotoDesk 0 2
@@ -391,14 +392,16 @@ Silent Key 7 A S4 ThisWindow MoveToDesk 0 6
 Silent Key 8 A S4 ThisWindow MoveToDesk 0 7
 Silent Key 9 A S4 ThisWindow MoveToDesk 0 8
 Silent Key 0 A S4 ThisWindow MoveToDesk 0 9
-Silent Key x WFST 4 Close
-Silent Key x WFST S4 Destroy
-Silent Key m WFST 4 Maximize
-Silent Key i WFST 4 Iconify
+Silent Key x WFST 4 ThisWindow Close
+Silent Key x WFST S4 ThisWindow Destroy
+Silent Key m WFST 4 ThisWindow Maximize
+Silent Key i WFST 4 ThisWindow Iconify
+Silent Key s WFST 4 ThisWindow Stick
 Silent Key w WFST 4 ThisWindow Menu MenuWindowOps
 Silent Key Return A 4 Exec exec $[infostore.terminal]
 Silent Key e A 4 Exec exec $[infostore.explorer] -w
 Silent Key e A S4 Exec exec $[infostore.explorer]
+Silent Key t A 4 Exec exec notify-send "$(date)"
 # 
 Silent key XF86MonBrightnessUp     A N Exec exec brightnessctl -s s +5%
 Silent key XF86MonBrightnessDown   A N Exec exec brightnessctl -s s 5%-
