@@ -7,6 +7,7 @@
 #    7: Modules
 #
 InfoStoreAdd terminal gnome-terminal
+InfoStoreAdd explorer nautilus -w
 
 # 1: Functions
 #
@@ -30,7 +31,8 @@ AddToFunc   StartFunction
 + I Test (Init) Exec exec picom -cGf -o 0.3 -O 200 -I 200 -t 0 -l 0 -r 4 -D 2 -m 0.90
 + I Test (Init) Exec exec nitrogen --restore
 + I Test (Init) Exec exec xrdb -load ~/.Xdefaults ~/.Xresources
-+ I Test (Init) Exec exec xbattbar -c -a -p 15
++ I Test (Init) Exec exec xbattbar -c -a -p 60 -t 3
+# + I Test (Init) Exec exec cbatticon -u 60
 + I Test (Init) Exec exec trayer --widthtype request --align right --edge top --transparent true --alpha 127 --tint 282828 --padding 25 --iconspacing 10 --margin 10 --distance 10
 + I Test (Init) Exec exec /usr/libexec/gsd-xsettings
 + I Test (Init) Exec exec /usr/libexec/gsd-printer
@@ -105,7 +107,7 @@ EdgeThickness 1
 # See http://fvwm.org/documentation/faq/#why-do-numlock-capslock-and-scrolllock-interfere-with-clicktofocus-andor-my-mouse-bindings
 IgnoreModifiers L25
 # EwmhBaseStruts [left] [right] [top] [bottom]
-EwmhBaseStruts 0 0 0 0
+EwmhBaseStruts 0 0 0 3
 EwmhNumberOfDesktops 0 9
 # This sets the ClickTime and MoveThreshold used to determine
 # Double Clicks, Hold and Move for the mouse.
@@ -395,6 +397,7 @@ Silent Key m WFST 4 Maximize
 Silent Key i WFST 4 Iconify
 Silent Key w WFST 4 ThisWindow Menu MenuWindowOps
 Silent Key Return A 4 Exec exec $[infostore.terminal]
+Silent Key e A 4 Exec exec $[infostore.explorer]
 # 
 Silent key XF86MonBrightnessUp     A N Exec exec brightnessctl -s s +5%
 Silent key XF86MonBrightnessDown   A N Exec exec brightnessctl -s s 5%-

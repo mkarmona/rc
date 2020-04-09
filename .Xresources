@@ -7,8 +7,10 @@ Xft.hintstyle:	hintfull
 Xft.lcdfilter: lcddefault
 Xft.rgba:	rgb
 
-*faceName: 'Output Sans Testing'
+*face: Output Sans Testing
+*faceName: Output Sans Testing
 *faceSize: 10
+XClock*face: Ouput Sans Testing
 URxvt*transparent: false
 URxvt*saveLines: 100000
 URxvt*foreground: #282828
@@ -18,3 +20,5 @@ URxvt*boldFont: xft:Input Bold:pixelsize=12
 URxvt*scrollBar: false
 URxvt*scrollBar_right: true
 URxvt*scrollstyle: rxvt
+XTerm*faceName: Input
+XTerm*faceSize: 10
