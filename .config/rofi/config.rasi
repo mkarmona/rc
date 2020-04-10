@@ -1,17 +1,17 @@
 configuration {
 	modi: "combi,run";
-/*	width: 50;*/
-/*	lines: 15;*/
+	width: 50;
+	lines: 10;
 /*	columns: 1;*/
-	font: "Output Sans Testing Bold 26";
+	font: "Output Sans Testing Bold 30";
 /*	bw: 1;*/
 /*	location: 0;*/
 /*	padding: 5;*/
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/
-/*	fixed-num-lines: true;*/
+	fixed-num-lines: true;
 /*	show-icons: false;*/
-/*	terminal: "rofi-sensible-terminal";*/
+    terminal: "gnome-terminal";
 /*	ssh-client: "ssh";*/
 /*	ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";*/
 /*	run-command: "{cmd}";*/
@@ -23,13 +23,13 @@ configuration {
 /*	drun-match-fields: "name,generic,exec,categories";*/
 /*	drun-show-actions: false;*/
 /*	drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";*/
-/*	disable-history: false;*/
+    disable-history: false;
 /*	ignored-prefixes: "";*/
 /*	sort: false;*/
 /*	sorting-method: ;*/
 /*	case-sensitive: false;*/
 /*	cycle: true;*/
-/*	sidebar-mode: false;*/
+/*    sidebar-mode: true;*/
 /*	eh: 1;*/
 /*	auto-select: false;*/
 /*	parse-hosts: false;*/
@@ -47,7 +47,7 @@ configuration {
 /*	fake-transparency: false;*/
 /*	dpi: -1;*/
 /*	threads: 0;*/
-	scrollbar-width: 12;
+	scrollbar-width: 24;
 /*	scroll-method: 0;*/
 /*	fake-background: "screenshot";*/
 /*	window-format: "{w}    {c}   {t}";*/
@@ -55,8 +55,8 @@ configuration {
     show-match: true;
     /*
     theme: "/usr/share/rofi/themes/gruvbox-dark.rasi";
-    */
     theme: "/usr/share/rofi/themes/custom-nord.rasi";
+    */
 /*	color-normal: ;*/
 /*	color-urgent: ;*/
 /*	color-active: ;*/
@@ -146,3 +146,4 @@ configuration {
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
 }
+@import "~/.config/rofi/themes/blue.rasi"

@@ -35,7 +35,7 @@ AddToFunc   StartFunction
 + I Test (Init) Exec exec xrdb -load ~/.Xdefaults ~/.Xresources
 + I Test (Init) Exec exec xbattbar -c -a -p 15 -t 3
 # + I Test (Init) Exec exec cbatticon -u 60
-+ I Test (Init) Exec exec trayer --widthtype request --align right --edge top --transparent true --alpha 127 --tint 282828 --padding 25 --iconspacing 10 --margin 10 --distance 10
++ I Test (Init) Exec exec trayer --widthtype request --align right --edge top --transparent true --alpha 127 --tint 282828 --padding 25 --iconspacing 10 --margin 70 --distance 10
 + I Test (Init) Exec exec /usr/libexec/gsd-xsettings
 + I Test (Init) Exec exec /usr/libexec/gsd-printer
 + I Test (Init) Exec exec /usr/libexec/gsd-print-notifications
@@ -46,8 +46,8 @@ AddToFunc   StartFunction
 + I Test (Init) Exec exec megasync
 + I Test (Init) Exec exec mullvad-vpn
 + I Test (Restart) Exec exec nitrogen --restore
++ I Module FvwmPager 0 9
 # + I Module FvwmButtons RightPanel
-# + I Module FvwmPager 0 9
 # + I Module FvwmIconMan
 # + I Module FvwmEvent EventNewDesk
 
@@ -91,6 +91,29 @@ AddToFunc SelectWindow
 + I Raise
 + I WarpToWindow 50 50
 
+DestroyFunc SnapMain
+AddToFunc SnapMain
++ I Maximize True 95 95
++ I Move 0 0
+
+# Snap left
+DestroyFunc SnapLeft
+AddToFunc SnapLeft
++ I Maximize True 66 100
++ I Move 0 0
+
+# Snap right
+DestroyFunc SnapRight
+AddToFunc SnapRight
++ I Maximize True 66 100
++ I Move -0 0
+
+# Zoom unmaximize large
+DestroyFunc SnapCenter
+AddToFunc SnapCenter
++ I Maximize True 90 90
++ I Move 50-50w 50-50w
+
 DesktopName 0 1
 DesktopName 1 2
 DesktopName 2 3
@@ -112,7 +135,7 @@ EdgeThickness 1
 # See http://fvwm.org/documentation/faq/#why-do-numlock-capslock-and-scrolllock-interfere-with-clicktofocus-andor-my-mouse-bindings
 IgnoreModifiers L25
 # EwmhBaseStruts [left] [right] [top] [bottom]
-EwmhBaseStruts 0 0 0 3
+EwmhBaseStruts 0 64 0 3
 EwmhNumberOfDesktops 0 9
 # This sets the ClickTime and MoveThreshold used to determine
 # Double Clicks, Hold and Move for the mouse.
@@ -403,7 +426,11 @@ Silent Key 9 A S4 ThisWindow MoveToDesk 0 8
 Silent Key 0 A S4 ThisWindow MoveToDesk 0 9
 Silent Key x WFST 4 ThisWindow Close
 Silent Key x WFST S4 ThisWindow Destroy
-Silent Key m WFST 4 ThisWindow Maximize
+Silent Key f WFST 4 ThisWindow Maximize
+Silent Key m WFST 4 ThisWindow SnapMain
+Silent Key c WFST 4 ThisWindow SnapCenter
+Silent Key Left WFST S4 ThisWindow SnapLeft
+Silent Key Right WFST S4 ThisWindow SnapRight
 Silent Key i WFST 4 ThisWindow Iconify
 Silent Key s WFST 4 ThisWindow Stick
 Silent Key w WFST 4 ThisWindow Menu MenuWindowOps
@@ -411,6 +438,7 @@ Silent Key Return A 4 Exec exec $[infostore.terminal]
 Silent Key e A 4 Exec exec $[infostore.explorer] -w
 Silent Key e A S4 Exec exec $[infostore.explorer]
 Silent Key t A 4 Exec exec notify-send "$(date)"
+Silent Key l A 4 Exec exec xscreensaver-command -lock
 # 
 Silent key XF86MonBrightnessUp     A N Exec exec brightnessctl -s s +5%
 Silent key XF86MonBrightnessDown   A N Exec exec brightnessctl -s s 5%-
@@ -502,12 +530,12 @@ DestroyModuleConfig FvwmIdent:*
 DestroyModuleConfig FvwmScript:*
 *FvwmScript: DefaultColorset 10
 
-Style FvwmPager !Title, Sticky, NeverFocus, Borders, !Handles, WindowListSkip
+Style FvwmPager !Title, Sticky, NeverFocus, Borders, Handles, WindowListSkip
 DestroyModuleConfig FvwmPager:*
-#*FvwmPager: Colorset * 10
-#*FvwmPager: HilightColorset * 13
+*FvwmPager: Colorset * 10
+*FvwmPager: HilightColorset * 13
 #*FvwmPager: BalloonColorset * 10
-#*FvwmPager: WindowColorsets 10 11
+*FvwmPager: WindowColorsets 10 11
 # *FvwmPager: Font "xft:Output Sans Testing:Regular:size=10:antialias=True"
 *FvwmPager: Font none
 *FvwmPager: Rows 10
@@ -517,7 +545,7 @@ DestroyModuleConfig FvwmPager:*
 *FvwmPager: BallonYOffset +2
 *FvwmPager: Window3dBorders
 # *FvwmPager: MiniIcons
-*FvwmPager: Geometry 100x+0+0
+*FvwmPager: Geometry 50x+-0+0
 
 # FvwmButtons - RightPanel
 #
