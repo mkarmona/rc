@@ -29,6 +29,7 @@ AddToFunc ExitFunction
 #
 DestroyFunc StartFunction
 AddToFunc   StartFunction
++ I Test (Init) Exec exec xscreensaver
 + I Test (Init) Exec exec picom -cGf -o 0.3 -O 200 -I 200 -t 0 -l 0 -r 4 -D 2 -m 0.90
 + I Test (Init) Exec exec nitrogen --restore
 + I Test (Init) Exec exec xrdb -load ~/.Xdefaults ~/.Xresources
@@ -38,10 +39,6 @@ AddToFunc   StartFunction
 + I Test (Init) Exec exec /usr/libexec/gsd-xsettings
 + I Test (Init) Exec exec /usr/libexec/gsd-printer
 + I Test (Init) Exec exec /usr/libexec/gsd-print-notifications
-# + I Test (Init) Exec exec xfce4-power-manager --no-daemon
-#+ I Test (Init) Exec exec xfce4-screensaver --no-daemon
-# + I Test (Init) Exec exec xfce4-clipman --no-daemon
-# + I Test (Init) Exec exec xfce4-panel -d
 + I Test (Init) Exec exec pasystray --include-monitors -t
 + I Test (Init) Exec exec diodon
 + I Test (Init) Exec exec nm-applet
@@ -86,6 +83,13 @@ AddToFunc   IconManClick
 + I ThisWindow Iconify off
 + I ThisWindow Raise
 + I ThisWindow (AcceptsFocus) FlipFocus
+
+DestroyFunc SelectWindow
+AddToFunc SelectWindow
++ I Focus
+# + I Iconify false
++ I Raise
++ I WarpToWindow 50 50
 
 DesktopName 0 1
 DesktopName 1 2
@@ -369,7 +373,12 @@ AddToMenu   MenuSendToPage
 # Silent Key 
 Silent Key q A 4 Menu MenuFvwmRoot
 Silent Key d A 4 Exec exec rofi -show combi
-Silent Key Tab A 4 WindowList Root c c CurrentDesk, NoDeskNum, SelectOnRelease Super_L
+# Silent Key Tab A 4 WindowList Root c c CurrentDesk, NoDeskNum, SelectOnRelease Super_L
+Silent Key Tab A 4 WindowList Root c c CurrentDesk, NoGeometry, CurrentAtEnd, IconifiedAtEnd, SelectOnRelease Super_L
+Silent Key Right A 4 Next (AcceptsFocus, CurrentDesk, !Iconic) SelectWindow
+Silent Key Left A 4 Prev (AcceptsFocus, CurrentDesk, !Iconic) SelectWindow
+Silent Key Prior A 4 GotoDesk -1 0 9
+Silent Key Next A 4 GotoDesk +1 0 9
 Silent Key 1 A 4 GotoDesk 0 0
 Silent Key 2 A 4 GotoDesk 0 1
 Silent Key 3 A 4 GotoDesk 0 2

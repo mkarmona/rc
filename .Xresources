@@ -7,6 +7,7 @@ Xft.hintstyle:	hintfull
 Xft.lcdfilter: lcddefault
 Xft.rgba:	rgb
 
+*font: -*-times-medium-r-*-*-34-*-*-*-*-*-*-*
 *face: Output Sans Testing
 *faceName: Output Sans Testing
 *faceSize: 10
