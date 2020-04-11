@@ -84,6 +84,11 @@ AddToFunc   IconManClick
 + I ThisWindow Raise
 + I ThisWindow (AcceptsFocus) FlipFocus
 
+# STATES
+# State 1 maximized
+# State 2 main max
+# State 3 center max
+#
 DestroyFunc SelectWindow
 AddToFunc SelectWindow
 + I Focus
@@ -93,26 +98,34 @@ AddToFunc SelectWindow
 
 DestroyFunc SnapMain
 AddToFunc SnapMain
-+ I Maximize True 95 95
-+ I Move 0 0
++ I ThisWindow (!Maximized) Maximize True 95 95
++ I TestRc (Match) ThisWindow Move 0 0
++ I TestRc (Match) Break
++ I ThisWindow (Maximized) Maximize
 
 # Snap left
 DestroyFunc SnapLeft
 AddToFunc SnapLeft
-+ I Maximize True 66 100
-+ I Move 0 0
++ I ThisWindow (!Maximized) Maximize True 66 100
++ I TestRc (Match) Move 0 0
++ I TestRc (Match) Break
++ I ThisWindow (Maximized) Maximize
 
 # Snap right
 DestroyFunc SnapRight
 AddToFunc SnapRight
-+ I Maximize True 66 100
-+ I Move -0 0
++ I ThisWindow (!Maximized) Maximize True 66 100
++ I TestRc (Match) Move -0 0
++ I TestRc (Match) Break
++ I ThisWindow (Maximized) Maximize
 
 # Zoom unmaximize large
 DestroyFunc SnapCenter
 AddToFunc SnapCenter
-+ I Maximize True 90 90
-+ I Move 50-50w 50-50w
++ I ThisWindow (!Maximized) Maximize True 90 90
++ I TestRc (Match) Move 50-50w 50-50w
++ I TestRc (Match) Break
++ I ThisWindow (Maximized) Maximize
 
 DesktopName 0 1
 DesktopName 1 2
