@@ -13,19 +13,20 @@
     alternate-normal-background: rgba ( 0, 0, 0, 0 % );
     red:                         rgba ( 191, 54, 12, 100 % );
     selected-urgent-foreground:  rgba ( 2, 136, 209, 100 % );
-    blue:                        rgba ( 38, 139, 210, 100 % );
+    blue:                        rgba ( 1, 87, 155, 100 % );
+    lightblue:                   rgba ( 2, 136, 209, 100 % );
     urgent-foreground:           rgba ( 255, 160, 160, 100 % );
     alternate-urgent-background: rgba ( 0, 0, 0, 0 % );
-    active-foreground:           @yellow;
+    active-foreground:           @white;
     lightbg:                     rgba ( 238, 232, 213, 100 % );
-    selected-active-foreground:  @yellow;
+    selected-active-foreground:  @blue;
     alternate-active-background: rgba ( 0, 0, 0, 0 % );
-    background:                  rgba ( 2, 136, 209, 90 % );
+    background:                  @blue;
     bordercolor:                  rgba ( 2, 136, 209, 90 % );
     alternate-normal-foreground: @foreground;
     normal-background:           rgba ( 0, 0, 0, 0 % );
     lightfg:                     rgba ( 88, 104, 117, 100 % );
-    selected-normal-background:  rgba ( 1, 87, 155, 100 % );
+    selected-normal-background:  @lightblue;
     border-color:                @background;
     spacing:                     2;
     separatorcolor:              @foreground;
@@ -35,11 +36,11 @@
     background-color:            rgba ( 0, 0, 0, 0 % );
     alternate-active-foreground: @active-foreground;
     active-background:           rgba ( 0, 0, 0, 0 % );
-    selected-active-background:  @red;
+    selected-active-background:  @white;
 }
 #window {
     background-color: @background;
-    border:           0;
+    border:           10;
     padding:          10;
 }
 #mainbox {
@@ -60,11 +61,11 @@
     border-color: @separatorcolor;
     spacing:      2px ;
     scrollbar:    false;
-    padding:      2px 0px 0px ;
+    padding:      0px 0px 0px ;
 }
 #element {
     border:  0;
-    padding: 1px ;
+    padding: 0px 0px 10px 10px ;
 }
 #element.normal.normal {
     background-color: @normal-background;
@@ -119,7 +120,7 @@
 #inputbar {
     spacing:    0;
     text-color: @normal-foreground;
-    padding:    1px ;
+    padding:    0px 10px ;
 }
 #case-indicator {
     spacing:    0;

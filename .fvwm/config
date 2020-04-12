@@ -25,8 +25,8 @@ AddToFunc ExitFunction
 + I Test (Quit) Echo Bye-bye
 # + I KillModule MyBuggyModule
 + I Test (ToRestart) Beep
-# Start Function
-#
+
+
 DestroyFunc StartFunction
 AddToFunc   StartFunction
 + I Test (Init) Exec exec /usr/libexec/gsd-xsettings
@@ -164,6 +164,7 @@ ClickTime 250
 MoveThreshold 3
 DefaultFont "xft:Output Sans Testing:Bold:size=10"
 OpaqueMoveSize unlimited
+HideGeometryWindow Move
 
 DestroyDecor FlatDecor
 AddToDecor FlatDecor
@@ -171,8 +172,6 @@ AddToDecor FlatDecor
 + TitleStyle  -- flat
 + BorderStyle -- HiddenHandles NoInset
 
-# STYLES!!!!!!!!!!!!!
-#
 Style * EdgeMoveDelay 350, EdgeMoveResistance 350
 Style * SloppyFocus, MouseFocusClickRaises
 Style * MinOverlapPlacement, GrabFocusOff, !UsePPosition
@@ -193,7 +192,7 @@ Style * !Icon
 # Window Specific Styles
 Style RightPanel !Title, !Borders, !Handles, Sticky, \
                  WindowListSkip, NeverFocus
-Style ConfirmQuit !Title, WindowListSkip, Layer 6
+Style ConfirmQuit !Title, Layer 6
 Style FvwmIdent WindowListSkip
 Style trayer !Title, Sticky, !Handles, !Borders, NeverFocus, WindowListSkip, StaysOnBottom
 # Style tint2 !Title, Sticky, !Handles, !Borders, NeverFocus, WindowListSkip, StaysOnTop, Layer 2, Geometry +0+0
@@ -269,7 +268,7 @@ Colorset 21 fg #f3f3f3, bg #01579b, hi, sh, Plain, NoShape
 # 4: Menus
 ###########
 MenuStyle * MenuColorset 5, ActiveColorset 6, GreyedColorset 7, TitleColorset 8
-MenuStyle * Hilight3DOff, HilightBack, HilightTitleBack, SeparatorsLong, BorderWidth 2
+MenuStyle * Hilight3DOff, HilightBack, HilightTitleBack, SeparatorsLong, BorderWidth 2, UseDecor FlatDecor
 MenuStyle * TrianglesSolid, TrianglesUseFore
 MenuStyle * ItemFormat "%|%3.1i%5.3l%5.3>%|"
 MenuStyle * Font "xft:Output Sans Testing:Bold:size=10"
@@ -440,17 +439,10 @@ AddToMenu   MenuSendToPage
 # Format: Key <X>  <Context> <Modifier> <Action>
 #         Mouse <X> <Context> <Modifier> <Action>
 ####################
-
-# Alt-F1 or Menu to load the root menu and Alt-Tab for a WindowList.
-# Ctrl-F1/F2/F3/F4 will switch between the Virtual Desktops.
-# Super_R (windows key) will launch a terminal.
-#
-# Silent supresses any errors (such as keyboards with no Menu key).
-# Silent Key 
 Silent Key q A 4 Menu MenuFvwmRoot
 Silent Key d A 4 Exec exec rofi -show combi
-# Silent Key Tab A 4 WindowList Root c c CurrentDesk, NoDeskNum, SelectOnRelease Super_L
-Silent Key Tab A 4 WindowList Root c c CurrentDesk, NoGeometry, CurrentAtEnd, IconifiedAtEnd, SelectOnRelease Super_L
+# Silent Key Tab A 4 WindowList Root c c CurrentDesk, NoGeometry, CurrentAtEnd, IconifiedAtEnd, SelectOnRelease Super_L
+Silent Key Tab A 4 WindowList Root c c TitleForAllDesks, NoNumInDeskTitle, NoCurrentDeskTitle, NoGeometry, CurrentAtEnd, IconifiedAtEnd, SelectOnRelease Super_L
 Silent Key Right A 4 Next (AcceptsFocus, CurrentDesk, !Iconic) SelectWindow
 Silent Key Left A 4 Prev (AcceptsFocus, CurrentDesk, !Iconic) SelectWindow
 Silent Key Prior A 4 GotoDesk -1 0 9
