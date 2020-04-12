@@ -195,8 +195,6 @@ Style RightPanel !Title, !Borders, !Handles, Sticky, \
 Style ConfirmQuit !Title, Layer 6
 Style FvwmIdent WindowListSkip
 Style trayer !Title, Sticky, !Handles, !Borders, NeverFocus, WindowListSkip, StaysOnBottom
-# Style tint2 !Title, Sticky, !Handles, !Borders, NeverFocus, WindowListSkip, StaysOnTop, Layer 2, Geometry +0+0
-
 
 #######
 
@@ -442,7 +440,9 @@ AddToMenu   MenuSendToPage
 Silent Key q A 4 Menu MenuFvwmRoot
 Silent Key d A 4 Exec exec rofi -show combi
 # Silent Key Tab A 4 WindowList Root c c CurrentDesk, NoGeometry, CurrentAtEnd, IconifiedAtEnd, SelectOnRelease Super_L
-Silent Key Tab A 4 WindowList Root c c TitleForAllDesks, NoNumInDeskTitle, NoCurrentDeskTitle, NoGeometry, CurrentAtEnd, IconifiedAtEnd, SelectOnRelease Super_L
+Silent Key Tab A 4 WindowList Root c c NoNumInDeskTitle, CurrentDesk, NoCurrentDeskTitle, NoGeometry, CurrentAtEnd, IconifiedAtEnd, NoSticky, SelectOnRelease Super_L
+Silent Key a A 4 WindowList Root c c TitleForAllDesks, NoNumInDeskTitle, NoCurrentDeskTitle, NoGeometry, NoSticky
+Silent Key z A 4 WindowList Root c c TitleForAllDesks, NoNumInDeskTitle, NoCurrentDeskTitle, NoGeometry, Sticky, NoNormal
 Silent Key Right A 4 Next (AcceptsFocus, CurrentDesk, !Iconic) SelectWindow
 Silent Key Left A 4 Prev (AcceptsFocus, CurrentDesk, !Iconic) SelectWindow
 Silent Key Prior A 4 GotoDesk -1 0 9
