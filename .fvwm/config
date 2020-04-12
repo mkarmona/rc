@@ -29,26 +29,24 @@ AddToFunc ExitFunction
 #
 DestroyFunc StartFunction
 AddToFunc   StartFunction
++ I Test (Init) Exec exec /usr/libexec/gsd-xsettings
++ I Test (Init) Exec exec /usr/libexec/gsd-printer
++ I Test (Init) Exec exec /usr/libexec/gsd-print-notifications
 + I Test (Init) Exec exec xscreensaver
 + I Test (Init) Exec exec picom -cGf -o 0.3 -O 200 -I 200 -t 0 -l 0 -r 4 -D 2 -m 0.90
 + I Test (Init) Exec exec nitrogen --restore
 + I Test (Init) Exec exec xrdb -load ~/.Xdefaults ~/.Xresources
-+ I Test (Init) Exec exec stalonetray --config ~/.stalonetrayrc
 # + I Test (Init) Exec exec xbattbar -c -a -p 15 -t 3
-+ I Test (Init) Exec exec cbatticon -u 15
- + I Test (Init) Exec exec trayer --widthtype request --align right --edge top --transparent true --tint 0x0060a0f0 --padding 25 --iconspacing 10 --margin 0 --distance 0 --monitor primary --heighttype pixel --height 48
-# + I Test (Init) Exec exec tint2
-+ I Test (Init) Exec exec /usr/libexec/gsd-xsettings
-+ I Test (Init) Exec exec /usr/libexec/gsd-printer
-+ I Test (Init) Exec exec /usr/libexec/gsd-print-notifications
++ I Test (Init) Exec exec cbatticon -u 15 -r 5 -l 15 -c "notify-send -u critical 'suspending now - critical battery level' && systemctl suspend"
 + I Test (Init) Exec exec pasystray --include-monitors -t
 + I Test (Init) Exec exec diodon
 + I Test (Init) Exec exec nm-applet
 + I Test (Init) Exec exec redshift-gtk
 + I Test (Init) Exec exec megasync
 + I Test (Init) Exec exec mullvad-vpn
++ I Test (Init) Exec exec trayer --widthtype request --align right --edge top --transparent true --tint 0x0060a0f0 --iconspacing 10 --margin 0 --distance 0 --monitor primary --heighttype pixel --height 32
 + I Test (Restart) Exec exec nitrogen --restore
-+ I Module FvwmPager 0 9
+# + I Module FvwmPager 0 9
 # + I Module FvwmButtons RightPanel
 # + I Module FvwmIconMan
 # + I Module FvwmEvent EventNewDesk
@@ -150,7 +148,7 @@ EdgeThickness 1
 # See http://fvwm.org/documentation/faq/#why-do-numlock-capslock-and-scrolllock-interfere-with-clicktofocus-andor-my-mouse-bindings
 IgnoreModifiers L25
 # EwmhBaseStruts [left] [right] [top] [bottom]
-EwmhBaseStruts 0 0 48 0
+EwmhBaseStruts 0 0 0 3
 EwmhNumberOfDesktops 0 9
 # This sets the ClickTime and MoveThreshold used to determine
 # Double Clicks, Hold and Move for the mouse.
@@ -158,7 +156,13 @@ ClickTime 250
 MoveThreshold 3
 DefaultFont "xft:Output Sans Testing:Bold:size=10:antialias=True"
 OpaqueMoveSize unlimited
-# 
+
+DestroyDecor FlatDecor
+AddToDecor FlatDecor
++ ButtonStyle All Active (-- flat) Inactive (-- flat)
++ TitleStyle  -- flat
++ BorderStyle -- HiddenHandles NoInset
+
 # STYLES!!!!!!!!!!!!!
 #
 Style * EdgeMoveDelay 350, EdgeMoveResistance 350
@@ -170,9 +174,9 @@ Style * !FPGrabFocusTransient, FPReleaseFocusTransient
 Style * WindowShadeScrolls, WindowShadeSteps 10
 # Decor Styles
 # Style * BorderWidth 5, HandleWidth 5, MWMButtons, FvwmBorder, FirmBorder
-Style * BorderWidth 7, HandleWidth 7, FvwmBorder, !Title
-# Style * Colorset 1, HilightColorset 2
-# Style * BorderColorset 3, HilightBorderColorset 4
+Style * UseDecor FlatDecor, BorderWidth 10, HandleWidth 10, FirmBorder, !Title
+Style * Colorset 1, HilightColorset 2
+Style * BorderColorset 3, HilightBorderColorset 4
 
 # Disable Icons from appearing on desktop.
 # Comment this out or use Style * Icon to get the icons back.
@@ -184,7 +188,6 @@ Style RightPanel !Title, !Borders, !Handles, Sticky, \
 Style ConfirmQuit !Title, WindowListSkip, Layer 6
 Style FvwmIdent WindowListSkip
 Style trayer !Title, Sticky, !Handles, !Borders, NeverFocus, WindowListSkip, StaysOnBottom
-Style stalonetray !Title, Sticky, !Handles, !Borders, NeverFocus, WindowListSkip, StaysOnBottom
 # Style tint2 !Title, Sticky, !Handles, !Borders, NeverFocus, WindowListSkip, StaysOnTop, Layer 2, Geometry +0+0
 
 
@@ -214,15 +217,28 @@ Style stalonetray !Title, Sticky, !Handles, !Borders, NeverFocus, WindowListSkip
 #      13 - FvwmPager Active Page
 #      14 - FvwmIconMan Iconified Button
 ###########
-Colorset 0  fg #ffffff, bg #003c3c, hi, sh, Plain, NoShape
-Colorset 1  fg #000000, bg #8f9f8f, hi, sh, Plain, NoShape
-Colorset 2  fg #ffffff, bg #003c3c, hi, sh, Plain, NoShape
-Colorset 3  fg black, bg #4d4d4d, hi #676767, sh #303030, Plain, NoShape
-Colorset 4  fg black, bg #2d2d2d, hi #474747, sh #101010, Plain, NoShape
-Colorset 5  fg #000000, bg #ffffff, hi, sh, Plain, NoShape
-Colorset 6  fg #ffffff, bg #2d2d2d, hi, sh, Plain, NoShape
-Colorset 7  fg grey30, bg #ffffff, hi, sh, Plain, NoShape
-Colorset 8  fg #ffffff, bg #003c3c, hi, sh, Plain, NoShape
+# blue #0060a0
+# light blue 00b0ef
+# green #a0ffa0
+#
+# Material UI
+# https://material.io/design/color/#tools-for-picking-colors
+# #FFEB3B yellow
+# #FBC02D dark yellow
+# #BF360C dark red
+# #0288D1 blue
+# #607D8B dark blue gray
+# #9E9E9E gray
+#
+Colorset 0  fg #282828, bg #9e9e9e, hi, sh, Plain, NoShape
+Colorset 1  fg #282828, bg #9e9e9e, hi, sh, Plain, NoShape
+Colorset 2  fg #F3F3F3, bg #BF360C, hi, sh, Plain, NoShape
+Colorset 3  fg #282828, bg #9e9e9e, hi, sh, Plain, NoShape
+Colorset 4  fg #F3F3F3, bg #BF360C, hi, sh, Plain, NoShape
+Colorset 5  fg #282828, bg #9e9e9e, hi, sh, Plain, NoShape
+Colorset 6  fg #F3F3F3, bg #BF360C, hi, sh, Plain, NoShape
+Colorset 8  fg #282828, bg #9e9e9e, hi, sh, Plain, NoShape
+Colorset 7  fg #28282
 Colorset 10 fg #ffffff, bg #003c3c, hi #aaaaaa, sh #999999, Plain, NoShape
 Colorset 11 fg #ffffff, bg #1a6e99, hi #ffffff, sh #ffffff, Plain, NoShape
 Colorset 12 fg #2d2d2d, bg #ffffff, hi, sh, Plain, NoShape
@@ -233,10 +249,10 @@ Colorset 14 fg #555555, bg #003c3c, hi #aaaaaa, sh #999999, Plain, NoShape
 # 4: Menus
 ###########
 MenuStyle * MenuColorset 5, ActiveColorset 6, GreyedColorset 7, TitleColorset 8
-MenuStyle * Hilight3DOff, HilightBack, HilightTitleBack, SeparatorsLong
+MenuStyle * Hilight3DOff, HilightBack, HilightTitleBack, SeparatorsLong, BorderWidth 2
 MenuStyle * TrianglesSolid, TrianglesUseFore
 MenuStyle * ItemFormat "%|%3.1i%5.3l%5.3>%|"
-MenuStyle * Font "xft:Output Sans Testing:Regular:size=10"
+MenuStyle * Font "xft:Output Sans Testing:Bold:size=11"
 
 # Root Menu
 #
