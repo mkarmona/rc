@@ -96,6 +96,14 @@ AddToFunc SelectWindow
 + I Raise
 + I WarpToWindow 50 50
 
+DestroyFunc SnapStick
+AddToFunc SnapStick
++ I ThisWindow (!Sticky) Stick
++ I TestRc (Match) ThisWindow WindowStyle BorderColorset 20, HilightBorderColorset 21
++ I TestRc (Match) Break
++ I ThisWindow (Sticky) Stick
++ I TestRc (Match) ThisWindow WindowStyle BorderColorset 3, HilightBorderColorset 4
+
 DestroyFunc SnapMain
 AddToFunc SnapMain
 + I ThisWindow (!Maximized) Maximize True 95 95
@@ -148,13 +156,13 @@ EdgeThickness 1
 # See http://fvwm.org/documentation/faq/#why-do-numlock-capslock-and-scrolllock-interfere-with-clicktofocus-andor-my-mouse-bindings
 IgnoreModifiers L25
 # EwmhBaseStruts [left] [right] [top] [bottom]
-EwmhBaseStruts 0 0 0 3
+EwmhBaseStruts 0 0 0 0
 EwmhNumberOfDesktops 0 9
 # This sets the ClickTime and MoveThreshold used to determine
 # Double Clicks, Hold and Move for the mouse.
 ClickTime 250
 MoveThreshold 3
-DefaultFont "xft:Output Sans Testing:Bold:size=10:antialias=True"
+DefaultFont "xft:Output Sans Testing:Bold:size=10"
 OpaqueMoveSize unlimited
 
 DestroyDecor FlatDecor
@@ -224,11 +232,15 @@ Style trayer !Title, Sticky, !Handles, !Borders, NeverFocus, WindowListSkip, Sta
 # Material UI
 # https://material.io/design/color/#tools-for-picking-colors
 # #FFEB3B yellow
-# #FBC02D dark yellow
-# #BF360C dark red
+# #FFD600 dark yellow
+# #BF360C red
 # #0288D1 blue
-# #607D8B dark blue gray
+# #01579B dark blue
 # #9E9E9E gray
+#
+# text
+# light f0f0f0
+# dark 282828
 #
 Colorset 0  fg #282828, bg #9e9e9e, hi, sh, Plain, NoShape
 Colorset 1  fg #282828, bg #9e9e9e, hi, sh, Plain, NoShape
@@ -245,6 +257,14 @@ Colorset 12 fg #2d2d2d, bg #ffffff, hi, sh, Plain, NoShape
 Colorset 13 fg #ffffff, bg #006c6c, hi, sh, Plain, NoShape
 Colorset 14 fg #555555, bg #003c3c, hi #aaaaaa, sh #999999, Plain, NoShape
 
+# sticky colorset normal inactive 20
+# sticky colorset normal active 21
+Colorset 20 fg #f3f3f3, bg #0288d1, hi, sh, Plain, NoShape
+Colorset 21 fg #f3f3f3, bg #01579b, hi, sh, Plain, NoShape
+# sticky yellowish
+# Colorset 20 fg #282828, bg #FFEB3B, hi, sh, Plain, NoShape
+# Colorset 21 fg #282828, bg #FFD600, hi, sh, Plain, NoShape
+
 #######
 # 4: Menus
 ###########
@@ -252,7 +272,7 @@ MenuStyle * MenuColorset 5, ActiveColorset 6, GreyedColorset 7, TitleColorset 8
 MenuStyle * Hilight3DOff, HilightBack, HilightTitleBack, SeparatorsLong, BorderWidth 2
 MenuStyle * TrianglesSolid, TrianglesUseFore
 MenuStyle * ItemFormat "%|%3.1i%5.3l%5.3>%|"
-MenuStyle * Font "xft:Output Sans Testing:Bold:size=11"
+MenuStyle * Font "xft:Output Sans Testing:Bold:size=10"
 
 # Root Menu
 #
@@ -338,7 +358,7 @@ AddToMenu   MenuIconOps
 + "(De)Iconify"         Iconify
 + "(Un)Maximize"        Maximize
 + "(Un)Shade"           WindowShade
-+ "(Un)Sticky"		Stick
++ "(Un)Sticky"		SnapStick
 + "(No)TitleBar"	Pick (CirculateHit) ToggleTitle
 + "Send To"             Popup MenuSendTo
 + "" Nop
@@ -465,12 +485,12 @@ Silent Key c WFST 4 ThisWindow SnapCenter
 Silent Key Left WFST S4 ThisWindow SnapLeft
 Silent Key Right WFST S4 ThisWindow SnapRight
 Silent Key i WFST 4 ThisWindow Iconify
-Silent Key s WFST 4 ThisWindow Stick
-Silent Key w WFST 4 ThisWindow Menu MenuWindowOps
+Silent Key s WFST 4 ThisWindow SnapStick
+Silent Key w WFST 4 ThisWindow Menu MenuWindowOps This 0 0
 Silent Key Return A 4 Exec exec $[infostore.terminal]
 Silent Key e A 4 Exec exec $[infostore.explorer] -w
 Silent Key e A S4 Exec exec $[infostore.explorer]
-Silent Key t A 4 Exec exec notify-send "$(date)"
+Silent Key t A 4 Exec exec notify-send -u low "$(date)"
 Silent Key l A 4 Exec exec xscreensaver-command -lock
 # 
 Silent key XF86MonBrightnessUp     A N Exec exec brightnessctl -s s +5%
@@ -558,7 +578,7 @@ Mouse 3 I    A Menu MenuIconOps
 # 7: Modules
 DestroyModuleConfig FvwmIdent:*
 # *FvwmIdent: Colorset 10
-*FvwmIdent: Font "xft:Output Sans Testing:size=10:antialias=True"
+*FvwmIdent: Font "xft:Output Sans Testing:size=10"
 
 DestroyModuleConfig FvwmScript:*
 *FvwmScript: DefaultColorset 10
@@ -569,12 +589,12 @@ DestroyModuleConfig FvwmPager:*
 *FvwmPager: HilightColorset * 13
 #*FvwmPager: BalloonColorset * 10
 *FvwmPager: WindowColorsets 10 11
-# *FvwmPager: Font "xft:Output Sans Testing:Regular:size=10:antialias=True"
+# *FvwmPager: Font "xft:Output Sans Testing:Regular:size=10"
 *FvwmPager: Font none
 *FvwmPager: Rows 10
 *FvwmPager: Columns 1
 *FvwmPager: Balloons All
-*FvwmPager: BalloonFont "xft:Output Sans Testing:Bold:size=10:antialias=True"
+*FvwmPager: BalloonFont "xft:Output Sans Testing:Bold:size=10"
 *FvwmPager: BallonYOffset +2
 *FvwmPager: Window3dBorders
 # *FvwmPager: MiniIcons
@@ -594,7 +614,7 @@ DestroyModuleConfig FvwmPager:*
 # *RightPanel: Rows $[vp.height]
 # *RightPanel: Columns 120
 # *RightPanel: Frame 0
-# *RightPanel: Font "xft:Output Sans Testing:Bold:size=11:antialias=True"
+# *RightPanel: Font "xft:Output Sans Testing:Bold:size=10"
 # *RightPanel: (120x45, Icon "fvwm-logo-small.png", Frame 0)
 # *RightPanel: (120x5, Frame 0)
 # *RightPanel: (10x20, Frame 0)
@@ -641,7 +661,7 @@ DestroyModuleConfig FvwmPager:*
 # *FvwmIconMan: DrawIcons always
 # *FvwmIconMan: Window3dBorders
 # *FvwmIconMan: Format "%t"
-# *FvwmIconMan: Font "xft:Output Sans Testing:Bold:size=11:antialias=True"
+# *FvwmIconMan: Font "xft:Output Sans Testing:Bold:size=10"
 # *FvwmIconMan: Action Mouse 0 A ret
 # *FvwmIconMan: Action Mouse 1 A sendcommand IconManClick
 # *FvwmIconMan: Action Mouse 3 A sendcommand "Menu MenuIconOps"
