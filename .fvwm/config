@@ -146,6 +146,7 @@ DesktopName 7 8
 DesktopName 8 9
 DesktopName 9 10
 DesktopSize 1x1
+DesktopConfiguration per-monitor
 
 # percent of the page
 EdgeScroll 100 100
