@@ -96,13 +96,13 @@ AddToFunc SelectWindow
 + I Raise
 + I WarpToWindow 50 50
 
-DestroyFunc SnapStick
-AddToFunc SnapStick
-+ I ThisWindow (!Sticky) Stick
-+ I TestRc (Match) ThisWindow WindowStyle BorderColorset 20, HilightBorderColorset 21
-+ I TestRc (Match) Break
-+ I ThisWindow (Sticky) Stick
-+ I TestRc (Match) ThisWindow WindowStyle BorderColorset 3, HilightBorderColorset 4
+# DestroyFunc SnapStick
+# AddToFunc SnapStick
+# + I ThisWindow (!Sticky) Stick
+# + I TestRc (Match) ThisWindow WindowStyle BorderColorset 20, HilightBorderColorset 21
+# + I TestRc (Match) Break
+# + I ThisWindow (Sticky) Stick
+# + I TestRc (Match) ThisWindow WindowStyle BorderColorset 3, HilightBorderColorset 4
 
 DestroyFunc SnapMain
 AddToFunc SnapMain
@@ -355,7 +355,7 @@ AddToMenu   MenuIconOps
 + "(De)Iconify"         Iconify
 + "(Un)Maximize"        Maximize
 + "(Un)Shade"           WindowShade
-+ "(Un)Sticky"		SnapStick
++ "(Un)Sticky"		Stick
 + "(No)TitleBar"	Pick (CirculateHit) ToggleTitle
 + "Send To"             Popup MenuSendTo
 + "" Nop
@@ -477,12 +477,13 @@ Silent Key c WFST 4 ThisWindow SnapCenter
 Silent Key Left WFST S4 ThisWindow SnapLeft
 Silent Key Right WFST S4 ThisWindow SnapRight
 Silent Key i WFST 4 ThisWindow Iconify
-Silent Key s WFST 4 ThisWindow SnapStick
+Silent Key s WFST 4 ThisWindow Stick
 Silent Key w WFST 4 ThisWindow Menu MenuWindowOps This 0 0
 Silent Key Return A 4 Exec exec $[infostore.terminal]
 Silent Key e A 4 Exec exec $[infostore.explorer] -w
 Silent Key e A S4 Exec exec $[infostore.explorer]
 Silent Key t A 4 Exec exec notify-send -u low "$(date)"
+Silent Key b A 4 Exec exec notify-send -u low "$(acpitool -b)"
 Silent Key l A 4 Exec exec xscreensaver-command -lock
 # 
 Silent key XF86MonBrightnessUp     A N Exec exec brightnessctl -s s +5%
