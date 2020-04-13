@@ -195,6 +195,8 @@ Style RightPanel !Title, !Borders, !Handles, Sticky, \
 Style ConfirmQuit !Title, Layer 6
 Style FvwmIdent WindowListSkip
 Style trayer !Title, Sticky, !Handles, !Borders, NeverFocus, WindowListSkip, StaysOnBottom
+Style Audacious Sticky
+Style 'Mullvad VPN' Sticky
 
 #######
 
