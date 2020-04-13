@@ -50,6 +50,7 @@ AddToFunc   StartFunction
 # + I Module FvwmButtons RightPanel
 # + I Module FvwmIconMan
 # + I Module FvwmEvent EventNewDesk
+# + I Module FvwmEvent EventStick
 
 # Mouse Bindings Functions
 DestroyFunc RaiseMoveX
@@ -96,13 +97,19 @@ AddToFunc SelectWindow
 + I Raise
 + I WarpToWindow 50 50
 
-# DestroyFunc SnapStick
-# AddToFunc SnapStick
-# + I ThisWindow (!Sticky) Stick
-# + I TestRc (Match) ThisWindow WindowStyle BorderColorset 20, HilightBorderColorset 21
-# + I TestRc (Match) Break
-# + I ThisWindow (Sticky) Stick
-# + I TestRc (Match) ThisWindow WindowStyle BorderColorset 3, HilightBorderColorset 4
+DestroyFunc ApplyColorsetWhenSticky
+AddToFunc ApplyColorsetWhenSticky
++ I WindowId $0 WindowStyle BorderColorset 20, HilightBorderColorset 21
+#+ I TestRc (Match) Break
+#+ I WindowId $0 (!Sticky) WindowStyle BorderColorset 3, HilightBorderColorset 4
+
+DestroyFunc StickAndColor
+AddToFunc StickAndColor
++ I ThisWindow (!Sticky) Stick
++ I TestRc (Match) ThisWindow ApplyColorsetWhenSticky
++ I TestRc (Match) Break
++ I ThisWindow (Sticky) Stick
++ I TestRc (Match) ThisWindow ApplyColorsetWhenSticky
 
 DestroyFunc SnapMain
 AddToFunc SnapMain
@@ -198,6 +205,7 @@ Style FvwmIdent WindowListSkip
 Style trayer !Title, Sticky, !Handles, !Borders, NeverFocus, WindowListSkip, StaysOnBottom
 Style Audacious Sticky
 Style 'Mullvad VPN' Sticky
+# Style * InitialMapCommand ApplyColorsetWhenSticky
 
 #######
 
@@ -282,6 +290,7 @@ DestroyMenu MenuFvwmRoot
 AddToMenu   MenuFvwmRoot "Fvwm" Title
 + "&Programs%icons/programs.png%" Popup MenuPrograms
 + "XDG &Menu%icons/apps.png%" Popup XDGMenu
++ "Modules" Popup MenuModules
 + "&Terminal" Exec exec $[infostore.terminal]
 #+ "" Nop
 #+ "Fvwm&Console%icons/terminal.png%" Module FvwmConsole -terminal $[infostore.terminal]
@@ -303,12 +312,17 @@ PipeRead "fvwm-menu-desktop -e"
 # lines as this is only to help make this menu portable.
 DestroyMenu MenuPrograms
 AddToMenu   MenuPrograms "Programs" Title
-Test (x terminal) + "Terminal" Exec exec $[infostore.terminal]
-Test (x firefox) + "Firefox" Exec exec firefox
-Test (x gvim) + "gVim" Exec exec gvim
++ Test (x terminal) + "Terminal" Exec exec $[infostore.terminal]
++ Test (x firefox) + "Firefox" Exec exec firefox
++ Test (x gvim) + "gVim" Exec exec gvim
+
+DestroyMenu MenuModules
+AddToMenu MenuModules
++ "FvwmConsole"         Module FvwmConsole
++ "FvwmIdent"           Module FvwmIdent
+
 
 # Background Menu
-#
 # Backgrounds are located in ~/.fvwm/images/background/
 # Menu icons are located in ~/.fvwm/images/bgicons/
 # DestroyMenu BGMenu
@@ -572,6 +586,12 @@ Mouse 3 I    A Menu MenuIconOps
 # ButtonStyle 6 - MwmDecorMin
 
 # 7: Modules
+
+DestroyModuleConfig EventStick:*
+*EventStick: PassID
+*EventStick: stick ApplyColorsetWhenSticky
+*EventStick: destick ApplyColorsetWhenSticky
+
 DestroyModuleConfig FvwmIdent:*
 # *FvwmIdent: Colorset 10
 *FvwmIdent: Font "xft:Output Sans Testing:size=10"
