@@ -178,6 +178,7 @@ DestroyDecor FlatDecor
 AddToDecor FlatDecor
 + ButtonStyle All Active (-- flat) Inactive (-- flat)
 + TitleStyle  -- flat
+#+ BorderStyle -- HiddenHandles
 + BorderStyle -- HiddenHandles NoInset
 
 Style * EdgeMoveDelay 350, EdgeMoveResistance 350
@@ -189,7 +190,7 @@ Style * !FPGrabFocusTransient, FPReleaseFocusTransient
 Style * WindowShadeScrolls, WindowShadeSteps 10
 # Decor Styles
 # Style * BorderWidth 5, HandleWidth 5, MWMButtons, FvwmBorder, FirmBorder
-Style * UseDecor FlatDecor, BorderWidth 10, HandleWidth 10, FirmBorder, !Title
+Style * UseDecor FlatDecor, BorderWidth 10, HandleWidth 10, FvwmBorder, !Title, !Button 0, !Button 1, !Button 2, !Button 3, !Button 4, !Button 5, !Button 6, !Button 7, !Button 8, !Button 9
 Style * Colorset 1, HilightColorset 2
 Style * BorderColorset 3, HilightBorderColorset 4
 
@@ -277,7 +278,7 @@ Colorset 21 fg #f3f3f3, bg #01579b, hi, sh, Plain, NoShape
 # 4: Menus
 ###########
 MenuStyle * MenuColorset 5, ActiveColorset 6, GreyedColorset 7, TitleColorset 8
-MenuStyle * Hilight3DOff, HilightBack, HilightTitleBack, SeparatorsLong, BorderWidth 2, UseDecor FlatDecor
+MenuStyle * Hilight3DOff, HilightBack, HilightTitleBack, SeparatorsLong, BorderWidth 2, UseDecor FlatDecor, PopupOffset -5 100
 MenuStyle * TrianglesSolid, TrianglesUseFore
 MenuStyle * ItemFormat "%|%3.1i%5.3l%5.3>%|"
 MenuStyle * Font "xft:Output Sans Testing:Bold:size=10"
@@ -312,9 +313,9 @@ PipeRead "fvwm-menu-desktop -e"
 # lines as this is only to help make this menu portable.
 DestroyMenu MenuPrograms
 AddToMenu   MenuPrograms "Programs" Title
-+ Test (x terminal) + "Terminal" Exec exec $[infostore.terminal]
-+ Test (x firefox) + "Firefox" Exec exec firefox
-+ Test (x gvim) + "gVim" Exec exec gvim
++ "Terminal" Exec exec $[infostore.terminal]
++ "Firefox" Exec exec firefox
++ "gVim" Exec exec gvim
 
 DestroyMenu MenuModules
 AddToMenu MenuModules
