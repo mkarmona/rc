@@ -33,7 +33,7 @@ exec --no-startup-id redshift-gtk
 exec --no-startup-id megasync
 exec --no-startup-id mullvad-vpn
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id picom -cGf -o 0.4 -O 200 -I 200 -t 0 -l 0 -r 4 -D 2 -m 0.90
+exec --no-startup-id picom -cGf -o 0.3 -O 200 -I 200 -t 0 -l 0 -r 4 -D 2 -m 0.90
 
 # set $refresh_i3status killall -SIGUSR1 i3status
 
@@ -46,8 +46,8 @@ set $right semicolon
 set $terminal gnome-terminal
 
 # default_border normal 5
-default_border normal 3
-default_floating_border normal 3
+default_border normal 5
+default_floating_border normal 5
 
 floating_modifier $modifier
 # hide_edge_borders none|vertical|horizontal|both|smart
@@ -74,7 +74,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl -s s 5%-
 bindsym XF86Tools exec brightnessctl s 0
 bindsym $modifier+XF86Tools exec brightnessctl -r
 # bindsym $modifier+Print exec mate-screenshot -i
-bindsym $modifier+Print exec xfce4-screenshooter
+bindsym $modifier+Print exec gnome-screenshot -i
 bindsym $modifier+XF86LaunchA exec gksudo -g -m "Suspend?" systemctl suspend
 
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume "@DEFAULT_SINK@" -5%
