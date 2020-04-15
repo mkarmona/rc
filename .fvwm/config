@@ -46,6 +46,7 @@ AddToFunc   StartFunction
 + I Test (Init) Exec exec mullvad-vpn
 + I Test (Init) Exec exec trayer --widthtype request --align right --edge top --transparent true --tint 0x0060a0f0 --iconspacing 10 --margin 0 --distance 0 --monitor primary --heighttype pixel --height 32
 + I Test (Restart) Exec exec nitrogen --restore
++ I Exec exec wmname LG3D
 # + I Module FvwmPager 0 9
 # + I Module FvwmButtons RightPanel
 # + I Module FvwmIconMan
@@ -121,7 +122,7 @@ AddToFunc SnapMain
 # Snap left
 DestroyFunc SnapLeft
 AddToFunc SnapLeft
-+ I ThisWindow (!Maximized) Maximize True 66 100
++ I ThisWindow (!Maximized) Maximize True $0 $1
 + I TestRc (Match) Move 0 0
 + I TestRc (Match) Break
 + I ThisWindow (Maximized) Maximize
@@ -129,7 +130,7 @@ AddToFunc SnapLeft
 # Snap right
 DestroyFunc SnapRight
 AddToFunc SnapRight
-+ I ThisWindow (!Maximized) Maximize True 66 100
++ I ThisWindow (!Maximized) Maximize True $0 $1
 + I TestRc (Match) Move -0 0
 + I TestRc (Match) Break
 + I ThisWindow (Maximized) Maximize
@@ -156,7 +157,7 @@ DesktopSize 1x1
 DesktopConfiguration per-monitor
 
 # percent of the page
-EdgeScroll 100 100
+EdgeScroll 0 0
 # timer for edge resistance
 EdgeResistance 250
 EdgeThickness 1
@@ -170,27 +171,32 @@ EwmhNumberOfDesktops 0 9
 # Double Clicks, Hold and Move for the mouse.
 ClickTime 250
 MoveThreshold 3
-DefaultFont "xft:Output Sans Testing:Bold:size=10"
+DefaultFont "xft:Output Sans Testing:Bold:size=9"
 OpaqueMoveSize unlimited
 HideGeometryWindow Move
 
 DestroyDecor FlatDecor
 AddToDecor FlatDecor
 + ButtonStyle All Active (-- flat) Inactive (-- flat)
-+ TitleStyle  -- flat
++ AddButtonStyle All AllDown (-- Raised)
++ TitleStyle  LeftJustified -- Flat
+# TitleStyle Centered Height 40 -- Flat
 #+ BorderStyle -- HiddenHandles
 + BorderStyle -- HiddenHandles NoInset
 
+Style * Font "xft:Output Sans Testing:Bold:size=9"
 Style * EdgeMoveDelay 350, EdgeMoveResistance 350
 Style * SloppyFocus, MouseFocusClickRaises
-Style * MinOverlapPlacement, GrabFocusOff, !UsePPosition
+Style * MinOverlapPlacement, !UsePPosition
+# GrabFocusOff is old and it needs to negate the next style
+Style * FPGrabFocus, FPReleaseFocus
+Style * FPGrabFocusTransient, FPReleaseFocusTransient
 Style * ResizeOpaque, SnapAttraction 15 SameType ScreenAll, SnapGrid
 Style * DecorateTransient, StackTransientParent
-Style * !FPGrabFocusTransient, FPReleaseFocusTransient
 Style * WindowShadeScrolls, WindowShadeSteps 10
 # Decor Styles
 # Style * BorderWidth 5, HandleWidth 5, MWMButtons, FvwmBorder, FirmBorder
-Style * UseDecor FlatDecor, BorderWidth 10, HandleWidth 10, FvwmBorder, !Title, !Button 0, !Button 1, !Button 2, !Button 3, !Button 4, !Button 5, !Button 6, !Button 7, !Button 8, !Button 9
+Style * UseDecor FlatDecor, BorderWidth 7, HandleWidth 7, FvwmBorder, Title, !Button 0, Button 1, Button 2, !Button 3, !Button 4, !Button 5, !Button 6, !Button 7, !Button 8, !Button 9
 Style * Colorset 1, HilightColorset 2
 Style * BorderColorset 3, HilightBorderColorset 4
 
@@ -201,11 +207,15 @@ Style * !Icon
 # Window Specific Styles
 Style RightPanel !Title, !Borders, !Handles, Sticky, \
                  WindowListSkip, NeverFocus
-Style ConfirmQuit !Title, Layer 6
+Style ConfirmQuit Title, StaysOnTop, PositionPlacement Center
 Style FvwmIdent WindowListSkip
 Style trayer !Title, Sticky, !Handles, !Borders, NeverFocus, WindowListSkip, StaysOnBottom
+Style gksudo StaysOnTop, StaysOnTop, PositionPlacement Center
+
+# sticky applications
 Style Audacious Sticky
 Style 'Mullvad VPN' Sticky
+Style XLoad Sticky, !Title
 # Style * InitialMapCommand ApplyColorsetWhenSticky
 
 #######
@@ -465,6 +475,8 @@ Silent Key Right A 4 Next (AcceptsFocus, CurrentDesk, !Iconic) SelectWindow
 Silent Key Left A 4 Prev (AcceptsFocus, CurrentDesk, !Iconic) SelectWindow
 Silent Key Prior A 4 GotoDesk -1 0 9
 Silent Key Next A 4 GotoDesk +1 0 9
+Silent Key Prior A S4 ThisWindow MoveToDesk -1 0 9
+Silent Key Next A S4 ThisWindow MoveToDesk +1 0 9
 Silent Key 1 A 4 GotoDesk 0 0
 Silent Key 2 A 4 GotoDesk 0 1
 Silent Key 3 A 4 GotoDesk 0 2
@@ -492,8 +504,10 @@ Silent Key x WFST S4 ThisWindow Destroy
 Silent Key f WFST 4 ThisWindow Maximize
 Silent Key m WFST 4 ThisWindow SnapMain
 Silent Key c WFST 4 ThisWindow SnapCenter
-Silent Key Left WFST S4 ThisWindow SnapLeft
-Silent Key Right WFST S4 ThisWindow SnapRight
+Silent Key Left WFST S4 ThisWindow SnapLeft 66 100
+Silent Key Right WFST S4 ThisWindow SnapRight 66 100
+Silent Key Left WFST C4 ThisWindow SnapLeft 50 100
+Silent Key Right WFST C4 ThisWindow SnapRight 50 100
 Silent Key i WFST 4 ThisWindow Iconify
 Silent Key s WFST 4 ThisWindow Stick
 Silent Key w WFST 4 ThisWindow Menu MenuWindowOps This 0 0

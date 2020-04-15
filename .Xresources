@@ -11,6 +11,7 @@ Xft.rgba:	rgb
 *face: Output Sans Testing
 *faceName: Output Sans Testing
 *faceSize: 10
+*XcursorSize: 48
 XClock*face: Ouput Sans Testing
 URxvt*transparent: false
 URxvt*saveLines: 100000
