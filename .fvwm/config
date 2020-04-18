@@ -33,7 +33,7 @@ AddToFunc   StartFunction
 + I Test (Init) Exec exec /usr/libexec/gsd-printer
 + I Test (Init) Exec exec /usr/libexec/gsd-print-notifications
 + I Test (Init) Exec exec xscreensaver
-+ I Test (Init) Exec exec picom -cGf -o 0.3 -O 200 -I 200 -t 0 -l 0 -r 4 -D 2 -m 0.90
++ I Test (Init) Exec exec picom -cGf -o 0.3 -O 200 -I 200 -t -5 -l -5 -r 10 -D 2 -m 0.90 --backend glx
 + I Test (Init) Exec exec nitrogen --restore
 + I Test (Init) Exec exec xrdb -load ~/.Xdefaults ~/.Xresources
 # + I Test (Init) Exec exec xbattbar -c -a -p 15 -t 3
@@ -538,10 +538,11 @@ Silent key XF86Display             A N Exec exec arandr
 #   4 - Maximize (right/middle button will only maximize vertical/horizontal)
 #   6 - Iconify (minimize)
 Mouse 1 1 A Menu MenuWindowOps Delete
-Mouse 1 2 A Close
-Mouse 1 4 A Maximize 100 100
-Mouse 2 4 A Maximize 0 100
-Mouse 3 4 A Maximize 100 0
+Mouse 3 1 A Close
+Mouse 1 2 A Maximize 100 100
+# Mouse 1 4 A Maximize 100 100
+# Mouse 2 4 A Maximize 0 100
+# Mouse 3 4 A Maximize 100 0
 Mouse 1 6 A Iconify
 
 #   TitleBar: Click to Raise, Move, Double Click to Maximize
