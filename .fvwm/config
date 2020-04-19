@@ -33,7 +33,7 @@ AddToFunc   StartFunction
 + I Test (Init) Exec exec /usr/libexec/gsd-printer
 + I Test (Init) Exec exec /usr/libexec/gsd-print-notifications
 + I Test (Init) Exec exec xscreensaver
-+ I Test (Init) Exec exec picom -cGf -o 0.3 -O 200 -I 200 -t -5 -l -5 -r 10 -D 2 -m 0.90 --backend glx
++ I Test (Init) Exec exec picom -cGf -o 0.3 -O 200 -I 200 -t -5 -l -5 -r 10 -D 2 -m 0.90 --backend glx --experimental-backends
 + I Test (Init) Exec exec nitrogen --restore
 + I Test (Init) Exec exec xrdb -load ~/.Xdefaults ~/.Xresources
 # + I Test (Init) Exec exec xbattbar -c -a -p 15 -t 3
@@ -100,9 +100,11 @@ AddToFunc SelectWindow
 
 DestroyFunc ApplyColorsetWhenSticky
 AddToFunc ApplyColorsetWhenSticky
-+ I WindowId $0 (Sticky) WindowStyle BorderColorset 20, HilightBorderColorset 21
+#+ I ThisWindow (Sticky) WindowStyle BorderColorset 20, HilightBorderColorset 21
++ I Test (Sticky) ThisWindow WindowStyle BorderColorset 20, Colorset 20, HilightColorset 21, HilightBorderColorset 21
 + I TestRc (Match) Break
-+ I WindowId $0 (!Sticky) WindowStyle BorderColorset 3, HilightBorderColorset 4
+#+ I ThisWindow (!Sticky) WindowStyle BorderColorset 3, HilightBorderColorset 4
++ I Test (!Sticky) ThisWindow WindowStyle BorderColorset 3, Colorset 3, HilightColorset 4, HilightBorderColorset 4
 
 DestroyFunc StickAndColor
 AddToFunc StickAndColor
@@ -216,7 +218,7 @@ Style gksudo StaysOnTop, StaysOnTop, PositionPlacement Center
 Style Audacious Sticky
 Style 'Mullvad VPN' Sticky
 Style XLoad Sticky, !Title
-# Style * InitialMapCommand ApplyColorsetWhenSticky
+Style * InitialMapCommand ApplyColorsetWhenSticky
 
 #######
 
@@ -331,6 +333,7 @@ DestroyMenu MenuModules
 AddToMenu MenuModules
 + "FvwmConsole"         Module FvwmConsole
 + "FvwmIdent"           Module FvwmIdent
++ "FvwmPager"           Module FvwmPager 0 9
 
 
 # Background Menu
@@ -614,12 +617,12 @@ DestroyModuleConfig FvwmIdent:*
 DestroyModuleConfig FvwmScript:*
 *FvwmScript: DefaultColorset 10
 
-Style FvwmPager !Title, Sticky, NeverFocus, Borders, Handles, WindowListSkip
+Style FvwmPager !Title, Sticky, Borders, Handles, WindowListSkip
 DestroyModuleConfig FvwmPager:*
-*FvwmPager: Colorset * 10
-*FvwmPager: HilightColorset * 13
+*FvwmPager: Colorset * 20
+*FvwmPager: HilightColorset * 21
 #*FvwmPager: BalloonColorset * 10
-*FvwmPager: WindowColorsets 10 11
+*FvwmPager: WindowColorsets 3 4
 # *FvwmPager: Font "xft:Output Sans Testing:Regular:size=10"
 *FvwmPager: Font none
 *FvwmPager: Rows 10

@@ -18,10 +18,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
--- Load Debian menu entries
-local debian = require("debian.menu")
-local has_fdo, freedesktop = pcall(require, "freedesktop")
-
+-- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
@@ -44,14 +41,18 @@ do
         in_error = false
     end)
 end
+-- }}}
+
+-- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.init(gears.filesystem.get_configuration_dir() .. "themes/default.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "x-terminal-emulator"
-editor = os.getenv("EDITOR") or "editor"
-editor_cmd = terminal .. " -e " .. editor
-rofi = "rofi -show combi"
+terminal = "gnome-terminal"
+-- editor = os.getenv("EDITOR") or "gvim"
+editor = "gvim"
+-- editor_cmd = terminal .. " -- " .. editor
+editor_cmd = editor
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -87,28 +88,14 @@ myawesomemenu = {
    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
    { "manual", terminal .. " -e man awesome" },
    { "edit config", editor_cmd .. " " .. awesome.conffile },
-   { "restart", function() awesome.restart() end },
+   { "restart", awesome.restart },
    { "quit", function() awesome.quit() end },
 }
 
-local menu_awesome = { "awesome", myawesomemenu, beautiful.awesome_icon }
-local menu_terminal = { "open terminal", terminal }
-
-if has_fdo then
-    mymainmenu = freedesktop.menu.build({
-        before = { menu_awesome },
-        after =  { menu_terminal }
-    })
-else
-    mymainmenu = awful.menu({
-        items = {
-                  menu_awesome,
-                  { "Debian", debian.menu.Debian_menu.Debian },
-                  menu_terminal,
-                }
-    })
-end
-
+mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+                                    { "open terminal", terminal }
+                                  }
+                        })
 
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
@@ -290,8 +277,6 @@ globalkeys = gears.table.join(
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
-              {description = "open a terminal", group = "launcher"}),
-    awful.key({ modkey,           }, "d", function () awful.spawn(rofi) end,
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
@@ -580,8 +565,8 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
-x = 0
 
+x = 0
 -- setup the timer
 mytimer = timer { timeout = x }
 mytimer:add_signal("timeout", function()
@@ -606,14 +591,14 @@ end)
 -- mytimer:start()
 
 -- https://github.com/tony/awesome-config
-run_once("xfsettingsd", "--no-daemon")
-run_once("xfce4-power-manager", "--no-daemon")
-run_once("xfce4-screensaver", "--no-daemon")
-run_once("xfce4-clipmap", "--no-daemon")
-run_once("pasystray", "--include-monitors", "-t")
-run_once("nm-applet")
-run_once("megasync")
-run_once("nitrogen", "--restore")
-run_once("redshift-gtk")
-run_once("wmname", "LG3D") -- java fix
+-- run_once("xfsettingsd", "--no-daemon")
+-- run_once("xfce4-power-manager", "--no-daemon")
+-- run_once("xfce4-screensaver", "--no-daemon")
+-- run_once("xfce4-clipmap", "--no-daemon")
+-- run_once("pasystray", "--include-monitors", "-t")
+-- run_once("nm-applet")
+-- run_once("megasync")
+-- run_once("nitrogen", "--restore")
+-- run_once("redshift-gtk")
+-- run_once("wmname", "LG3D") -- java fix
 
