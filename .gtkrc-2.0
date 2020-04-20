@@ -2,7 +2,7 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/mkarmona/.gtkrc-2.0.mine"
-gtk-theme-name="Nordic-master"
+gtk-theme-name="Adwaita"
 gtk-icon-theme-name="Numix-Circle"
 gtk-font-name="Output Sans Testing Semi-Condensed 10"
 gtk-cursor-theme-name="Adwaita"
@@ -14,6 +14,6 @@ gtk-menu-images=0
 gtk-enable-event-sounds=0
 gtk-enable-input-feedback-sounds=0
 gtk-xft-antialias=1
-gtk-xft-hinting=0
-gtk-xft-hintstyle="hintnone"
+gtk-xft-hinting=1
+gtk-xft-hintstyle="hintfull"
 gtk-xft-rgba="rgb"

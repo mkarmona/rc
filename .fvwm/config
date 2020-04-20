@@ -33,7 +33,8 @@ AddToFunc   StartFunction
 + I Test (Init) Exec exec /usr/libexec/gsd-printer
 + I Test (Init) Exec exec /usr/libexec/gsd-print-notifications
 + I Test (Init) Exec exec xscreensaver
-+ I Test (Init) Exec exec picom -cGf -o 0.3 -O 200 -I 200 -t -5 -l -5 -r 10 -D 2 -m 0.90 --backend glx --experimental-backends
++ I Test (Init) Exec exec xload -geometry 500x72+0-0 -nolabel -bg "#eeeeee" -fg "282828"
++ I Test (Init) Exec exec picom -cGf -o 0.3 -O 200 -I 200 -t -5 -l -5 -r 10 -D 2 -m 0.95 --backend glx --experimental-backends
 + I Test (Init) Exec exec nitrogen --restore
 + I Test (Init) Exec exec xrdb -load ~/.Xdefaults ~/.Xresources
 # + I Test (Init) Exec exec xbattbar -c -a -p 15 -t 3
@@ -46,7 +47,7 @@ AddToFunc   StartFunction
 + I Test (Init) Exec exec mullvad-vpn
 + I Test (Init) Exec exec trayer --widthtype request --align right --edge top --transparent true --tint 0x0060a0f0 --iconspacing 10 --margin 0 --distance 0 --monitor primary --heighttype pixel --height 32
 + I Test (Restart) Exec exec nitrogen --restore
-+ I Exec exec wmname LG3D
+#+ I Exec exec wmname LG3D
 # + I Module FvwmPager 0 9
 # + I Module FvwmButtons RightPanel
 # + I Module FvwmIconMan
@@ -217,7 +218,7 @@ Style gksudo StaysOnTop, StaysOnTop, PositionPlacement Center
 # sticky applications
 Style Audacious Sticky
 Style 'Mullvad VPN' Sticky
-Style XLoad Sticky, !Title
+Style XLoad Sticky, !Title, StaysOnBottom, NeverFocus, WindowListSkip
 Style * InitialMapCommand ApplyColorsetWhenSticky
 
 #######
@@ -472,7 +473,12 @@ Silent Key q A 4 Menu MenuFvwmRoot
 Silent Key d A 4 Exec exec rofi -show combi
 # Silent Key Tab A 4 WindowList Root c c CurrentDesk, NoGeometry, CurrentAtEnd, IconifiedAtEnd, SelectOnRelease Super_L
 Silent Key Tab A 4 WindowList Root c c NoNumInDeskTitle, CurrentDesk, NoCurrentDeskTitle, NoGeometry, CurrentAtEnd, IconifiedAtEnd, NoSticky, SelectOnRelease Super_L
+Silent Key a A 4 WindowList Root c c TitleForAllDesks, NoNumInDeskTitle, NoCurrentDeskTitleL
 Silent Key a A 4 WindowList Root c c TitleForAllDesks, NoNumInDeskTitle, NoCurrentDeskTitle, NoGeometry, NoSticky
+Silent Key z A 4 WindowList Root c c TitleForAllDesks, NoNumInDeskTitle, NoCurrentDeskTitle, NoGeometry, Sticky, NoNormal
+Silent Key Right A 4 Next (AcceptsFocus, CurrentDesk, !Iconic) SelectWindow
+Silent Key Left A 4 Prev (AcceptsFocus, CurrentDesk, !Iconic) SelectWindow
+, NoGeometry, NoSticky
 Silent Key z A 4 WindowList Root c c TitleForAllDesks, NoNumInDeskTitle, NoCurrentDeskTitle, NoGeometry, Sticky, NoNormal
 Silent Key Right A 4 Next (AcceptsFocus, CurrentDesk, !Iconic) SelectWindow
 Silent Key Left A 4 Prev (AcceptsFocus, CurrentDesk, !Iconic) SelectWindow
@@ -625,14 +631,14 @@ DestroyModuleConfig FvwmPager:*
 *FvwmPager: WindowColorsets 3 4
 # *FvwmPager: Font "xft:Output Sans Testing:Regular:size=10"
 *FvwmPager: Font none
-*FvwmPager: Rows 10
-*FvwmPager: Columns 1
+*FvwmPager: Rows 1
+*FvwmPager: Columns 10
 *FvwmPager: Balloons All
 *FvwmPager: BalloonFont "xft:Output Sans Testing:Bold:size=10"
 *FvwmPager: BallonYOffset +2
 *FvwmPager: Window3dBorders
 # *FvwmPager: MiniIcons
-*FvwmPager: Geometry 50x+-0+0
+*FvwmPager: Geometry 500x72+510-0
 
 # FvwmButtons - RightPanel
 #

@@ -14,13 +14,19 @@ Xft.rgba:	rgb
 *XcursorSize: 48
 XClock*face: Ouput Sans Testing
 URxvt*transparent: false
+URxvt*cursorBlink: true
+URxvt*mouseWheelScrollPage: true
 URxvt*saveLines: 100000
 URxvt*foreground: #282828
 URxvt*background: #eeeeee
-URxvt*font: xft:Input:pixelsize=12
-URxvt*boldFont: xft:Input Bold:pixelsize=12
+URxvt*font: xft:Input:Regular:size=9.5
+URxvt*italicFont: xft:Input Italic:size=9.5
+URxvt*boldFont: xft:Input Bold:size=9.5
+URxvt*boldItalicFont: xft:Input Bold Italic:size=9.5
 URxvt*scrollBar: false
-URxvt*scrollBar_right: true
-URxvt*scrollstyle: rxvt
+URvxt*background.border: false
+URxvt*borderLess: true
+URxvt*externalBorder: 0
+URxvt*internalBorder: 0
 XTerm*faceName: Input
 XTerm*faceSize: 10
