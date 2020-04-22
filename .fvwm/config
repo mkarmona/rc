@@ -63,6 +63,7 @@ AddToFunc RaiseMoveX
 
 DestroyFunc NoRaiseMove
 AddToFunc NoRaiseMove
++ C Raise
 + M $0
 
 DestroyFunc RaiseMove
@@ -189,11 +190,12 @@ AddToDecor FlatDecor
 
 Style * Font "xft:Output Sans Testing:Bold:size=9"
 Style * EdgeMoveDelay 350, EdgeMoveResistance 350
-Style * SloppyFocus, MouseFocusClickRaises
+Style * SloppyFocus, MouseFocusClickRaisesOff
 Style * MinOverlapPlacement, !UsePPosition
 # GrabFocusOff is old and it needs to negate the next style
 Style * FPGrabFocus, FPReleaseFocus
 Style * FPGrabFocusTransient, FPReleaseFocusTransient
+Style * FPLenient
 Style * ResizeOpaque, SnapAttraction 15 SameType ScreenAll, SnapGrid
 Style * DecorateTransient, StackTransientParent
 Style * WindowShadeScrolls, WindowShadeSteps 10
