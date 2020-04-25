@@ -7,7 +7,7 @@
 #    7: Modules
 #
 InfoStoreAdd terminal gnome-terminal
-InfoStoreAdd explorer nautilus
+InfoStoreAdd explorer "pcmanfm -n"
 InfoStoreAdd scripts $[HOME]/.fvwm/scripts
 
 # 1: Functions
@@ -35,7 +35,7 @@ AddToFunc   StartFunction
 + I Test (Init) Exec exec xscreensaver
 + I Test (Init) Exec exec xload -geometry 500x72+0-0 -nolabel -bg "#eeeeee" -fg "282828"
 + I Test (Init) Exec exec picom -cGf -o 0.3 -O 200 -I 200 -t -5 -l -5 -r 10 -D 2 -m 0.95 --backend glx --experimental-backends
-+ I Test (Init) Exec exec nitrogen --restore
++ I Test (Init) Exec exec trayer --widthtype request --align right --edge top --transparent true --tint 0x0060a0f0 --iconspacing 10 --margin 0 --distance 0 --monitor primary --heighttype pixel --height 32
 + I Test (Init) Exec exec xrdb -load ~/.Xdefaults ~/.Xresources
 # + I Test (Init) Exec exec xbattbar -c -a -p 15 -t 3
 + I Test (Init) Exec exec cbatticon -u 15 -r 5 -l 15 -c "notify-send -u critical 'suspending now - critical battery level' && systemctl suspend"
@@ -45,7 +45,8 @@ AddToFunc   StartFunction
 + I Test (Init) Exec exec redshift-gtk
 + I Test (Init) Exec exec megasync
 + I Test (Init) Exec exec mullvad-vpn
-+ I Test (Init) Exec exec trayer --widthtype request --align right --edge top --transparent true --tint 0x0060a0f0 --iconspacing 10 --margin 0 --distance 0 --monitor primary --heighttype pixel --height 32
++ I Test (Init) Exec exec nitrogen --restore
++ I Test (Init) Exec exec pcmanfm -d
 + I Test (Restart) Exec exec nitrogen --restore
 #+ I Exec exec wmname LG3D
 # + I Module FvwmPager 0 9
@@ -93,10 +94,17 @@ AddToFunc   IconManClick
 # State 2 main max
 # State 3 center max
 #
+
+DestroyFunc WindowListFunc
+AddToFunc WindowListFunc
++ I Iconify off
++ I FlipFocus
++ I Raise
++ I WarpToWindow 50 50
+
 DestroyFunc SelectWindow
 AddToFunc SelectWindow
 + I Focus
-# + I Iconify false
 + I Raise
 + I WarpToWindow 50 50
 
@@ -119,7 +127,7 @@ AddToFunc StickAndColor
 DestroyFunc SnapMain
 AddToFunc SnapMain
 + I ThisWindow (!Maximized) Maximize True 95 95
-+ I TestRc (Match) ThisWindow Move 0 0
++ I TestRc (Match) ThisWindow Move sceen $[w.screen] 0 0
 + I TestRc (Match) Break
 + I ThisWindow (Maximized) Maximize
 
@@ -127,7 +135,7 @@ AddToFunc SnapMain
 DestroyFunc SnapLeft
 AddToFunc SnapLeft
 + I ThisWindow (!Maximized) Maximize True $0 $1
-+ I TestRc (Match) Move 0 0
++ I TestRc (Match) Move screen $[w.screen] 0 0
 + I TestRc (Match) Break
 + I ThisWindow (Maximized) Maximize
 
@@ -135,7 +143,7 @@ AddToFunc SnapLeft
 DestroyFunc SnapRight
 AddToFunc SnapRight
 + I ThisWindow (!Maximized) Maximize True $0 $1
-+ I TestRc (Match) Move -0 0
++ I TestRc (Match) Move screen $[w.screen] -0 0
 + I TestRc (Match) Break
 + I ThisWindow (Maximized) Maximize
 
@@ -143,7 +151,7 @@ AddToFunc SnapRight
 DestroyFunc SnapCenter
 AddToFunc SnapCenter
 + I ThisWindow (!Maximized) Maximize True 90 90
-+ I TestRc (Match) Move 50-50w 50-50w
++ I TestRc (Match) Move screen $[w.screen] 50-50w 50-50w
 + I TestRc (Match) Break
 + I ThisWindow (Maximized) Maximize
 
@@ -523,7 +531,7 @@ Silent Key i WFST 4 ThisWindow Iconify
 Silent Key s WFST 4 ThisWindow Stick
 Silent Key w WFST 4 ThisWindow Menu MenuWindowOps This 0 0
 Silent Key Return A 4 Exec exec $[infostore.terminal]
-Silent Key e A 4 Exec exec $[infostore.explorer] -w
+Silent Key e A 4 Exec exec $[infostore.explorer]
 Silent Key e A S4 Exec exec $[infostore.explorer]
 Silent Key t A 4 Exec exec notify-send -u low "$(date)"
 Silent Key b A 4 Exec exec notify-send -u low "$(acpitool -b)"
