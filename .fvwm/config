@@ -34,10 +34,10 @@ AddToFunc   StartFunction
 + I Test (Init) Exec exec /usr/libexec/gsd-xsettings
 + I Test (Init) Exec exec /usr/libexec/gsd-printer
 + I Test (Init) Exec exec /usr/libexec/gsd-print-notifications
-+ I Test (Init) Exec exec xscreensaver
-+ I Test (Init) Exec exec xload -geometry 500x72+0-0 -nolabel -bg "#eeeeee" -fg "282828"
+# + I Test (Init) Exec exec xscreensaver
++ I Test (Init) Exec exec xload -geometry 500x64+0-0 -nolabel -bg "#eeeeee" -fg "282828"
 # + I Test (Init) Exec exec picom -cGf -o 0.3 -O 200 -I 200 -t -5 -l -5 -r 10 -D 2 -m 0.95 --backend glx --experimental-backends
-+ I Test (Init) Exec exec picom --backend glx --experimental-backends --vsync
+# + I Test (Init) Exec exec picom --backend glx --experimental-backends --vsync
 + I Test (Init) Exec exec trayer --widthtype request --align right --edge top --transparent true --tint 0x0060a0f0 --iconspacing 10 --margin 0 --distance 0 --monitor primary --heighttype pixel --height 32
 + I Test (Init) Exec exec xrdb -load ~/.Xdefaults ~/.Xresources
 # + I Test (Init) Exec exec xbattbar -c -a -p 15 -t 3
@@ -181,12 +181,12 @@ EdgeThickness 1
 IgnoreModifiers L25
 # EwmhBaseStruts [left] [right] [top] [bottom]
 EwmhBaseStruts 0 0 0 0
-EwmhNumberOfDesktops 0 9
+EwmhNumberOfDesktops 9 9
 # This sets the ClickTime and MoveThreshold used to determine
 # Double Clicks, Hold and Move for the mouse.
 ClickTime 250
 MoveThreshold 3
-DefaultFont "xft:Output Sans Testing:Bold:size=9"
+DefaultFont "xft:Inter:Bold:size=9"
 OpaqueMoveSize unlimited
 HideGeometryWindow Move
 
@@ -199,7 +199,7 @@ AddToDecor FlatDecor
 #+ BorderStyle -- HiddenHandles
 + BorderStyle -- HiddenHandles NoInset
 
-Style * Font "xft:Output Sans Testing:Bold:size=9"
+Style * Font "xft:Inter:Bold:size=9"
 Style * EdgeMoveDelay 350, EdgeMoveResistance 350
 Style * SloppyFocus, MouseFocusClickRaisesOff
 Style * MinOverlapPlacement, !UsePPosition
@@ -307,7 +307,7 @@ MenuStyle * MenuColorset 5, ActiveColorset 6, GreyedColorset 7, TitleColorset 8
 MenuStyle * Hilight3DOff, HilightBack, HilightTitleBack, SeparatorsLong, BorderWidth 2, UseDecor FlatDecor, PopupOffset -5 100
 MenuStyle * TrianglesSolid, TrianglesUseFore
 MenuStyle * ItemFormat "%|%3.1i%5.3l%5.3>%|"
-MenuStyle * Font "xft:Output Sans Testing:Bold:size=10"
+MenuStyle * Font "xft:Inter:Bold:size=9"
 
 # Root Menu
 #
@@ -540,12 +540,11 @@ Silent Key e A 4 Exec exec $[infostore.explorer]
 Silent Key e A S4 Exec exec $[infostore.explorer]
 Silent Key t A 4 Exec exec notify-send -u low "$(date)"
 Silent Key b A 4 Exec exec notify-send -u low "$(acpitool -b)"
-Silent Key l A 4 Exec exec xscreensaver-command -lock
+# Silent Key l A 4 Exec exec xscreensaver-command -lock
 # 
 Silent key XF86MonBrightnessUp     A N Exec exec brightnessctl -s s +5%
 Silent key XF86MonBrightnessDown   A N Exec exec brightnessctl -s s 5%-
-Silent key XF86Tools               A N Exec exec brightnessctl s 0
-Silent key XF86Tools               A 4 Exec exec brightnessctl -r
+Silent key XF86Tools               A 4 Exec exec xset dpms force off
 Silent key Print                   A 4 Exec exec gnome-screenshot -i
 Silent key XF86LaunchA             A 4 Exec exec gksudo -g -m "Suspend?" systemctl suspend
 Silent key XF86Explorer            A 4 Exec exec gksudo -g -m "Hibernate?" systemctl hibernate
@@ -633,7 +632,7 @@ DestroyModuleConfig EventStick:*
 
 DestroyModuleConfig FvwmIdent:*
 # *FvwmIdent: Colorset 10
-*FvwmIdent: Font "xft:Output Sans Testing:size=10"
+*FvwmIdent: Font "xft:Inter:size=9"
 
 DestroyModuleConfig FvwmScript:*
 *FvwmScript: DefaultColorset 10
@@ -644,16 +643,16 @@ DestroyModuleConfig FvwmPager:*
 *FvwmPager: HilightColorset * 21
 #*FvwmPager: BalloonColorset * 10
 *FvwmPager: WindowColorsets 3 4
-# *FvwmPager: Font "xft:Output Sans Testing:Regular:size=10"
+# *FvwmPager: Font "xft:Inter:Regular:size=9"
 *FvwmPager: Font none
 *FvwmPager: Rows 1
 *FvwmPager: Columns 10
 *FvwmPager: Balloons All
-*FvwmPager: BalloonFont "xft:Output Sans Testing:Bold:size=10"
+*FvwmPager: BalloonFont "xft:Inter:Bold:size=9"
 *FvwmPager: BallonYOffset +2
 *FvwmPager: Window3dBorders
 # *FvwmPager: MiniIcons
-*FvwmPager: Geometry 500x72+510-0
+*FvwmPager: Geometry 500x50-0-0
 
 # FvwmButtons - RightPanel
 #
@@ -669,7 +668,7 @@ DestroyModuleConfig FvwmPager:*
 # *RightPanel: Rows $[vp.height]
 # *RightPanel: Columns 120
 # *RightPanel: Frame 0
-# *RightPanel: Font "xft:Output Sans Testing:Bold:size=10"
+# *RightPanel: Font "xft:Inter:Bold:size=10"
 # *RightPanel: (120x45, Icon "fvwm-logo-small.png", Frame 0)
 # *RightPanel: (120x5, Frame 0)
 # *RightPanel: (10x20, Frame 0)
@@ -716,7 +715,7 @@ DestroyModuleConfig FvwmPager:*
 # *FvwmIconMan: DrawIcons always
 # *FvwmIconMan: Window3dBorders
 # *FvwmIconMan: Format "%t"
-# *FvwmIconMan: Font "xft:Output Sans Testing:Bold:size=10"
+# *FvwmIconMan: Font "xft:Inter:Bold:size=10"
 # *FvwmIconMan: Action Mouse 0 A ret
 # *FvwmIconMan: Action Mouse 1 A sendcommand IconManClick
 # *FvwmIconMan: Action Mouse 3 A sendcommand "Menu MenuIconOps"
