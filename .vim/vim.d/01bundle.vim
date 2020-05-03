@@ -70,6 +70,7 @@ Plug 'cocopon/iceberg.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'jnurmine/Zenburn'
 Plug 'tbastos/vim-lua'
+Plug 'lifepillar/vim-solarized8'
 
 " Add plugins to &runtimepath
 call plug#end()

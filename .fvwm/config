@@ -34,7 +34,7 @@ AddToFunc   StartFunction
 + I Test (Init) Exec exec /usr/libexec/gsd-xsettings
 + I Test (Init) Exec exec /usr/libexec/gsd-printer
 + I Test (Init) Exec exec /usr/libexec/gsd-print-notifications
-# + I Test (Init) Exec exec xscreensaver
++ I Test (Init) Exec exec xscreensaver
 + I Test (Init) Exec exec xload -geometry 500x50+0-0 -nolabel -bg "#eeeeee" -fg "282828"
 # + I Test (Init) Exec exec picom -cGf -o 0.3 -O 200 -I 200 -t -5 -l -5 -r 10 -D 2 -m 0.95 --backend glx --experimental-backends
 # + I Test (Init) Exec exec picom --backend glx --experimental-backends --vsync
@@ -226,13 +226,14 @@ Style RightPanel !Title, !Borders, !Handles, Sticky, \
 Style ConfirmQuit Title, StaysOnTop, PositionPlacement Center
 Style FvwmIdent WindowListSkip
 Style trayer !Title, Sticky, !Handles, !Borders, NeverFocus, WindowListSkip, StaysOnBottom
-Style gksudo StaysOnTop, StaysOnTop, PositionPlacement Center
+Style gksudo StaysOnTop, PositionPlacement Center
 
 # sticky applications
 Style Audacious Sticky
 Style 'Mullvad VPN' Sticky
+Style Hexchat Sticky, PositionPlacement Center, StaysOnTop
 Style XLoad Sticky, !Title, StaysOnBottom, NeverFocus, WindowListSkip
-Style * InitialMapCommand ApplyColorsetWhenSticky
+# Style * InitialMapCommand ApplyColorsetWhenSticky
 
 #######
 
@@ -540,7 +541,7 @@ Silent Key e A 4 Exec exec $[infostore.explorer]
 Silent Key e A S4 Exec exec $[infostore.explorer]
 Silent Key t A 4 Exec exec notify-send -u low "$(date)"
 Silent Key b A 4 Exec exec notify-send -u low "$(acpitool -b)"
-# Silent Key l A 4 Exec exec xscreensaver-command -lock
+Silent Key l A 4 Exec exec xscreensaver-command -lock
 # 
 Silent key XF86MonBrightnessUp     A N Exec exec brightnessctl -s s +5%
 Silent key XF86MonBrightnessDown   A N Exec exec brightnessctl -s s 5%-

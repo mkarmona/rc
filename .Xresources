@@ -19,10 +19,10 @@ URxvt*mouseWheelScrollPage: true
 URxvt*saveLines: 100000
 URxvt*foreground: #282828
 URxvt*background: #eeeeee
-URxvt*font: xft:Input:Regular:size=9.5
-URxvt*italicFont: xft:Input Italic:size=9.5
-URxvt*boldFont: xft:Input Bold:size=9.5
-URxvt*boldItalicFont: xft:Input Bold Italic:size=9.5
+URxvt*font: xft:Input:Regular:size=10
+URxvt*italicFont: xft:Input Italic:size=10
+URxvt*boldFont: xft:Input Bold:size=10
+URxvt*boldItalicFont: xft:Input Bold Italic:size=10
 URxvt*scrollBar: false
 URvxt*background.border: false
 URxvt*borderLess: true
