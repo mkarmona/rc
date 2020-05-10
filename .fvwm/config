@@ -51,8 +51,8 @@ AddToFunc   StartFunction
 + I Test (Init) Exec exec nitrogen --restore
 + I Test (Init) Exec exec pcmanfm -d
 + I Test (Restart) Exec exec nitrogen --restore
-#+ I Exec exec wmname LG3D
-# + I Module FvwmPager 0 9
++ I Test (Init) Exec exec wmname LG3D
++ I Module FvwmPager 0 9
 # + I Module FvwmButtons RightPanel
 # + I Module FvwmIconMan
 # + I Module FvwmEvent EventNewDesk
@@ -153,7 +153,7 @@ AddToFunc SnapRight
 # Zoom unmaximize large
 DestroyFunc SnapCenter
 AddToFunc SnapCenter
-+ I ThisWindow (!Maximized) Maximize True 90 90
++ I ThisWindow (!Maximized) Maximize True 80 90
 + I TestRc (Match) Move screen $[w.screen] 50-50w 50-50w
 + I TestRc (Match) Break
 + I ThisWindow (Maximized) Maximize
@@ -231,7 +231,7 @@ Style gksudo StaysOnTop, PositionPlacement Center
 # sticky applications
 Style Audacious Sticky
 Style 'Mullvad VPN' Sticky
-Style Hexchat Sticky, PositionPlacement Center, StaysOnTop
+Style Hexchat Sticky, PositionPlacement Center
 Style XLoad Sticky, !Title, StaysOnBottom, NeverFocus, WindowListSkip
 # Style * InitialMapCommand ApplyColorsetWhenSticky
 
@@ -286,7 +286,7 @@ Colorset 4  fg #F3F3F3, bg #BF360C, hi, sh, Plain, NoShape
 Colorset 5  fg #282828, bg #9e9e9e, hi, sh, Plain, NoShape
 Colorset 6  fg #F3F3F3, bg #BF360C, hi, sh, Plain, NoShape
 Colorset 8  fg #282828, bg #9e9e9e, hi, sh, Plain, NoShape
-Colorset 7  fg #28282
+Colorset 7  fg #282828
 Colorset 10 fg #ffffff, bg #003c3c, hi #aaaaaa, sh #999999, Plain, NoShape
 Colorset 11 fg #ffffff, bg #1a6e99, hi #ffffff, sh #ffffff, Plain, NoShape
 Colorset 12 fg #2d2d2d, bg #ffffff, hi, sh, Plain, NoShape
@@ -305,7 +305,8 @@ Colorset 21 fg #f3f3f3, bg #01579b, hi, sh, Plain, NoShape
 # 4: Menus
 ###########
 MenuStyle * MenuColorset 5, ActiveColorset 6, GreyedColorset 7, TitleColorset 8
-MenuStyle * Hilight3DOff, HilightBack, HilightTitleBack, SeparatorsLong, BorderWidth 2, UseDecor FlatDecor, PopupOffset -5 100
+# MenuStyle * Hilight3DOff, HilightBack, HilightTitleBack, SeparatorsLong, BorderWidth 2, UseDecor FlatDecor, PopupOffset -5 100
+MenuStyle * Hilight3DOff, HilightBack, HilightTitleBack, SeparatorsLong, BorderWidth 2, PopupOffset -5 100
 MenuStyle * TrianglesSolid, TrianglesUseFore
 MenuStyle * ItemFormat "%|%3.1i%5.3l%5.3>%|"
 MenuStyle * Font "xft:Inter:Bold:size=9"
