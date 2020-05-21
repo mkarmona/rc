@@ -1,9 +1,9 @@
 configuration {
 	modi: "combi,run";
-	width: 50;
+	width: 60;
 	lines: 10;
 /*	columns: 1;*/
-	font: "Output Sans Testing Bold 30";
+	font: "PragmataPro Liga Regular 36";
 /*	bw: 1;*/
 /*	location: 0;*/
 /*	padding: 5;*/

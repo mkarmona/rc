@@ -37,7 +37,7 @@ AddToFunc   StartFunction
 + I Test (Init) Exec exec xscreensaver
 + I Test (Init) Exec exec xload -geometry 500x50+0-0 -nolabel -bg "#eeeeee" -fg "282828"
 # + I Test (Init) Exec exec picom -cGf -o 0.3 -O 200 -I 200 -t -5 -l -5 -r 10 -D 2 -m 0.95 --backend glx --experimental-backends
-# + I Test (Init) Exec exec picom --backend glx --experimental-backends --vsync
++ I Test (Init) Exec exec picom --backend glx --experimental-backends --vsync
 + I Test (Init) Exec exec trayer --widthtype request --align right --edge top --transparent true --tint 0x0060a0f0 --iconspacing 10 --margin 0 --distance 0 --monitor primary --heighttype pixel --height 32
 + I Test (Init) Exec exec xrdb -load ~/.Xdefaults ~/.Xresources
 # + I Test (Init) Exec exec xbattbar -c -a -p 15 -t 3
@@ -50,6 +50,7 @@ AddToFunc   StartFunction
 + I Test (Init) Exec exec mullvad-vpn
 + I Test (Init) Exec exec nitrogen --restore
 + I Test (Init) Exec exec pcmanfm -d
++ I Test (Init) Exec exec blueman-applet
 + I Test (Restart) Exec exec nitrogen --restore
 + I Test (Init) Exec exec wmname LG3D
 + I Module FvwmPager 0 9
@@ -186,7 +187,7 @@ EwmhNumberOfDesktops 9 9
 # Double Clicks, Hold and Move for the mouse.
 ClickTime 250
 MoveThreshold 3
-DefaultFont "xft:Inter:Bold:size=9"
+DefaultFont "xft:Output Sans Testing:Bold:size=9"
 OpaqueMoveSize unlimited
 HideGeometryWindow Move
 
@@ -199,7 +200,7 @@ AddToDecor FlatDecor
 #+ BorderStyle -- HiddenHandles
 + BorderStyle -- HiddenHandles NoInset
 
-Style * Font "xft:Inter:Bold:size=9"
+Style * Font "xft:Output Sans Testing:Bold:size=9"
 Style * EdgeMoveDelay 350, EdgeMoveResistance 350
 Style * SloppyFocus, MouseFocusClickRaisesOff
 Style * MinOverlapPlacement, !UsePPosition
@@ -309,7 +310,7 @@ MenuStyle * MenuColorset 5, ActiveColorset 6, GreyedColorset 7, TitleColorset 8
 MenuStyle * Hilight3DOff, HilightBack, HilightTitleBack, SeparatorsLong, BorderWidth 2, PopupOffset -5 100
 MenuStyle * TrianglesSolid, TrianglesUseFore
 MenuStyle * ItemFormat "%|%3.1i%5.3l%5.3>%|"
-MenuStyle * Font "xft:Inter:Bold:size=9"
+MenuStyle * Font "xft:Output Sans Testing:Bold:size=9"
 
 # Root Menu
 #
@@ -634,7 +635,7 @@ DestroyModuleConfig EventStick:*
 
 DestroyModuleConfig FvwmIdent:*
 # *FvwmIdent: Colorset 10
-*FvwmIdent: Font "xft:Inter:size=9"
+*FvwmIdent: Font "xft:Output Sans Testing:size=9"
 
 DestroyModuleConfig FvwmScript:*
 *FvwmScript: DefaultColorset 10
@@ -645,12 +646,12 @@ DestroyModuleConfig FvwmPager:*
 *FvwmPager: HilightColorset * 21
 #*FvwmPager: BalloonColorset * 10
 *FvwmPager: WindowColorsets 3 4
-# *FvwmPager: Font "xft:Inter:Regular:size=9"
+# *FvwmPager: Font "xft:Output Sans Testing:Regular:size=9"
 *FvwmPager: Font none
 *FvwmPager: Rows 1
 *FvwmPager: Columns 10
 *FvwmPager: Balloons All
-*FvwmPager: BalloonFont "xft:Inter:Bold:size=9"
+*FvwmPager: BalloonFont "xft:Output Sans Testing:Bold:size=9"
 *FvwmPager: BallonYOffset +2
 *FvwmPager: Window3dBorders
 # *FvwmPager: MiniIcons
