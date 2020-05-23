@@ -1,10 +1,10 @@
 Xft.autohint: 0
 Xft.antialias:	1
 !Xft.dpi:	96
-Xft.dpi:	192
-Xft.hinting:	0
-Xft.hintstyle:	hintnone
-Xft.lcdfilter: lcddefault
+!Xft.dpi:	192
+Xft.hinting:	1
+Xft.hintstyle:	hintfull
+Xft.lcdfilter: lcdlight
 Xft.rgba:	rgb
 
 *font: -*-times-medium-r-*-*-34-*-*-*-*-*-*-*
@@ -19,7 +19,7 @@ URxvt*mouseWheelScrollPage: true
 URxvt*saveLines: 100000
 URxvt*foreground: #282828
 URxvt*background: #eeeeee
-URxvt*font: xft:Input:Regular:size=10
+URxvt*font: xft:Input:size=10
 URxvt*italicFont: xft:Input Italic:size=10
 URxvt*boldFont: xft:Input Bold:size=10
 URxvt*boldItalicFont: xft:Input Bold Italic:size=10
