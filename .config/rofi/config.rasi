@@ -3,7 +3,7 @@ configuration {
 	width: 60;
 	lines: 10;
 /*	columns: 1;*/
-	font: "Output Sans Testing 36";
+	font: "Output Sans Testing Medium 36";
 /*	bw: 1;*/
 /*	location: 0;*/
 /*	padding: 5;*/
