@@ -36,7 +36,7 @@ AddToFunc   StartFunction
 + I Test (Init) Exec exec /usr/libexec/gsd-print-notifications
 + I Test (Init) Exec exec xscreensaver
 + I Test (Init) Exec exec xload -geometry 500x50+0-0 -nolabel -bg "#eeeeee" -fg "282828"
-+ I Test (Init) Exec exec picom --backend glx --experimental-backends --vsync -GC -i 0.9 -c -r 15 --detect-client-opacity --detect-transient
++ I Test (Init) Exec exec picom --backend glx --experimental-backends --vsync -GC -i 0.95 -c -r 15 --detect-client-opacity --detect-transient
 # + I Test (Init) Exec exec picom --backend glx --experimental-backends --vsync
 + I Test (Init) Exec exec trayer --widthtype request --align right --edge top --transparent true --tint 0x0060a0f0 --iconspacing 10 --margin 0 --distance 0 --monitor primary --heighttype pixel --height 32
 + I Test (Init) Exec exec xrdb -load ~/.Xdefaults ~/.Xresources
