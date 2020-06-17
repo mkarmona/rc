@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Fvwm3 (Xession)
+Comment=Fvwm v3 (Xsession)
+Exec=/etc/X11/Xsession
+TryExec=/etc/X11/Xsession
+Type=Application
+X-LightDM-DesktopName=Fvwm3 (Xsession)
+DesktopNames=Fvwm3 (Xsession)
+Keywords=wm;windowmanager;window;manager;
