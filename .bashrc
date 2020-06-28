@@ -169,6 +169,7 @@ alias open-targets="gcloud --project open-targets"
 alias open-targets-eu-dev="gcloud --project open-targets-eu-dev"
 alias open-targets-library="gcloud --project open-targets-library"
 alias open-targets-staging="gcloud --project open-targets-staging"
+alias icat="kitty +kitten icat"
 # Load pyenv automatically by adding
 # the following to ~/.bash_profile:
 
@@ -215,5 +216,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-eval "$(starship init bash)"
 source /usr/share/doc/fzf/examples/key-bindings.bash
+eval "$(starship init bash)"
