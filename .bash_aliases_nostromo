@@ -1,0 +1,2 @@
+alias vim='nvim'
+# alias amm='cs launch ammonite --scala 2.12.12'
