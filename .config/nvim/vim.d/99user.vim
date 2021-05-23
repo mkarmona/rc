@@ -78,5 +78,5 @@ inoremap <C-c><C-v> <Esc>:<C-u>vsplit<CR><C-u>
 
 :tnoremap <Esc> <C-\><C-n>
 
-set background=dark
-colorscheme nord
+set background=light
+colorscheme PaperColor

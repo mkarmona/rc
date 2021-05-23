@@ -30,7 +30,7 @@ set showcmd     " Show (partial) command in status line.
 set showmatch       " Show matching brackets.
 set ignorecase      " Do case insensitive matching
 set incsearch       " Incremental search
-set nonu " numero de lineas
+set nu " numero de lineas
 set hlsearch
 set hidden
 set mouse=a     " Enable mouse usage (all modes)
