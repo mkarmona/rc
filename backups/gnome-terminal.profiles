@@ -1,14 +1,36 @@
 [/]
-default='2e47fa15-878d-499c-a838-09865bdccd69'
-list=['b1dcc9dd-5262-4d8d-a863-c897e6d979b9', '2e85de5f-77e8-46d6-a91f-6a0beef81cd7', '2e47fa15-878d-499c-a838-09865bdccd69']
+default='20d914e1-c165-403f-abc0-aecc96dec2e8'
+list=['b1dcc9dd-5262-4d8d-a863-c897e6d979b9', '2e85de5f-77e8-46d6-a91f-6a0beef81cd7', '2e47fa15-878d-499c-a838-09865bdccd69', '4a9bd034-31cc-44a1-8ed6-1f68a32da5c3', '20d914e1-c165-403f-abc0-aecc96dec2e8']
+
+[:20d914e1-c165-403f-abc0-aecc96dec2e8]
+audible-bell=false
+background-color='rgb(255,255,232)'
+cjk-utf8-ambiguous-width='narrow'
+cursor-background-color='rgb(255,0,0)'
+cursor-colors-set=true
+cursor-foreground-color='rgb(51,51,51)'
+default-size-columns=120
+default-size-rows=35
+font='PragmataPro Mono 20'
+foreground-color='rgb(51,51,51)'
+highlight-background-color='rgb(193,231,248)'
+highlight-colors-set=true
+highlight-foreground-color='rgb(66,66,66)'
+palette=['rgb(0,0,0)', 'rgb(136,0,0)', 'rgb(0,85,0)', 'rgb(136,136,56)', 'rgb(16,84,175)', 'rgb(85,85,153)', 'rgb(0,119,119)', 'rgb(204,204,204)', 'rgb(66,66,66)', 'rgb(184,92,87)', 'rgb(64,136,63)', 'rgb(152,152,72)', 'rgb(2,135,200)', 'rgb(136,136,200)', 'rgb(70,147,159)', 'rgb(237,237,237)']
+scroll-on-output=true
+scrollback-lines=100000
+scrollbar-policy='always'
+use-system-font=true
+use-theme-colors=false
+visible-name='Acme Light'
 
 [:2e47fa15-878d-499c-a838-09865bdccd69]
 audible-bell=false
 background-color='rgb(255,255,234)'
 cjk-utf8-ambiguous-width='narrow'
-cursor-background-color='rgb(255,68,0)'
+cursor-background-color='rgb(255,0,0)'
 cursor-colors-set=true
-cursor-foreground-color='rgb(51,51,51)'
+cursor-foreground-color='rgb(0,0,0)'
 default-size-columns=120
 default-size-rows=35
 font='PragmataPro Mono 20'
@@ -16,7 +38,7 @@ foreground-color='rgb(51,51,51)'
 highlight-background-color='rgb(51,119,255)'
 highlight-colors-set=true
 highlight-foreground-color='rgb(255,255,255)'
-palette=['rgb(0,0,0)', 'rgb(170,0,0)', 'rgb(0,119,0)', 'rgb(139,133,103)', 'rgb(22,29,130)', 'rgb(186,97,172)', 'rgb(70,147,159)', 'rgb(204,204,204)', 'rgb(51,51,51)', 'rgb(192,81,105)', 'rgb(181,255,171)', 'rgb(255,255,0)', 'rgb(34,51,170)', 'rgb(186,97,172)', 'rgb(174,238,238)', 'rgb(237,237,237)']
+palette=['rgb(0,0,0)', 'rgb(136,0,0)', 'rgb(0,119,0)', 'rgb(139,133,103)', 'rgb(22,29,130)', 'rgb(186,97,172)', 'rgb(70,147,159)', 'rgb(204,204,204)', 'rgb(51,51,51)', 'rgb(192,81,105)', 'rgb(181,255,171)', 'rgb(255,255,0)', 'rgb(34,51,170)', 'rgb(186,97,172)', 'rgb(174,238,238)', 'rgb(237,237,237)']
 scroll-on-output=true
 scrollback-lines=100000
 scrollbar-policy='always'
@@ -43,6 +65,28 @@ use-system-font=true
 use-theme-colors=false
 visible-name='PaperColor Dark'
 
+[:4a9bd034-31cc-44a1-8ed6-1f68a32da5c3]
+audible-bell=false
+background-color='rgb(255,255,232)'
+cjk-utf8-ambiguous-width='narrow'
+cursor-background-color='rgb(255,0,0)'
+cursor-colors-set=true
+cursor-foreground-color='rgb(51,51,51)'
+default-size-columns=120
+default-size-rows=35
+font='PragmataPro Mono 20'
+foreground-color='rgb(51,51,51)'
+highlight-background-color='rgb(193,231,248)'
+highlight-colors-set=true
+highlight-foreground-color='rgb(66,66,66)'
+palette=['rgb(0,0,0)', 'rgb(184,92,87)', 'rgb(64,136,63)', 'rgb(152,152,72)', 'rgb(2,135,200)', 'rgb(136,136,200)', 'rgb(0,119,119)', 'rgb(204,204,204)', 'rgb(66,66,66)', 'rgb(184,92,87)', 'rgb(64,136,63)', 'rgb(152,152,72)', 'rgb(2,135,200)', 'rgb(136,136,200)', 'rgb(70,147,159)', 'rgb(237,237,237)']
+scroll-on-output=true
+scrollback-lines=100000
+scrollbar-policy='always'
+use-system-font=true
+use-theme-colors=false
+visible-name='Plan9 Blend Acme '
+
 [:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
 audible-bell=false
 background-color='rgb(248,249,250)'
@@ -57,7 +101,7 @@ foreground-color='rgb(23,20,33)'
 highlight-background-color='rgb(0,95,135)'
 highlight-colors-set=true
 highlight-foreground-color='rgb(248,249,250)'
-palette=['rgb(23,20,33)', 'rgb(192,28,40)', 'rgb(38,162,105)', 'rgb(162,115,76)', 'rgb(18,72,139)', 'rgb(163,71,186)', 'rgb(42,161,179)', 'rgb(208,207,204)', 'rgb(94,92,100)', 'rgb(246,97,81)', 'rgb(51,218,122)', 'rgb(233,173,12)', 'rgb(42,123,222)', 'rgb(192,97,203)', 'rgb(51,199,222)', 'rgb(248,249,250)']
+palette=['rgb(23,20,33)', 'rgb(192,28,40)', 'rgb(0,119,0)', 'rgb(162,115,76)', 'rgb(18,72,139)', 'rgb(163,71,186)', 'rgb(42,161,179)', 'rgb(208,207,204)', 'rgb(94,92,100)', 'rgb(246,97,81)', 'rgb(51,218,122)', 'rgb(233,173,12)', 'rgb(42,123,222)', 'rgb(192,97,203)', 'rgb(51,199,222)', 'rgb(248,249,250)']
 scroll-on-output=true
 scrollback-lines=100000
 scrollbar-policy='always'
