@@ -27,5 +27,7 @@ Plug 'ncm2/ncm2-jedi'
 Plug 'Chiel92/vim-autoformat'
 Plug 'kassio/neoterm'
 Plug 'arcticicestudio/nord-vim'
+Plug 'lifepillar/vim-gruvbox8'
+Plug 'arzg/vim-plan9'
 
 call plug#end()

@@ -1,10 +1,11 @@
 [/]
 default='20d914e1-c165-403f-abc0-aecc96dec2e8'
-list=['b1dcc9dd-5262-4d8d-a863-c897e6d979b9', '2e85de5f-77e8-46d6-a91f-6a0beef81cd7', '2e47fa15-878d-499c-a838-09865bdccd69', '4a9bd034-31cc-44a1-8ed6-1f68a32da5c3', '20d914e1-c165-403f-abc0-aecc96dec2e8']
+list=['b1dcc9dd-5262-4d8d-a863-c897e6d979b9', '2e85de5f-77e8-46d6-a91f-6a0beef81cd7', '2e47fa15-878d-499c-a838-09865bdccd69', '20d914e1-c165-403f-abc0-aecc96dec2e8', '8798642e-1da0-48e1-a6c1-d950b77b72a2']
 
 [:20d914e1-c165-403f-abc0-aecc96dec2e8]
 audible-bell=false
-background-color='rgb(255,255,232)'
+background-color='rgb(255,255,235)'
+bold-is-bright=true
 cjk-utf8-ambiguous-width='narrow'
 cursor-background-color='rgb(255,0,0)'
 cursor-colors-set=true
@@ -12,11 +13,11 @@ cursor-foreground-color='rgb(51,51,51)'
 default-size-columns=120
 default-size-rows=35
 font='PragmataPro Mono 20'
-foreground-color='rgb(51,51,51)'
-highlight-background-color='rgb(193,231,248)'
+foreground-color='rgb(0,0,0)'
+highlight-background-color='rgb(235,255,255)'
 highlight-colors-set=true
 highlight-foreground-color='rgb(66,66,66)'
-palette=['rgb(0,0,0)', 'rgb(136,0,0)', 'rgb(0,85,0)', 'rgb(136,136,56)', 'rgb(16,84,175)', 'rgb(85,85,153)', 'rgb(0,119,119)', 'rgb(204,204,204)', 'rgb(66,66,66)', 'rgb(184,92,87)', 'rgb(64,136,63)', 'rgb(152,152,72)', 'rgb(2,135,200)', 'rgb(136,136,200)', 'rgb(70,147,159)', 'rgb(237,237,237)']
+palette=['rgb(0,0,0)', 'rgb(136,0,0)', 'rgb(0,136,0)', 'rgb(119,119,56)', 'rgb(85,85,153)', 'rgb(85,85,153)', 'rgb(0,119,119)', 'rgb(243,243,211)', 'rgb(135,135,129)', 'rgb(184,92,87)', 'rgb(64,136,63)', 'rgb(152,152,72)', 'rgb(2,135,200)', 'rgb(136,136,200)', 'rgb(70,147,159)', 'rgb(255,255,235)']
 scroll-on-output=true
 scrollback-lines=100000
 scrollbar-policy='always'
@@ -65,9 +66,10 @@ use-system-font=true
 use-theme-colors=false
 visible-name='PaperColor Dark'
 
-[:4a9bd034-31cc-44a1-8ed6-1f68a32da5c3]
+[:8798642e-1da0-48e1-a6c1-d950b77b72a2]
 audible-bell=false
-background-color='rgb(255,255,232)'
+background-color='rgb(249,245,215)'
+bold-is-bright=true
 cjk-utf8-ambiguous-width='narrow'
 cursor-background-color='rgb(255,0,0)'
 cursor-colors-set=true
@@ -75,17 +77,17 @@ cursor-foreground-color='rgb(51,51,51)'
 default-size-columns=120
 default-size-rows=35
 font='PragmataPro Mono 20'
-foreground-color='rgb(51,51,51)'
+foreground-color='rgb(40,40,40)'
 highlight-background-color='rgb(193,231,248)'
 highlight-colors-set=true
 highlight-foreground-color='rgb(66,66,66)'
-palette=['rgb(0,0,0)', 'rgb(184,92,87)', 'rgb(64,136,63)', 'rgb(152,152,72)', 'rgb(2,135,200)', 'rgb(136,136,200)', 'rgb(0,119,119)', 'rgb(204,204,204)', 'rgb(66,66,66)', 'rgb(184,92,87)', 'rgb(64,136,63)', 'rgb(152,152,72)', 'rgb(2,135,200)', 'rgb(136,136,200)', 'rgb(70,147,159)', 'rgb(237,237,237)']
+palette=['rgb(40,40,40)', 'rgb(157,0,6)', 'rgb(121,116,6)', 'rgb(181,118,20)', 'rgb(7,102,120)', 'rgb(143,63,113)', 'rgb(66,123,88)', 'rgb(235,219,178)', 'rgb(60,56,54)', 'rgb(204,36,29)', 'rgb(152,151,26)', 'rgb(215,153,33)', 'rgb(69,133,136)', 'rgb(177,98,134)', 'rgb(104,157,106)', 'rgb(249,245,215)']
 scroll-on-output=true
 scrollback-lines=100000
 scrollbar-policy='always'
 use-system-font=true
 use-theme-colors=false
-visible-name='Plan9 Blend Acme '
+visible-name='Solarised 8'
 
 [:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
 audible-bell=false

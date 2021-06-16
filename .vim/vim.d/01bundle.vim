@@ -71,6 +71,10 @@ Plug 'junegunn/seoul256.vim'
 Plug 'jnurmine/Zenburn'
 Plug 'tbastos/vim-lua'
 Plug 'lifepillar/vim-solarized8'
+Plug 'olivertaylor/vacme'
+Plug 'https://gitlab.com/protesilaos/tempus-themes-vim.git'
+Plug 'lifepillar/vim-gruvbox8'
+Plug 'arzg/vim-plan9'
 
 " Add plugins to &runtimepath
 call plug#end()
