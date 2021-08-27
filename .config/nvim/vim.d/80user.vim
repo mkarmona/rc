@@ -76,15 +76,7 @@ inoremap <C-c><C-s> <Esc>:<C-u>split<CR><C-u>
 noremap <C-c><C-v> :<C-u>vsplit<CR><C-u>
 inoremap <C-c><C-v> <Esc>:<C-u>vsplit<CR><C-u>
 
-if has("gui_running")
-    set background=light
-    " colorscheme PaperColor
-    colorscheme PaperColor
-    "colorscheme colorsbox-stnight
-    "colorscheme colorsbox-faff
-    "colorscheme colorsbox-material
-else
-    set background=light
-    colorscheme PaperColor
-endif
+:tnoremap <Esc> <C-\><C-n>
 
+set background=light
+colorscheme plan9

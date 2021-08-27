@@ -34,14 +34,14 @@ set showcmd     " Show (partial) command in status line.
 set showmatch       " Show matching brackets.
 set ignorecase      " Do case insensitive matching
 set incsearch       " Incremental search
-set nonu " numero de lineas
+set number " numero de lineas
 set hlsearch
 set hidden
 set mouse=a     " Enable mouse usage (all modes)
 set autowrite "automatic writing
 set autoread "para que recargue el fichero en caso de cambiar
 set laststatus=2
-set showmode
+set noshowmode
 set timeoutlen=500
 set fillchars+=vert:│
 "set listchars=extends:$,tab:/.,eol:¬

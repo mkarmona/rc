@@ -15,5 +15,5 @@ exe 'runtime!' 'vim.d/01bundle.vim'
 exe 'runtime!' 'vim.d/02settings.vim'
 
 exe 'runtime!' 'vim.d/20*.vim'
-
-exe 'runtime' 'vim.d/99user.vim'
+exe 'runtime' 'vim.d/80*.vim'
+exe 'runtime!' 'vim.d/90*.vim'
