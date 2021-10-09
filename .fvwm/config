@@ -8,8 +8,8 @@ BugOpts DebugRandr on
 #    6: Decor
 #    7: Modules
 #
-InfoStoreAdd terminal gnome-terminal
-InfoStoreAdd explorer "thunar"
+InfoStoreAdd terminal "gnome-terminal"
+InfoStoreAdd explorer "nautilus"
 InfoStoreAdd scripts $[HOME]/.fvwm/scripts
 
 # 1: Functions
@@ -31,23 +31,27 @@ AddToFunc ExitFunction
 
 DestroyFunc StartFunction
 AddToFunc   StartFunction
-+ I Test (Init) Exec exec xfsettingsd --replace --no-daemon
++ I Test (Init) Exec exec xrandr --dpi 185/DP-1
++ I Test (Init) Exec exec xrdb /home/mkarmona/.Xresources
++ I Test (Init) Exec exec xfsettingsd --no-daemon --replace
 + I Test (Init) Exec exec /usr/lib/x86_64-linux-gnu/xfce4/notifyd/xfce4-notifyd
-+ I Test (Init) Exec exec xscreensaver
-+ I Test (Init) Exec exec xload -geometry 500x50+0-0 -nolabel -bg "#eeeeee" -fg "282828"
-+ I Test (Init) Exec exec picom --backend glx --experimental-backends --vsync -GC
-+ I Test (Init) Exec exec trayer --widthtype request --align right --edge top --transparent true --tint 0x0060a0f0 --iconspacing 10 --margin 0 --distance 0 --monitor primary --heighttype pixel --height 32
++ I Test (Init) Exec exec xfce4-power-manager
+# + I Test (Init) Exec exec xscreensaver
+# + I Test (Init) Exec exec xload -geometry 500x50-0-0 -nolabel -bg "#eeeeee" -fg "282828"
++ I Test (Init) Exec exec picom --backend glx --experimental-backends --vsync -c
+# + I Test (Init) Exec exec trayer --widthtype request --align right --edge top --transparent true --tint 0x0060a0f0 --iconspacing 10 --margin 0 --distance 0 --monitor primary --heighttype pixel --height 32
 + I Test (Init) Exec exec cbatticon -u 15 -r 5 -l 15 -c "notify-send -u critical 'suspending now - critical battery level' && systemctl suspend"
-+ I Test (Init) Exec exec pasystray --include-monitors -t
-+ I Test (Init) Exec exec diodon
+# + I Test (Init) Exec exec pasystray --include-monitors -t
 + I Test (Init) Exec exec nm-applet
-+ I Test (Init) Exec exec megasync
+# + I Test (Init) Exec exec redshift-gtk
+# + I Test (Init) Exec exec megasync
 + I Test (Init) Exec exec mullvad-vpn
-+ I Test (Init) Exec exec thunar --daemon
-+ I Test (Init) Exec exec blueman-applet
 + I Test (Init) Exec exec nitrogen --restore
+# + I Test (Init) Exec exec thunar --daemon
+# + I Test (Init) Exec exec blueman-tray
++ I Test (Init) Exec exec diodon
 + I Test (Restart) Exec exec nitrogen --restore
-+ I Test (Init) Exec exec wmname LG3D
+# + I Test (Init) Exec exec wmname LG3D
 + I Module FvwmPager 0 9
 # + I Module FvwmButtons RightPanel
 # + I Module FvwmIconMan
@@ -177,12 +181,12 @@ EdgeThickness 1
 IgnoreModifiers L25
 # EwmhBaseStruts [left] [right] [top] [bottom]
 EwmhBaseStruts 0 0 0 0
-EwmhNumberOfDesktops 9 9
+EwmhNumberOs 9 9
 # This sets the ClickTime and MoveThreshold used to determine
 # Double Clicks, Hold and Move for the mouse.
 ClickTime 250
 MoveThreshold 3
-DefaultFont "xft:Output Sans Testing:Bold:size=9"
+DefaultFont "xft:Output Sans Testing:Bold:size=11"
 OpaqueMoveSize unlimited
 HideGeometryWindow Move
 
@@ -195,7 +199,7 @@ AddToDecor FlatDecor
 #+ BorderStyle -- HiddenHandles
 + BorderStyle -- HiddenHandles NoInset
 
-Style * Font "xft:Output Sans Testing:Bold:size=9"
+Style * Font "xft:Output Sans Testing:Bold:size=11"
 Style * EdgeMoveDelay 350, EdgeMoveResistance 350
 Style * SloppyFocus, MouseFocusClickRaisesOff
 Style * MinOverlapPlacement, !UsePPosition
@@ -208,11 +212,11 @@ Style * DecorateTransient, StackTransientParent
 Style * WindowShadeScrolls, WindowShadeSteps 10
 # Decor Styles
 # Style * BorderWidth 5, HandleWidth 5, MWMButtons, FvwmBorder, FirmBorder
-Style * UseDecor FlatDecor, BorderWidth 7, HandleWidth 7, FvwmBorder, !Title, !Button 0, Button 1, Button 2, !Button 3, !Button 4, !Button 5, !Button 6, !Button 7, !Button 8, !Button 9
+Style * UseDecor FlatDecor, BorderWidth 10, HandleWidth 10, FvwmBorder, Title, !Button 0, !Button 1, !Button 2, !Button 3, !Button 4, !Button 5, !Button 6, !Button 7, !Button 8, !Button 9
 Style * Colorset 1, HilightColorset 2
 Style * BorderColorset 3, HilightBorderColorset 4
 
-# Disable Icons from appearing on desktop.
+# Disable Icons from appearing on.
 # Comment this out or use Style * Icon to get the icons back.
 Style * !Icon
 
@@ -220,14 +224,17 @@ Style * !Icon
 Style RightPanel !Title, !Borders, !Handles, Sticky, \
                  WindowListSkip, NeverFocus
 Style ConfirmQuit Title, StaysOnTop, PositionPlacement Center
+Style pm-dialog Title, StaysOnTop, PositionPlacement Center
 Style FvwmIdent WindowListSkip
 Style trayer !Title, Sticky, !Handles, !Borders, NeverFocus, WindowListSkip, StaysOnBottom
 Style gksudo StaysOnTop, PositionPlacement Center
 
 # sticky applications
 Style Audacious Sticky
+Style signal Sticky
 Style Gnome-calendar Sticky
 Style 'Mullvad VPN' Sticky
+Style google-chrome-beta !Title
 Style Hexchat Sticky, PositionPlacement Center
 Style XLoad Sticky, !Title, StaysOnBottom, NeverFocus, WindowListSkip
 # Style * InitialMapCommand ApplyColorsetWhenSticky
@@ -306,7 +313,7 @@ MenuStyle * MenuColorset 5, ActiveColorset 6, GreyedColorset 7, TitleColorset 8
 MenuStyle * Hilight3DOff, HilightBack, HilightTitleBack, SeparatorsLong, BorderWidth 2, PopupOffset -5 100
 MenuStyle * TrianglesSolid, TrianglesUseFore
 MenuStyle * ItemFormat "%|%3.1i%5.3l%5.3>%|"
-MenuStyle * Font "xft:Output Sans Testing:Bold:size=9"
+MenuStyle * Font "xft:Output Sans Testing:Bold:size=11"
 
 # Root Menu
 #
@@ -329,7 +336,7 @@ AddToMenu   MenuFvwmRoot "Fvwm" Title
 + "&Quit%icons/quit.png%" Module FvwmScript FvwmScript-ConfirmQuit
 
 # Generate XDGMenu
-PipeRead "fvwm-menu-desktop -e"
+PipeRead "fvwm-menu -e"
 
 # Programs Menu
 #
@@ -456,7 +463,7 @@ AddToMenu   MenuSendToPage
 # + "FvwmScript"          ViewManPage FvwmScript
 # + "" Nop
 # + "fvwm-root"	        ViewManPage fvwm-root
-# + "fvwm-menu-desktop"   ViewManPage fvwm-menu-desktop
+# + "fvwm-menu"   ViewManPage fvwm-menu
 # + "fvwm-menu-directory" ViewManPage fvwm-menu-directory
 # + "fvwm-menu-headlines" ViewManPage fvwm-menu-headlines
 # + "fvwm-menu-xlock"     ViewManPage fvwm-menu-xlock
@@ -535,7 +542,7 @@ Silent Key i WFST 4 ThisWindow Iconify
 Silent Key s WFST 4 ThisWindow Stick
 Silent Key w WFST 4 ThisWindow Menu MenuWindowOps This 0 0
 Silent Key Return A 4 Exec exec $[infostore.terminal]
-Silent Key e A 4 Exec exec $[infostore.explorer]
+Silent Key e A 4 Exec exec $[infostore.explorer] -w
 Silent Key e A S4 Exec exec $[infostore.explorer]
 Silent Key t A 4 Exec exec notify-send -u low "$(date)"
 Silent Key b A 4 Exec exec notify-send -u low "$(acpitool -b)"
@@ -544,9 +551,8 @@ Silent Key l A 4 Exec exec xscreensaver-command -lock
 Silent key XF86MonBrightnessUp     A N Exec exec brightnessctl -s s +5%
 Silent key XF86MonBrightnessDown   A N Exec exec brightnessctl -s s 5%-
 Silent key XF86Tools               A 4 Exec exec xset dpms force off
-Silent key Print                   A 4 Exec exec gnome-screenshot -i
-Silent key XF86LaunchA             A 4 Exec exec gksudo -g -m "Suspend?" systemctl suspend
-Silent key XF86Explorer            A 4 Exec exec gksudo -g -m "Hibernate?" systemctl hibernate
+Silent key Print                   A 4 Exec exec xfce4-screenshooter
+Silent key XF86Favorites           A 4 Exec exec bash ~/bin/pm-dialog.sh
 Silent key XF86AudioLowerVolume    A N Exec exec pactl set-sink-volume "@DEFAULT_SINK@" -5%
 Silent key XF86AudioRaiseVolume    A N Exec exec pactl set-sink-volume "@DEFAULT_SINK@" +5%
 Silent key XF86AudioMute           A N Exec exec pactl set-sink-mute "@DEFAULT_SINK@" toggle
@@ -631,23 +637,23 @@ DestroyModuleConfig EventStick:*
 
 DestroyModuleConfig FvwmIdent:*
 # *FvwmIdent: Colorset 10
-*FvwmIdent: Font "xft:Output Sans Testing:size=9"
+*FvwmIdent: Font "xft:Output Sans Testing:size=11"
 
 DestroyModuleConfig FvwmScript:*
 *FvwmScript: DefaultColorset 10
 
-Style FvwmPager !Title, Sticky, Borders, Handles, WindowListSkip, NeverFocus, StaysOnBottom
+Style FvwmPager !Title, Sticky, Borders, Handles, WindowListSkip, StaysOnBottom
 DestroyModuleConfig FvwmPager:*
 *FvwmPager: Colorset * 20
 *FvwmPager: HilightColorset * 21
 #*FvwmPager: BalloonColorset * 10
 *FvwmPager: WindowColorsets 3 4
-# *FvwmPager: Font "xft:Output Sans Testing:Regular:size=9"
+# *FvwmPager: Font "xft:Inter:Regular:size=9"
 *FvwmPager: Font none
 *FvwmPager: Rows 1
 *FvwmPager: Columns 10
 *FvwmPager: Balloons All
-*FvwmPager: BalloonFont "xft:Output Sans Testing:Bold:size=9"
+*FvwmPager: BalloonFont "xft:Output Sans Testing:Bold:size=11"
 *FvwmPager: BallonYOffset +2
 *FvwmPager: Window3dBorders
 # *FvwmPager: MiniIcons
@@ -667,7 +673,7 @@ DestroyModuleConfig FvwmPager:*
 # *RightPanel: Rows $[vp.height]
 # *RightPanel: Columns 120
 # *RightPanel: Frame 0
-# *RightPanel: Font "xft:Inter:Bold:size=10"
+# *RightPanel: Font "xft:Inter:Bold:size=9"
 # *RightPanel: (120x45, Icon "fvwm-logo-small.png", Frame 0)
 # *RightPanel: (120x5, Frame 0)
 # *RightPanel: (10x20, Frame 0)
@@ -714,7 +720,7 @@ DestroyModuleConfig FvwmPager:*
 # *FvwmIconMan: DrawIcons always
 # *FvwmIconMan: Window3dBorders
 # *FvwmIconMan: Format "%t"
-# *FvwmIconMan: Font "xft:Inter:Bold:size=10"
+# *FvwmIconMan: Font "xft:Inter:Bold:size=9"
 # *FvwmIconMan: Action Mouse 0 A ret
 # *FvwmIconMan: Action Mouse 1 A sendcommand IconManClick
 # *FvwmIconMan: Action Mouse 3 A sendcommand "Menu MenuIconOps"
