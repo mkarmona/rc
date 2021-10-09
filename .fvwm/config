@@ -39,7 +39,7 @@ AddToFunc   StartFunction
 # + I Test (Init) Exec exec xscreensaver
 # + I Test (Init) Exec exec xload -geometry 500x50-0-0 -nolabel -bg "#eeeeee" -fg "282828"
 + I Test (Init) Exec exec picom --backend glx --experimental-backends --vsync -c
-# + I Test (Init) Exec exec trayer --widthtype request --align right --edge top --transparent true --tint 0x0060a0f0 --iconspacing 10 --margin 0 --distance 0 --monitor primary --heighttype pixel --height 32
++ I Test (Init) Exec exec trayer --widthtype request --align right --edge top --height 64
 + I Test (Init) Exec exec cbatticon -u 15 -r 5 -l 15 -c "notify-send -u critical 'suspending now - critical battery level' && systemctl suspend"
 # + I Test (Init) Exec exec pasystray --include-monitors -t
 + I Test (Init) Exec exec nm-applet
@@ -235,6 +235,8 @@ Style signal Sticky
 Style Gnome-calendar Sticky
 Style 'Mullvad VPN' Sticky
 Style google-chrome-beta !Title
+Style vivaldi-stable !Title
+Style Gnome-terminal !Title
 Style Hexchat Sticky, PositionPlacement Center
 Style XLoad Sticky, !Title, StaysOnBottom, NeverFocus, WindowListSkip
 # Style * InitialMapCommand ApplyColorsetWhenSticky
