@@ -649,15 +649,15 @@ DestroyModuleConfig FvwmPager:*
 #*FvwmPager: BalloonColorset * 10
 *FvwmPager: WindowColorsets 3 4
 # *FvwmPager: Font "xft:Inter:Regular:size=9"
-*FvwmPager: Font none
+*FvwmPager: Font "xft:Output Sans Testing:size=11"
 *FvwmPager: Rows 1
 *FvwmPager: Columns 10
 *FvwmPager: Balloons All
 *FvwmPager: BalloonFont "xft:Output Sans Testing:Bold:size=11"
 *FvwmPager: BallonYOffset +2
-*FvwmPager: Window3dBorders
+# *FvwmPager: Window3dBorders
 # *FvwmPager: MiniIcons
-*FvwmPager: Geometry 500x50-0-0
+*FvwmPager: Geometry 1000x100-0-0
 
 # FvwmButtons - RightPanel
 #
