@@ -1,11 +1,11 @@
 Xft.autohint: 0
 Xft.antialias:	1
-!Xft.dpi:	96
-! Xft.dpi:	192
+!Xft.dpi:	282
+Xft.dpi:	185
 Xft.hinting:	1
 Xft.hintstyle:	hintfull
-Xft.lcdfilter: lcdlight
-Xft.rgba:	rgb
+Xft.lcdfilter: lcddefault
+Xft.rgba:	rgba
 
 *font: -*-times-medium-r-*-*-34-*-*-*-*-*-*-*
 *face: Output Sans Testing
@@ -17,16 +17,51 @@ URxvt*transparent: false
 URxvt*cursorBlink: true
 URxvt*mouseWheelScrollPage: true
 URxvt*saveLines: 100000
-URxvt*foreground: #282828
-URxvt*background: #eeeeee
-URxvt*font: xft:Input:size=10
-URxvt*italicFont: xft:Input Italic:size=10
-URxvt*boldFont: xft:Input Bold:size=10
-URxvt*boldItalicFont: xft:Input Bold Italic:size=10
+URxvt*font: xft:PragmataPro Mono:size=12
+!URxvt*italicFont: xft:PragmataPro Mono Italic:size=12
+!URxvt*boldFont: xft:PragmataPro Mono Bold:size=12
+!URxvt*boldItalicFont: xft:PragmataPro Mono Bold Italic:size=12
 URxvt*scrollBar: false
 URvxt*background.border: false
-URxvt*borderLess: true
+URxvt*borderLess: false
 URxvt*externalBorder: 0
 URxvt*internalBorder: 0
 XTerm*faceName: Input
 XTerm*faceSize: 10
+URxvt.background:               rgba:efef/efef/efef/ffff
+URxvt.depth:                    32
+! PaperColor Theme light
+URxvt*cursorColor: #4D4D4C
+URxvt*geometry: 110x35
+URxvt*pointerColor: #4D4D4C
+URxvt.foreground: #282828
+!URxvt.background: #efefef
+! black
+URxvt.color0: #D0D0D0
+URxvt.color8: #737373
+! red
+URxvt.color1: #D7005F
+URxvt.color9: #D7005F
+! green
+URxvt.color2: #718C00
+URxvt.color10: #718C00
+! yellow / orange
+URxvt.color3: #D75F00
+URxvt.color11: #D75F00
+!blue
+URxvt.color4: #4271AE
+URxvt.color12: #4271AE
+! magenta
+URxvt.color5: #8959A8
+URxvt.color13: #8959A8
+! cyan
+URxvt.color6: #3E999F
+URxvt.color14: #3E999F
+! white
+URxvt.color7: #4D4D4C
+URxvt.color15: #F5F5F5
+
+xosview*font: -*-times-medium-r-*-*-34-*-*-*-*-*-*-*
+xosview*geometry: 1280x720
+xosview*samplesPerSec:      2
+xosview*graphNumCols:       120   ! number of samples shown in a graph

@@ -275,7 +275,7 @@ Style XLoad Sticky, !Title, StaysOnBottom, NeverFocus, WindowListSkip
 # https://material.io/design/color/#tools-for-picking-colors
 # #FFEB3B yellow
 # #FFD600 dark yellow
-# #BF360C red
+# #BF360C red E63946
 # #0288D1 blue
 # #01579B dark blue
 # #9E9E9E gray
@@ -284,14 +284,14 @@ Style XLoad Sticky, !Title, StaysOnBottom, NeverFocus, WindowListSkip
 # light f0f0f0
 # dark 282828
 #
-Colorset 0  fg #282828, bg #9e9e9e, hi, sh, Plain, NoShape
-Colorset 1  fg #282828, bg #9e9e9e, hi, sh, Plain, NoShape
-Colorset 2  fg #F3F3F3, bg #BF360C, hi, sh, Plain, NoShape
-Colorset 3  fg #282828, bg #9e9e9e, hi, sh, Plain, NoShape
-Colorset 4  fg #F3F3F3, bg #BF360C, hi, sh, Plain, NoShape
-Colorset 5  fg #282828, bg #9e9e9e, hi, sh, Plain, NoShape
-Colorset 6  fg #F3F3F3, bg #BF360C, hi, sh, Plain, NoShape
-Colorset 8  fg #282828, bg #9e9e9e, hi, sh, Plain, NoShape
+Colorset 0  fg #282828, bg #eeeeee, hi, sh, Plain, NoShape
+Colorset 1  fg #282828, bg #eeeeee, hi, sh, Plain, NoShape
+Colorset 2  fg #F3F3F3, bg #e63946, hi, sh, Plain, NoShape
+Colorset 3  fg #282828, bg #eeeeee, hi, sh, Plain, NoShape
+Colorset 4  fg #F3F3F3, bg #e63946, hi, sh, Plain, NoShape
+Colorset 5  fg #282828, bg #eeeeee, hi, sh, Plain, NoShape
+Colorset 6  fg #F3F3F3, bg #e63946, hi, sh, Plain, NoShape
+Colorset 8  fg #282828, bg #eeeeee, hi, sh, Plain, NoShape
 Colorset 7  fg #282828
 Colorset 10 fg #ffffff, bg #003c3c, hi #aaaaaa, sh #999999, Plain, NoShape
 Colorset 11 fg #ffffff, bg #1a6e99, hi #ffffff, sh #ffffff, Plain, NoShape
@@ -301,8 +301,8 @@ Colorset 14 fg #555555, bg #003c3c, hi #aaaaaa, sh #999999, Plain, NoShape
 
 # sticky colorset normal inactive 20
 # sticky colorset normal active 21
-Colorset 20 fg #f3f3f3, bg #0288d1, hi, sh, Plain, NoShape
-Colorset 21 fg #f3f3f3, bg #01579b, hi, sh, Plain, NoShape
+Colorset 20 fg #f3f3f3, bg #457B9D, hi, sh, Plain, NoShape
+Colorset 21 fg #f3f3f3, bg #1D3557, hi, sh, Plain, NoShape
 # sticky yellowish
 # Colorset 20 fg #282828, bg #FFEB3B, hi, sh, Plain, NoShape
 # Colorset 21 fg #282828, bg #FFD600, hi, sh, Plain, NoShape
@@ -549,7 +549,7 @@ Silent Key e A S4 Exec exec $[infostore.explorer]
 Silent Key t A 4 Exec exec notify-send -u low "$(date)"
 Silent Key b A 4 Exec exec notify-send -u low "$(acpitool -b)"
 Silent Key l A 4 Exec exec xscreensaver-command -lock
-# 
+
 Silent key XF86MonBrightnessUp     A N Exec exec brightnessctl -s s +5%
 Silent key XF86MonBrightnessDown   A N Exec exec brightnessctl -s s 5%-
 Silent key XF86Tools               A 4 Exec exec xset dpms force off
@@ -644,6 +644,7 @@ DestroyModuleConfig FvwmIdent:*
 DestroyModuleConfig FvwmScript:*
 *FvwmScript: DefaultColorset 10
 
+Style xosview !Title, Sticky
 Style FvwmPager !Title, Sticky, Borders, Handles, WindowListSkip, StaysOnBottom
 DestroyModuleConfig FvwmPager:*
 *FvwmPager: Colorset * 20
