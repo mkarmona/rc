@@ -31,13 +31,16 @@ AddToFunc ExitFunction
 
 DestroyFunc StartFunction
 AddToFunc   StartFunction
++ I Test (Init) Exec exec xrandr --dpi 185/DP-0
 + I Test (Init) Exec exec xrandr --dpi 185/DP-1
+# + I Test (Init) Exec exec xrandr --dpi 282/eDP-1
+# + I Test (Init) Exec exec xrandr --dpi 282/DP-2
 + I Test (Init) Exec exec xrdb /home/mkarmona/.Xresources
 + I Test (Init) Exec exec xfsettingsd --no-daemon --replace
 + I Test (Init) Exec exec /usr/lib/x86_64-linux-gnu/xfce4/notifyd/xfce4-notifyd
 + I Test (Init) Exec exec xfce4-power-manager
 # + I Test (Init) Exec exec xscreensaver
-# + I Test (Init) Exec exec xload -geometry 500x50-0-0 -nolabel -bg "#eeeeee" -fg "282828"
+# + I Test (Init) Exec exec xload -geometry 500x50-0-0 -nolabel -bg "silver" -fg "282828"
 + I Test (Init) Exec exec picom --backend glx --experimental-backends --vsync -c
 + I Test (Init) Exec exec trayer --widthtype request --align right --edge top --height 64
 + I Test (Init) Exec exec cbatticon -u 15 -r 5 -l 15 -c "notify-send -u critical 'suspending now - critical battery level' && systemctl suspend"
@@ -50,6 +53,10 @@ AddToFunc   StartFunction
 # + I Test (Init) Exec exec thunar --daemon
 # + I Test (Init) Exec exec blueman-tray
 + I Test (Init) Exec exec diodon
++ i test (restart) exec exec xrandr --dpi 185/DP-0
++ i test (restart) exec exec xrandr --dpi 185/DP-1
+# + I Test (Restart) Exec exec xrandr --dpi 282/DP-2
+#+ I Test (Restart) Exec exec xrandr --dpi 282/eDP-1
 + I Test (Restart) Exec exec nitrogen --restore
 # + I Test (Init) Exec exec wmname LG3D
 + I Module FvwmPager 0 9
@@ -194,10 +201,11 @@ DestroyDecor FlatDecor
 AddToDecor FlatDecor
 + ButtonStyle All Active (-- flat) Inactive (-- flat)
 + AddButtonStyle All AllDown (-- Raised)
-+ TitleStyle  LeftJustified -- Flat
+# + TitleStyle  LeftJustified -- Flat
++ TitleStyle  LeftJustified
 # TitleStyle Centered Height 40 -- Flat
 #+ BorderStyle -- HiddenHandles
-+ BorderStyle -- HiddenHandles NoInset
+#+ BorderStyle -- HiddenHandles NoInset
 
 Style * Font "xft:Output Sans Testing:Bold:size=11"
 Style * EdgeMoveDelay 350, EdgeMoveResistance 350
@@ -284,14 +292,14 @@ Style XLoad Sticky, !Title, StaysOnBottom, NeverFocus, WindowListSkip
 # light f0f0f0
 # dark 282828
 #
-Colorset 0  fg #282828, bg #eeeeee, hi, sh, Plain, NoShape
-Colorset 1  fg #282828, bg #eeeeee, hi, sh, Plain, NoShape
-Colorset 2  fg #F3F3F3, bg #e63946, hi, sh, Plain, NoShape
-Colorset 3  fg #282828, bg #eeeeee, hi, sh, Plain, NoShape
-Colorset 4  fg #F3F3F3, bg #e63946, hi, sh, Plain, NoShape
-Colorset 5  fg #282828, bg #eeeeee, hi, sh, Plain, NoShape
-Colorset 6  fg #F3F3F3, bg #e63946, hi, sh, Plain, NoShape
-Colorset 8  fg #282828, bg #eeeeee, hi, sh, Plain, NoShape
+Colorset 0  fg #282828, bg silver, hi, sh, Plain, NoShape
+Colorset 1  fg #282828, bg silver, hi, sh, Plain, NoShape
+Colorset 2  fg #F3F3F3, bg firebrick, hi, sh, Plain, NoShape
+Colorset 3  fg #282828, bg silver, hi, sh, Plain, NoShape
+Colorset 4  fg #F3F3F3, bg firebrick, hi, sh, Plain, NoShape
+Colorset 5  fg #282828, bg silver, hi, sh, Plain, NoShape
+Colorset 6  fg #F3F3F3, bg firebrick, hi, sh, Plain, NoShape
+Colorset 8  fg #282828, bg silver, hi, sh, Plain, NoShape
 Colorset 7  fg #282828
 Colorset 10 fg #ffffff, bg #003c3c, hi #aaaaaa, sh #999999, Plain, NoShape
 Colorset 11 fg #ffffff, bg #1a6e99, hi #ffffff, sh #ffffff, Plain, NoShape
@@ -544,7 +552,7 @@ Silent Key i WFST 4 ThisWindow Iconify
 Silent Key s WFST 4 ThisWindow Stick
 Silent Key w WFST 4 ThisWindow Menu MenuWindowOps This 0 0
 Silent Key Return A 4 Exec exec $[infostore.terminal]
-Silent Key e A 4 Exec exec $[infostore.explorer] -w
+Silent Key e A 4 Exec exec $[infostore.explorer]
 Silent Key e A S4 Exec exec $[infostore.explorer]
 Silent Key t A 4 Exec exec notify-send -u low "$(date)"
 Silent Key b A 4 Exec exec notify-send -u low "$(acpitool -b)"
@@ -644,7 +652,6 @@ DestroyModuleConfig FvwmIdent:*
 DestroyModuleConfig FvwmScript:*
 *FvwmScript: DefaultColorset 10
 
-Style xosview !Title, Sticky
 Style FvwmPager !Title, Sticky, Borders, Handles, WindowListSkip, StaysOnBottom
 DestroyModuleConfig FvwmPager:*
 *FvwmPager: Colorset * 20

@@ -1,7 +1,7 @@
 Xft.autohint: 0
 Xft.antialias:	1
-!Xft.dpi:	282
-Xft.dpi:	185
+Xft.dpi:	282
+!Xft.dpi:	185
 Xft.hinting:	1
 Xft.hintstyle:	hintfull
 Xft.lcdfilter: lcddefault
@@ -62,6 +62,41 @@ URxvt.color7: #4D4D4C
 URxvt.color15: #F5F5F5
 
 xosview*font: -*-times-medium-r-*-*-34-*-*-*-*-*-*-*
-xosview*geometry: 1280x720
-xosview*samplesPerSec:      2
-xosview*graphNumCols:       120   ! number of samples shown in a graph
+xosview*meterLabelColor: #000000
+xosview*usedLabelColor: #000000
+xosview*background: #ffffff
+xosview*foreground: #000000
+xosview*enableStipple: False
+xosview*geometry: 1280x300
+xosview*samplesPerSec:      5
+xosview*graphNumCols:       150   ! number of samples shown in a graph
+
+xosview*mem:                False
+xosview*cpu:                False
+xosview*disk:               False
+xosview*swap:               False
+xosview*page:               False
+xosview*wireless:               False
+xosview*battery:            False
+
+xosview*load:               True
+xosview*loadCritColor:      #e34a33
+xosview*loadWarnColor:      #fc8d59
+xosview*loadProcColor:      #fdcc8a
+xosview*loadIdleColor:      #fef0d9
+xosview*loadPriority:       20
+xosview*loadCritThreshold:  auto  ! auto or number
+xosview*loadWarnThreshold:  auto  ! auto or number
+xosview*loadGraph:          True
+xosview*loadUsedFormat:     autoscale
+xosview*loadCpuSpeed:       False
+
+xosview*net:                True
+xosview*netBandwidth:       3750000
+xosview*netInColor:         #af8dc3
+xosview*netOutColor:        #7fbf7b
+xosview*netBackground:      #f7f7f7
+xosview*netPriority:        5
+xosview*netGraph:           True
+xosview*netUsedFormat:	    autoscale
+xosview*netIface:           False
