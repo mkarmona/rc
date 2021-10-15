@@ -51,6 +51,8 @@ Plug 'cespare/vim-toml'
 Plug 'tbastos/vim-lua'
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'arzg/vim-plan9'
+Plug 'ziglang/zig.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Add plugins to &runtimepath
 call plug#end()
