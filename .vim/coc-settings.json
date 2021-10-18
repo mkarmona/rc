@@ -1,0 +1,8 @@
+{
+   "languageserver": {
+       "zls" : {
+           "command": "/home/mkarmona/opt/zls/zls",
+           "filetypes": ["zig"]
+       }
+   }
+}

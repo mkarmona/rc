@@ -1,0 +1,17 @@
+[profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+audible-bell=false
+background-color='rgb(243,243,243)'
+cursor-background-color='rgb(255,0,0)'
+cursor-blink-mode='on'
+cursor-colors-set=true
+cursor-foreground-color='rgb(51,51,51)'
+default-size-columns=110
+default-size-rows=35
+foreground-color='rgb(0,0,0)'
+highlight-background-color='rgb(193,231,248)'
+highlight-colors-set=true
+highlight-foreground-color='rgb(0,0,0)'
+palette=['rgb(0,0,0)', 'rgb(136,0,0)', 'rgb(0,102,0)', 'rgb(104,85,39)', 'rgb(25,91,138)', 'rgb(76,77,169)', 'rgb(54,92,94)', 'rgb(220,220,220)', 'rgb(88,88,85)', 'rgb(140,63,59)', 'rgb(66,132,62)', 'rgb(117,119,24)', 'rgb(0,128,128)', 'rgb(108,108,188)', 'rgb(24,129,128)', 'rgb(243,243,243)']
+scroll-on-output=true
+use-theme-colors=false
+visible-name='PaperColor Light'
