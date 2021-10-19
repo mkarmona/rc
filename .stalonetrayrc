@@ -1,0 +1,16 @@
+decorations none
+geometry 9x1-0+0
+transparent true
+tint_color silver
+tint_level 128
+kludges force_icons_size
+grow_gravity NW
+icon_gravity NE
+icon_size 72
+no_shrink true
+#sticky true
+window_strut none
+window_type normal
+#window_layer bottom
+#dockapp_mode none
+#skip_taskbar true
