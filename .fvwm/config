@@ -289,7 +289,7 @@ Colorset 0  fg #282828, bg gray65, hi, sh, Plain, NoShape
 Colorset 1  fg #282828, bg Azure3, hi, sh, Plain, NoShape
 Colorset 2  fg #F3F3F3, bg DarkOliveGreen4, hi, sh, Plain, NoShape
 Colorset 3  fg #282828, bg gray65, hi, sh, Plain, NoShape
-Colorset 4  fg #F3F3F3, bg gray65, hi, sh, Plain, NoShape
+Colorset 4  fg #F3F3F3, bg DarkOliveGreen4, hi, sh, Plain, NoShape
 Colorset 5  fg #282828, bg gray65, hi, sh, Plain, NoShape
 Colorset 6  fg #F3F3F3, bg firebrick, hi, sh, Plain, NoShape
 Colorset 8  fg #282828, bg gray65, hi, sh, Plain, NoShape
