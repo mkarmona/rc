@@ -183,7 +183,7 @@ disable_ligatures never
 
 #: Cursor customization {{{
 
-# cursor #000000
+cursor #000000
 
 #: Default cursor color. If set to the special value none the cursor
 #: will be rendered with a "reverse video" effect. It's color will be
@@ -193,7 +193,7 @@ disable_ligatures never
 #: precedence. Also, the cursor colors are modified if the cell
 #: background and foreground colors have very low contrast.
 
-# cursor_text_color #ffffff
+cursor_text_color #ffffff
 
 #: The color of text under the cursor. If you want it rendered with
 #: the background color of the cell underneath instead, use the
@@ -887,6 +887,12 @@ tab_separator " ┇ "
 #: Template to use for active tabs. If not specified falls back to
 #: tab_title_template.
 
+active_tab_foreground   #000
+active_tab_background   #eee
+active_tab_font_style   bold
+inactive_tab_foreground #555
+inactive_tab_background #eee
+inactive_tab_font_style normal
 
 #: Tab bar colors and styles.
 
@@ -899,10 +905,13 @@ tab_separator " ┇ "
 
 #: Color for the tab bar margin area. Defaults to using the terminal
 #: background color.
-# term xterm-256color
+
 #: }}}
 
 #: Color scheme {{{
+
+foreground #000000
+background #ffffff
 
 #: The foreground and background colors.
 
@@ -962,6 +971,7 @@ background_opacity 1.0
 #: How much to dim text that has the DIM/FAINT attribute set. One
 #: means no dimming and zero means fully dimmed (i.e. invisible).
 
+# selection_foreground #000000
 # selection_background #fffacd
 
 #: The foreground and background colors for text selected with the
@@ -978,72 +988,42 @@ background_opacity 1.0
 #: dull and bright version, for the first 16 colors. You can set the
 #: remaining 240 colors as color16 to color255.
 
-#    "terminal.ansiBlack": "#000000",
-#    "terminal.ansiBrightBlack": "#000000",
-#    "terminal.ansiRed": "#C41A16",
-#    "terminal.ansiBrightRed": "#C41A16",
-#    "terminal.ansiGreen": "#007400",
-#    "terminal.ansiBrightGreen": "#007400",
-#    "terminal.ansiYellow": "#643820",
-#    "terminal.ansiBrightYellow": "#643820",
-#    "terminal.ansiBlue": "#272AD8",
-#    "terminal.ansiBrightBlue": "#272AD8",
-#    "terminal.ansiMagenta": "#AA0D91",
-#    "terminal.ansiBrightMagenta": "#AA0D91",
-#    "terminal.ansiCyan": "#3F6E74",
-#    "terminal.ansiBrightCyan": "#3F6E74"
-#
-#
-foreground #000000
-background #ffffff
-
-active_tab_foreground   #000
-active_tab_background   #eee
-active_tab_font_style   bold
-
-inactive_tab_foreground #555
-inactive_tab_background #eee
-inactive_tab_font_style normal
-
-selection_foreground #000000
-selection_background #B3D7FF
-
 color0 #000000
-color8 #000000
+color8 #767676
 
 #: black
 
 color1 #C41A16
-color9 #C41A16
+color9 #f2201f
 
 #: red
 
-color2  #007400
-color10 #007400
+color2  #19cb00
+color10 #23fd00
 
 #: green
 
-color3  #643820
-color11 #643820
+color3  #cecb00
+color11 #FFFFD7
 
 #: yellow
 
-color4  #272AD8
-color12 #272AD8
+color4  #1C00CF
+color12 #1a8fff
 
 #: blue
 
-color5  #AA0D91
-color13 #AA0D91
+color5  #6C36A9
+color13 #fd28ff
 
 #: magenta
 
-color6  #3F6E74
-color14 #3F6E74
+color6  #326D74
+color14 #14ffff
 
 #: cyan
 
-color7  #ffffff
+color7  #dddddd
 color15 #ffffff
 
 #: white
@@ -1844,5 +1824,3 @@ map cmd+0               change_font_size all 0
 #: }}}
 
 #: }}}
-#
-# include tempus_totus.conf
